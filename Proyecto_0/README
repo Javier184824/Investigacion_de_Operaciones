@@ -1,0 +1,21 @@
+# TODO
+1. This README needs stuff to be written. For now it is incomplete
+2. The "evince" command still has to run. Not implemented yet. It's not difficult
+3. The binary doesn't receive parameters yet
+4. The greedy algorithm are still not implemented
+5. Block the output of pdflatex when compiling the tex file. It's not difficult to implement
+
+# What has been done
+1. When running the binary, it generates a valid tex file with a frontpage and tables
+2. Created a lot of folders to make the visualization of the project easier
+3. The parameters are still undone, but basic parameters work. The "-E" parameter does not receive numbers
+4. That's all ):
+
+# How to run the project
+1. Just write the command in the terminal inside this directory:
+    make
+This will create a binary named "knapsack".
+2. Write the command, like in the last step:
+    ./knapsack
+This will generate a file named "main.tex" inside the folder "texs" and at the same time it runs "pdflatex" to generate the pdf in the folder "others", named "main.pdf"
+
