@@ -44,6 +44,27 @@ void clean_collisions_reports(collisions_reports* collisions) {
     }
 }
 
+void convert_to_averages(const int iterations, time_reports* times) {
+    for (int i = 0; i < EXPERIMENT_BASE_SIZE; i++) {
+        for (int j = 0; j < EXPERIMENT_BASE_SIZE; j++) {
+            times->dynamic_programming[i][j] /= (float) iterations;
+            times->basic_greedy[i][j] /= (float) iterations;
+            times->proportional_greedy[i][j] /= (float) iterations;
+        }
+    }
+}
+
+void convert_to_percentages(const int iterations, collisions_reports* collisions) {
+    for (int i = 0; i < EXPERIMENT_BASE_SIZE; i++) {
+        for (int j = 0; j < EXPERIMENT_BASE_SIZE; j++) {
+            collisions->basic_greedy[i][j] /= (float) iterations;
+            collisions->basic_greedy[i][j] *= 100.0f;
+            collisions->proportional_greedy[i][j] /= (float) iterations;
+            collisions->proportional_greedy[i][j] *= 100.0f;
+        }
+    }
+}
+
 int get_value_sum_from_used_items(const int item_amount, item list[item_amount]) {
     int sum = 0;
     for (int i = 0; i < item_amount; i++) {

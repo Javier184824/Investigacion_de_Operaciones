@@ -184,9 +184,9 @@ void write_time_table(FILE* fptr, float times[EXPERIMENT_BASE_SIZE][EXPERIMENT_B
          "%d & ",
          (i + 1) * 100);
       for (int j = 0; j < EXPERIMENT_BASE_SIZE - 1; j++) {
-         fprintf(fptr, "%f & ", times[j][i]);
+         fprintf(fptr, "%.4f & ", times[j][i]);
       }
-      fprintf(fptr, "%f\\\\ \n", times[EXPERIMENT_BASE_SIZE - 1][i]);
+      fprintf(fptr, "%.4f\\\\ \n", times[EXPERIMENT_BASE_SIZE - 1][i]);
    }
    fprintf(fptr, "\\hline\n");
    fprintf(fptr, 
@@ -195,7 +195,7 @@ void write_time_table(FILE* fptr, float times[EXPERIMENT_BASE_SIZE][EXPERIMENT_B
    );
 }
 
-void write_collisions_table(FILE* fptr, int collisions[EXPERIMENT_BASE_SIZE][EXPERIMENT_BASE_SIZE]) {
+void write_collisions_table(FILE* fptr, float collisions[EXPERIMENT_BASE_SIZE][EXPERIMENT_BASE_SIZE]) {
    // Writing table prologue
    fprintf(fptr, 
       "\\begin{table}[h]\n"
@@ -215,9 +215,9 @@ void write_collisions_table(FILE* fptr, int collisions[EXPERIMENT_BASE_SIZE][EXP
          "%d & ",
          (i + 1) * 100);
       for (int j = 0; j < EXPERIMENT_BASE_SIZE - 1; j++) {
-         fprintf(fptr, "%d & ", collisions[j][i]);
+         fprintf(fptr, "%.2f\\%% & ", collisions[j][i]);
       }
-      fprintf(fptr, "%d\\\\ \n", collisions[EXPERIMENT_BASE_SIZE - 1][i]);
+      fprintf(fptr, "%.2f\\%% \\\\ \n", collisions[EXPERIMENT_BASE_SIZE - 1][i]);
    }
    fprintf(fptr, "\\hline\n");
    fprintf(fptr, 
