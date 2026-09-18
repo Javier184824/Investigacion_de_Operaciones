@@ -311,7 +311,7 @@ void create_experiment_tex(const int iterations) {
 
    fprintf(fptr, "\\chapter*{Experiment Results}\n\n");
 
-   fprintf(fptr, "\\section*{Average execution times in seconds}\n\n");
+   fprintf(fptr, "\\section*{Average execution times in seconds (4 decimal places)}\n\n");
 
    fprintf(fptr, "\\subsection*{Dynamic Programming}\n\n");
 
@@ -374,7 +374,7 @@ int main(int argc, char *argv[]) {
       char *endptr;
       long n = strtol(argv[1] + 3, &endptr, 10);
 
-      if (n < 0) {
+      if (n <= 0) {
          fprintf(stderr, "Error: n must be a positive integer\n");
          return EXIT_FAILURE;
       }
