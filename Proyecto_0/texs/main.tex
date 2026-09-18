@@ -3,12 +3,18 @@
 \begin{document}
 \input{texs/frontpage}
 
+\input{texs/demo_explanation}
+\chapter*{Demonstration Results}
+
+\section*{Problem generated}
+
 \begin{align*}
-Max \ Z &= 7x_1 + 16x_2 + 16x_3 + 13x_4 + 2x_5 + 8x_6 \\ 
-such \ that &: \ 2x_1 + 3x_2 + 2x_3 + 4x_4 + 2x_5 + 3x_6 \leq 15 \\ 
+Max \ Z &= 20x_1 + 1x_2 + 5x_3 + 20x_4 + 13x_5 + 11x_6 \\ 
+such \ that &: \ 3x_1 + 2x_2 + 4x_3 + 4x_4 + 5x_5 + 5x_6 \leq 15 \\ 
  & x_1, x_2, x_3, x_4, x_5, x_6 \in \{0, 1\}
 \end{align*}
 
+\section*{Dynamic Programming Solution}This table is generated using dynamic programming, based on the 0/1 Knapsack Problem algorithm covered in class. 
 \begin{center}
 \begin{tabular}{|p{1.5cm}|c|c|c|c|c|c|}
 \hline
@@ -21,79 +27,83 @@ $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ & $x_6$ \\
 \hline
 1 & \cellcolor{red}0 & \cellcolor{red}0 & \cellcolor{red}0 & \cellcolor{red}0 & \cellcolor{red}0 & \cellcolor{red}0 \\
 \hline
-2 & \cellcolor{green}7 & \cellcolor{red}7 & \cellcolor{green}16 & \cellcolor{red}16 & \cellcolor{red}16 & \cellcolor{red}16 \\
+2 & \cellcolor{red}0 & \cellcolor{green}1 & \cellcolor{red}1 & \cellcolor{red}1 & \cellcolor{red}1 & \cellcolor{red}1 \\
 \hline
-3 & \cellcolor{green}7 & \cellcolor{green}16 & \cellcolor{red}16 & \cellcolor{red}16 & \cellcolor{red}16 & \cellcolor{red}16 \\
+3 & \cellcolor{green}20 & \cellcolor{red}20 & \cellcolor{red}20 & \cellcolor{red}20 & \cellcolor{red}20 & \cellcolor{red}20 \\
 \hline
-4 & \cellcolor{green}7 & \cellcolor{green}16 & \cellcolor{green}23 & \cellcolor{red}23 & \cellcolor{red}23 & \cellcolor{red}23 \\
+4 & \cellcolor{green}20 & \cellcolor{red}20 & \cellcolor{red}20 & \cellcolor{red}20 & \cellcolor{red}20 & \cellcolor{red}20 \\
 \hline
-5 & \cellcolor{green}7 & \cellcolor{green}23 & \cellcolor{green}32 & \cellcolor{red}32 & \cellcolor{red}32 & \cellcolor{red}32 \\
+5 & \cellcolor{green}20 & \cellcolor{green}21 & \cellcolor{red}21 & \cellcolor{red}21 & \cellcolor{red}21 & \cellcolor{red}21 \\
 \hline
-6 & \cellcolor{green}7 & \cellcolor{green}23 & \cellcolor{green}32 & \cellcolor{red}32 & \cellcolor{red}32 & \cellcolor{red}32 \\
+6 & \cellcolor{green}20 & \cellcolor{green}21 & \cellcolor{red}21 & \cellcolor{red}21 & \cellcolor{red}21 & \cellcolor{red}21 \\
 \hline
-7 & \cellcolor{green}7 & \cellcolor{green}23 & \cellcolor{green}39 & \cellcolor{red}39 & \cellcolor{red}39 & \cellcolor{red}39 \\
+7 & \cellcolor{green}20 & \cellcolor{green}21 & \cellcolor{green}25 & \cellcolor{green}40 & \cellcolor{red}40 & \cellcolor{red}40 \\
 \hline
-8 & \cellcolor{green}7 & \cellcolor{green}23 & \cellcolor{green}39 & \cellcolor{red}39 & \cellcolor{red}39 & \cellcolor{green}40 \\
+8 & \cellcolor{green}20 & \cellcolor{green}21 & \cellcolor{green}25 & \cellcolor{green}40 & \cellcolor{red}40 & \cellcolor{red}40 \\
 \hline
-9 & \cellcolor{green}7 & \cellcolor{green}23 & \cellcolor{green}39 & \cellcolor{green}45 & \cellcolor{red}45 & \cellcolor{red}45 \\
+9 & \cellcolor{green}20 & \cellcolor{green}21 & \cellcolor{green}26 & \cellcolor{green}41 & \cellcolor{red}41 & \cellcolor{red}41 \\
 \hline
-10 & \cellcolor{green}7 & \cellcolor{green}23 & \cellcolor{green}39 & \cellcolor{green}45 & \cellcolor{red}45 & \cellcolor{green}47 \\
+10 & \cellcolor{green}20 & \cellcolor{green}21 & \cellcolor{green}26 & \cellcolor{green}41 & \cellcolor{red}41 & \cellcolor{red}41 \\
 \hline
-11 & \cellcolor{green}7 & \cellcolor{green}23 & \cellcolor{green}39 & \cellcolor{green}52 & \cellcolor{red}52 & \cellcolor{red}52 \\
+11 & \cellcolor{green}20 & \cellcolor{green}21 & \cellcolor{green}26 & \cellcolor{green}45 & \cellcolor{red}45 & \cellcolor{red}45 \\
 \hline
-12 & \cellcolor{green}7 & \cellcolor{green}23 & \cellcolor{green}39 & \cellcolor{green}52 & \cellcolor{red}52 & \cellcolor{green}53 \\
+12 & \cellcolor{green}20 & \cellcolor{green}21 & \cellcolor{green}26 & \cellcolor{green}45 & \cellcolor{green}53 & \cellcolor{red}53 \\
 \hline
-13 & \cellcolor{green}7 & \cellcolor{green}23 & \cellcolor{green}39 & \cellcolor{green}52 & \cellcolor{green}54 & \cellcolor{red}54 \\
+13 & \cellcolor{green}20 & \cellcolor{green}21 & \cellcolor{green}26 & \cellcolor{green}46 & \cellcolor{green}53 & \cellcolor{red}53 \\
 \hline
-14 & \cellcolor{green}7 & \cellcolor{green}23 & \cellcolor{green}39 & \cellcolor{green}52 & \cellcolor{green}54 & \cellcolor{green}60 \\
+14 & \cellcolor{green}20 & \cellcolor{green}21 & \cellcolor{green}26 & \cellcolor{green}46 & \cellcolor{green}54 & \cellcolor{red}54 \\
 \hline
-15 & \cellcolor{green}7 & \cellcolor{green}23 & \cellcolor{green}39 & \cellcolor{green}52 & \cellcolor{green}54 & \cellcolor{green}60 \\
+15 & \cellcolor{green}20 & \cellcolor{green}21 & \cellcolor{green}26 & \cellcolor{green}46 & \cellcolor{green}54 & \cellcolor{red}54 \\
 \hline
 \end{tabular}
 \end{center}
 
 \begin{align*}
-Z = 60, x_1 = 1, x_2 = 1, x_3 = 1, x_4 = 1, x_5 = 0, x_6 = 1
+Z = 54, x_1 = 1, x_2 = 1, x_3 = 0, x_4 = 1, x_5 = 1, x_6 = 0
 \end{align*}
 
+\chapter*{Greedy Algorithm}
+
+\section*{Basic Greedy Solution}This is the table for the Basic Greedy Algorithm, in which the most valuable item that fits into the remaining space in the knapsack is selected. 
 \begin{center}
 \begin{tabular}{|p{1.5cm}|c|c|c|c|c|c|}
 \hline
 & \multicolumn{6}{c|}{Items} \\
 \hline
 Knapsack & 
-$x_2$ & $x_3$ & $x_4$ & $x_6$ & $x_1$ & $x_5$ \\ 
+$x_1$ & $x_4$ & $x_5$ & $x_6$ & $x_3$ & $x_2$ \\ 
 \hline
-Cost & \cellcolor{green}3 & \cellcolor{green}2 & \cellcolor{green}4 & \cellcolor{green}3 & \cellcolor{green}2 & \cellcolor{red}2 \\ 
+Cost & \cellcolor{green}3 & \cellcolor{green}4 & \cellcolor{green}5 & \cellcolor{red}5 & \cellcolor{red}4 & \cellcolor{green}2 \\ 
 \hline
-Value &16 & 16 & 13 & 8 & 7 & 2 \\ 
+Value &20 & 20 & 13 & 11 & 5 & 1 \\ 
 \hline
 \end{tabular}
 \end{center}
 
 \begin{align*}
-Z = 60, x_2 = 1, x_3 = 1, x_4 = 1, x_6 = 1, x_1 = 1, x_5 = 0
+Z = 54, x_1 = 1, x_4 = 1, x_5 = 1, x_6 = 0, x_3 = 0, x_2 = 1
 \end{align*}
 
+\section*{Proportional Greedy Solution}This table employs the Proportional Greedy Algorithm, in which the proportion of each item is calculated as its value divided by the capacity it consumes.Then, the item with the highest proportion that fits within the remaining knapsack capacity is selected at each step. 
 \begin{center}
 \begin{tabular}{|p{1.5cm}|c|c|c|c|c|c|}
 \hline
 & \multicolumn{6}{c|}{Items} \\
 \hline
 Knapsack & 
-$x_3$ & $x_2$ & $x_4$ & $x_1$ & $x_6$ & $x_5$ \\ 
+$x_1$ & $x_4$ & $x_5$ & $x_6$ & $x_3$ & $x_2$ \\ 
 \hline
-Cost & \cellcolor{green}2 & \cellcolor{green}3 & \cellcolor{green}4 & \cellcolor{green}2 & \cellcolor{green}3 & \cellcolor{red}2 \\ 
+Cost & \cellcolor{green}3 & \cellcolor{green}4 & \cellcolor{green}5 & \cellcolor{red}5 & \cellcolor{red}4 & \cellcolor{green}2 \\ 
 \hline
-Value &16 & 16 & 13 & 7 & 8 & 2 \\ 
+Value &20 & 20 & 13 & 11 & 5 & 1 \\ 
 \hline
-Proportion &8.000000 & 5.333333 & 3.250000 & 3.500000 & 2.666667 & 1.000000 \\ 
+Proportion &6.666667 & 5.000000 & 2.600000 & 2.200000 & 1.250000 & 0.500000 \\ 
 \hline
 \end{tabular}
 \end{center}
 
 \begin{align*}
-Z = 60, x_3 = 1, x_2 = 1, x_4 = 1, x_1 = 1, x_6 = 1, x_5 = 0
+Z = 54, x_1 = 1, x_4 = 1, x_5 = 1, x_6 = 0, x_3 = 0, x_2 = 1
 \end{align*}
 
 \end{document}

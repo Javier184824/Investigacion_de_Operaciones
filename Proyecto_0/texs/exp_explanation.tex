@@ -1,0 +1,85 @@
+\chapter*{Experiment Mode}
+\section*{Conditions}
+This file was generated to see the results of three different algorithms solving multiple 100 random generated 0/1 Knapsack Problem and 
+store the diverse results everytime the algorithm solves each problem. The experiment done has specific conditions everytime the \verb|knapsack| 
+program is run.
+
+\begin{itemize}
+    \item The experiment tests 100 different 0/1 Knapsack Problems.
+    \item When running the experiment mode with the \verb|knapsack| program, it needs to receive a parameter of how many iterations to do. This
+    is the parameter \verb|-E=n|, where \verb|n| indicates the amount of iterations to do the experiment.
+    \item Each problem will be solved by three algorithms and data will be collected and stored in tables with the same format 
+    as shown in Table \ref{tab:table_format}.
+    \item Each cell represents a specific problem. The rows indicate the size of the knapsack for the the problem and the columns
+    indicate how many items are in the problem.
+    \item Each problem also has specific conditions, because each iteration of the table generates a random problem:
+        \begin{itemize}
+            \item Value of items are in the range of 0 and 100.
+            \item Cost of items are in the range of 0 and 40\% of the knapsack.
+        \end{itemize}
+    \item When running the program with the amount of iterations, it will generate 100 random problems with the conditions explained before,
+    it will solve each other, store data and it will do other 100 random problems until the amount of iterations are satisfy.
+    \item The data collected for the tables will be an overall average or percentage of all iterations done.
+    \item At the end the experiment returns 5 tables.
+    \begin{enumerate}
+        \item Table of average times needed to solve each problem with the Dynamic Programming Algorithm.
+        \item Table of average times needed to solve each problem with the Basic Greedy Algorithm.
+        \item Table of average times needed to solve each problem with the Proportional Greedy Algorithm.
+        \item Table of percentages of how often the Basic Greedy Algorithm finds the optimal solution of a problem.
+        \item Table of percentages of how often the Proportional Greedy Algorithm finds the optimal solution of a problem.
+    \end{enumerate}
+\end{itemize}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+& \multicolumn{10}{c|}{Amount of items} \\
+\hline
+Knapsack & 10 & 20 & 30 & 40 & 50 & 60 & 70 & 80 & 90 & 100 \\
+\hline
+100 & & & & & & & & & & \\
+\hline
+200 & & & & & & & & & & \\
+\hline
+300 & & & & & & & & & & \\
+\hline
+400 & & & & & & & & & & \\
+\hline
+500 & & & & & & & & & & \\
+\hline
+600 & & & & & & & & & & \\
+\hline
+700 & & & & & & & & & & \\
+\hline
+800 & & & & & & & & & & \\
+\hline
+900 & & & & & & & & & & \\
+\hline
+1000 & & & & & & & & & & \\
+\hline
+\end{tabular}
+\caption{Format of the tables}
+\label{tab:table_format}
+\end{table}
+
+\newpage
+
+\chapter*{Algorithms}
+
+\section*{Dynamic Programming Algorithm}
+
+This algorithm uses a table to get to the optimal solution for the generated 0/1 Knapsack Problem. The strategy here is to solve
+subproblems, write down the optimal solution for that subproblem on a table and by using those solutions build the solution 
+for the original problem. It always find the optimal solution for a 0/1 Knapsack Problem, as explained in course of Operations Research.
+
+\section*{Basic Greedy Algorithm}
+
+This algorithm focuses on trying to put inside the knapsack the most valuable item, if it does not fit in, tries with the next
+most valueable item until the are no more items available.
+
+\section*{Proportional Greedy Algorithm}
+
+It has the same strategy as the Basic Greedy, but it focuses on trying to put inside items based by their proportion between its
+value and cost. The item with highest proportion goes first, if it does not fit, goes to the next item with the highest proportion.
+

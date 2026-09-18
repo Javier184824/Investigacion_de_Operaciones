@@ -1,0 +1,29 @@
+\chapter*{Demonstration Mode}
+\section*{Conditions}
+This file was generated to see the results of three different algorithms solving a random generated 0/1 Knapsack Problem.
+The problem has specific conditions everytime the \verb|knapsack| program is run.
+
+\begin{itemize}
+    \item The knapsack has a maximum size of 15.
+    \item The are only 6 items.
+    \item Each value for the items ranges between 0 to 20.
+    \item Each cost  for the items ranges between 0 to 7.
+\end{itemize}
+
+\chapter*{Algorithms}
+
+\section*{Dynamic Programming Algorithm}
+
+This algorithm uses a table to get to the optimal solution for the generated 0/1 Knapsack Problem. The strategy here is to solve
+subproblems, write down the optimal solution for that subproblem on a table and by using those solutions build the solution 
+for the original problem. It always find the optimal solution for a 0/1 Knapsack Problem, as explained in course of Operations Research.
+
+\section*{Basic Greedy Algorithm}
+
+This algorithm focuses on trying to put inside the knapsack the most valuable item, if it does not fit in, tries with the next
+most valueable item until the are no more items available.
+
+\section*{Proportional Greedy Algorithm}
+
+It has the same strategy as the Basic Greedy, but it focuses on trying to put inside items based by their proportion between its
+value and cost. The item with highest proportion goes first, if it does not fit, goes to the next item with the highest proportion.
