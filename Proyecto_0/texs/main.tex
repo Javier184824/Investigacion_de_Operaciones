@@ -3,107 +3,190 @@
 \begin{document}
 \input{texs/frontpage}
 
-\input{texs/demo_explanation}
-\chapter*{Demonstration Results}
+\input{texs/exp_explanation}
 
-\section*{Problem generated}
+\chapter*{Experiment Results}
 
-\begin{align*}
-Max \ Z &= 20x_1 + 1x_2 + 5x_3 + 20x_4 + 13x_5 + 11x_6 \\ 
-such \ that &: \ 3x_1 + 2x_2 + 4x_3 + 4x_4 + 5x_5 + 5x_6 \leq 15 \\ 
- & x_1, x_2, x_3, x_4, x_5, x_6 \in \{0, 1\}
-\end{align*}
+\section*{Average execution times in seconds}
 
-\section*{Dynamic Programming Solution}This table is generated using dynamic programming, based on the 0/1 Knapsack Problem algorithm covered in class. 
-\begin{center}
-\begin{tabular}{|p{1.5cm}|c|c|c|c|c|c|}
+\subsection*{Dynamic Programming}
+
+This is the table of times used by the Dynamic Programming Algorithm. 
+\begin{table}[H]
+\hspace{-3cm}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-& \multicolumn{6}{c|}{Items} \\
+& \multicolumn{10}{c|}{Amount of items} \\
 \hline
-Knapsack & 
-$x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ & $x_6$ \\ 
+Knapsack & 10 & 20 & 30 & 40 & 50 & 60 & 70 & 80 & 90 & 100 \\
 \hline
-0 & \cellcolor{red}0 & \cellcolor{red}0 & \cellcolor{red}0 & \cellcolor{red}0 & \cellcolor{red}0 & \cellcolor{red}0 \\
+100 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
 \hline
-1 & \cellcolor{red}0 & \cellcolor{red}0 & \cellcolor{red}0 & \cellcolor{red}0 & \cellcolor{red}0 & \cellcolor{red}0 \\
+200 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
 \hline
-2 & \cellcolor{red}0 & \cellcolor{green}1 & \cellcolor{red}1 & \cellcolor{red}1 & \cellcolor{red}1 & \cellcolor{red}1 \\
+300 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
 \hline
-3 & \cellcolor{green}20 & \cellcolor{red}20 & \cellcolor{red}20 & \cellcolor{red}20 & \cellcolor{red}20 & \cellcolor{red}20 \\
+400 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
 \hline
-4 & \cellcolor{green}20 & \cellcolor{red}20 & \cellcolor{red}20 & \cellcolor{red}20 & \cellcolor{red}20 & \cellcolor{red}20 \\
+500 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
 \hline
-5 & \cellcolor{green}20 & \cellcolor{green}21 & \cellcolor{red}21 & \cellcolor{red}21 & \cellcolor{red}21 & \cellcolor{red}21 \\
+600 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
 \hline
-6 & \cellcolor{green}20 & \cellcolor{green}21 & \cellcolor{red}21 & \cellcolor{red}21 & \cellcolor{red}21 & \cellcolor{red}21 \\
+700 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
 \hline
-7 & \cellcolor{green}20 & \cellcolor{green}21 & \cellcolor{green}25 & \cellcolor{green}40 & \cellcolor{red}40 & \cellcolor{red}40 \\
+800 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
 \hline
-8 & \cellcolor{green}20 & \cellcolor{green}21 & \cellcolor{green}25 & \cellcolor{green}40 & \cellcolor{red}40 & \cellcolor{red}40 \\
+900 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
 \hline
-9 & \cellcolor{green}20 & \cellcolor{green}21 & \cellcolor{green}26 & \cellcolor{green}41 & \cellcolor{red}41 & \cellcolor{red}41 \\
-\hline
-10 & \cellcolor{green}20 & \cellcolor{green}21 & \cellcolor{green}26 & \cellcolor{green}41 & \cellcolor{red}41 & \cellcolor{red}41 \\
-\hline
-11 & \cellcolor{green}20 & \cellcolor{green}21 & \cellcolor{green}26 & \cellcolor{green}45 & \cellcolor{red}45 & \cellcolor{red}45 \\
-\hline
-12 & \cellcolor{green}20 & \cellcolor{green}21 & \cellcolor{green}26 & \cellcolor{green}45 & \cellcolor{green}53 & \cellcolor{red}53 \\
-\hline
-13 & \cellcolor{green}20 & \cellcolor{green}21 & \cellcolor{green}26 & \cellcolor{green}46 & \cellcolor{green}53 & \cellcolor{red}53 \\
-\hline
-14 & \cellcolor{green}20 & \cellcolor{green}21 & \cellcolor{green}26 & \cellcolor{green}46 & \cellcolor{green}54 & \cellcolor{red}54 \\
-\hline
-15 & \cellcolor{green}20 & \cellcolor{green}21 & \cellcolor{green}26 & \cellcolor{green}46 & \cellcolor{green}54 & \cellcolor{red}54 \\
+1000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
 \hline
 \end{tabular}
-\end{center}
+\end{table}
 
-\begin{align*}
-Z = 54, x_1 = 1, x_2 = 1, x_3 = 0, x_4 = 1, x_5 = 1, x_6 = 0
-\end{align*}
+\newpage
+\subsection*{Basic Greedy}
 
-\chapter*{Greedy Algorithm}
-
-\section*{Basic Greedy Solution}This is the table for the Basic Greedy Algorithm, in which the most valuable item that fits into the remaining space in the knapsack is selected. 
-\begin{center}
-\begin{tabular}{|p{1.5cm}|c|c|c|c|c|c|}
+This is the table of times used by the Basic Greedy Algorithm. 
+\begin{table}[H]
+\hspace{-3cm}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-& \multicolumn{6}{c|}{Items} \\
+& \multicolumn{10}{c|}{Amount of items} \\
 \hline
-Knapsack & 
-$x_1$ & $x_4$ & $x_5$ & $x_6$ & $x_3$ & $x_2$ \\ 
+Knapsack & 10 & 20 & 30 & 40 & 50 & 60 & 70 & 80 & 90 & 100 \\
 \hline
-Cost & \cellcolor{green}3 & \cellcolor{green}4 & \cellcolor{green}5 & \cellcolor{red}5 & \cellcolor{red}4 & \cellcolor{green}2 \\ 
+100 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
 \hline
-Value &20 & 20 & 13 & 11 & 5 & 1 \\ 
+200 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
+\hline
+300 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
+\hline
+400 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
+\hline
+500 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
+\hline
+600 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
+\hline
+700 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
+\hline
+800 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
+\hline
+900 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
+\hline
+1000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
 \hline
 \end{tabular}
-\end{center}
+\end{table}
 
-\begin{align*}
-Z = 54, x_1 = 1, x_4 = 1, x_5 = 1, x_6 = 0, x_3 = 0, x_2 = 1
-\end{align*}
+\subsection*{Proportional Greedy}
 
-\section*{Proportional Greedy Solution}This table employs the Proportional Greedy Algorithm, in which the proportion of each item is calculated as its value divided by the capacity it consumes.Then, the item with the highest proportion that fits within the remaining knapsack capacity is selected at each step. 
-\begin{center}
-\begin{tabular}{|p{1.5cm}|c|c|c|c|c|c|}
+This is the table of times used by the Proportional Greedy Algorithm. 
+\begin{table}[H]
+\hspace{-3cm}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-& \multicolumn{6}{c|}{Items} \\
+& \multicolumn{10}{c|}{Amount of items} \\
 \hline
-Knapsack & 
-$x_1$ & $x_4$ & $x_5$ & $x_6$ & $x_3$ & $x_2$ \\ 
+Knapsack & 10 & 20 & 30 & 40 & 50 & 60 & 70 & 80 & 90 & 100 \\
 \hline
-Cost & \cellcolor{green}3 & \cellcolor{green}4 & \cellcolor{green}5 & \cellcolor{red}5 & \cellcolor{red}4 & \cellcolor{green}2 \\ 
+100 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
 \hline
-Value &20 & 20 & 13 & 11 & 5 & 1 \\ 
+200 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
 \hline
-Proportion &6.666667 & 5.000000 & 2.600000 & 2.200000 & 1.250000 & 0.500000 \\ 
+300 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
+\hline
+400 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
+\hline
+500 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
+\hline
+600 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
+\hline
+700 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
+\hline
+800 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
+\hline
+900 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
+\hline
+1000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000 & -0.0000\\ 
 \hline
 \end{tabular}
-\end{center}
+\end{table}
 
-\begin{align*}
-Z = 54, x_1 = 1, x_4 = 1, x_5 = 1, x_6 = 0, x_3 = 0, x_2 = 1
-\end{align*}
+\input{texs/times_conclusions}
+
+\section*{Collisions percentage}
+
+\subsection*{Dynamic Programming}
+
+There is no need to create a table for this algorithm. This algorithms is used to give us the optimal solutions for each problem in the table.
+\subsection*{Basic Greedy}
+
+ This table shows the percentage of collisions of the Basic Greedy Algorithm compared to the optimal solution.
+\begin{table}[H]
+\hspace{-3cm}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+& \multicolumn{10}{c|}{Amount of items} \\
+\hline
+Knapsack & 10 & 20 & 30 & 40 & 50 & 60 & 70 & 80 & 90 & 100 \\
+\hline
+100 & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% \\ 
+\hline
+200 & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% \\ 
+\hline
+300 & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% \\ 
+\hline
+400 & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% \\ 
+\hline
+500 & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% \\ 
+\hline
+600 & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% \\ 
+\hline
+700 & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% \\ 
+\hline
+800 & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% \\ 
+\hline
+900 & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% \\ 
+\hline
+1000 & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% \\ 
+\hline
+\end{tabular}
+\end{table}
+
+\subsection*{Proportional Greedy}
+
+This table shows the percentage of collisions of the Proportional Greedy Algorithm compared to the optimal solution.
+\begin{table}[H]
+\hspace{-3cm}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+& \multicolumn{10}{c|}{Amount of items} \\
+\hline
+Knapsack & 10 & 20 & 30 & 40 & 50 & 60 & 70 & 80 & 90 & 100 \\
+\hline
+100 & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% \\ 
+\hline
+200 & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% \\ 
+\hline
+300 & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% \\ 
+\hline
+400 & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% \\ 
+\hline
+500 & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% \\ 
+\hline
+600 & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% \\ 
+\hline
+700 & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% \\ 
+\hline
+800 & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% \\ 
+\hline
+900 & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% \\ 
+\hline
+1000 & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% & -0.00\% \\ 
+\hline
+\end{tabular}
+\end{table}
+
+\input{texs/collisions_conclusions}
 
 \end{document}

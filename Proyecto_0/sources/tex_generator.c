@@ -374,6 +374,11 @@ int main(int argc, char *argv[]) {
       char *endptr;
       long n = strtol(argv[1] + 3, &endptr, 10);
 
+      if (n < 0) {
+         fprintf(stderr, "Error: n must be a positive integer\n");
+         return EXIT_FAILURE;
+      }
+
       if (argv[1][3] == '\0') {
          fprintf(stderr, "Error: -E requires an integer\n");
          return EXIT_FAILURE;
