@@ -1,0 +1,264 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.9.5)  5 OCT 2026 23:36
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2025/01/22 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count275
+\c@chapter=\count276
+\c@section=\count277
+\c@subsection=\count278
+\c@subsubsection=\count279
+\c@paragraph=\count280
+\c@subparagraph=\count281
+\c@figure=\count282
+\c@table=\count283
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen148
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count284
+\float@exts=\toks19
+\float@box=\box53
+\@float@everytoks=\toks20
+\@floatcapt=\box54
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2026/01/18 v26.1 The multilingual framework for LuaLaTeX, pdfLaT
+eX and XeLaTeX
+\babel@savecnt=\count285
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input li
+ne 2078.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input li
+ne 2080.
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input lin
+e 2082.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input lin
+e 2083.
+LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) 
+on input line 2084.
+LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) 
+on input line 2086.
+LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
+on input line 2111.
+\U@D=\dimen149
+\l@unhyphenated=\language3
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count286
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex)
+Package babel Info: Importing font and identification data for english
+(babel)             from babel-en.ini. Reported on input line 4330.
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+Package babel Info: Hyphen rules for 'british' set to \l@english
+(babel)             (\language0). Reported on input line 82.
+Package babel Info: Hyphen rules for 'UKenglish' set to \l@english
+(babel)             (\language0). Reported on input line 83.
+Package babel Info: Hyphen rules for 'canadian' set to \l@english
+(babel)             (\language0). Reported on input line 102.
+Package babel Info: Hyphen rules for 'australian' set to \l@english
+(babel)             (\language0). Reported on input line 105.
+Package babel Info: Hyphen rules for 'newzealand' set to \l@english
+(babel)             (\language0). Reported on input line 108.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks21
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen150
+\Gin@req@width=\dimen151
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count287
+)
+(out/main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count288
+\scratchdimen=\dimen152
+\scratchbox=\box55
+\nofMPsegments=\count289
+\nofMParguments=\count290
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count291
+\MPscratchDim=\dimen153
+\MPnumerator=\count292
+\makeMPintoPDFobject=\count293
+\everyMPtoPDFconversion=\toks23
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+<figures/logo_tec.jpg, id=1, 1445.4pt x 336.25626pt>
+File: figures/logo_tec.jpg Graphic file (type jpg)
+<use figures/logo_tec.jpg>
+Package pdftex.def Info: figures/logo_tec.jpg  used on input line 39.
+(pdftex.def)             Requested size: 276.00105pt x 64.20746pt.
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figures/logo_tec.jpg>]
+<figures/PlantasHidroelectricas.png, id=10, 289.68225pt x 218.0145pt>
+File: figures/PlantasHidroelectricas.png Graphic file (type png)
+<use figures/PlantasHidroelectricas.png>
+Package pdftex.def Info: figures/PlantasHidroelectricas.png  used on input line
+ 67.
+(pdftex.def)             Requested size: 276.00105pt x 207.73465pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--68
+
+ []
+
+<figures/Ejemplo2.png, id=12, 242.1045pt x 215.6055pt>
+File: figures/Ejemplo2.png Graphic file (type png)
+<use figures/Ejemplo2.png>
+Package pdftex.def Info: figures/Ejemplo2.png  used on input line 69.
+(pdftex.def)             Requested size: 276.00105pt x 245.7994pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
+
+ []
+
+<figures/PlantasHidroelectricasModificado.png, id=13, 338.4645pt x 215.6055pt>
+File: figures/PlantasHidroelectricasModificado.png Graphic file (type png)
+<use figures/PlantasHidroelectricasModificado.png>
+Package pdftex.def Info: figures/PlantasHidroelectricasModificado.png  used on 
+input line 71.
+(pdftex.def)             Requested size: 276.00105pt x 175.82713pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
+
+ []
+
+[1 <./figures/PlantasHidroelectricas.png> <./figures/Ejemplo2.png>]
+<figures/PlantasHidroelectricasModificado2.png, id=20, 241.50224pt x 218.0145pt
+>
+File: figures/PlantasHidroelectricasModificado2.png Graphic file (type png)
+<use figures/PlantasHidroelectricasModificado2.png>
+Package pdftex.def Info: figures/PlantasHidroelectricasModificado2.png  used on
+ input line 73.
+(pdftex.def)             Requested size: 276.00105pt x 249.15784pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
+
+ []
+
+<figures/ProblemaDeTransporteDegenerado.png, id=21, 337.26pt x 218.0145pt>
+File: figures/ProblemaDeTransporteDegenerado.png Graphic file (type png)
+<use figures/ProblemaDeTransporteDegenerado.png>
+Package pdftex.def Info: figures/ProblemaDeTransporteDegenerado.png  used on in
+put line 75.
+(pdftex.def)             Requested size: 276.00105pt x 178.41707pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
+
+ []
+
+[2 <./figures/PlantasHidroelectricasModificado.png> <./figures/PlantasHidroelec
+tricasModificado2.png>]
+<figures/FabricaDeComputadores.png, id=27, 337.86224pt x 245.11575pt>
+File: figures/FabricaDeComputadores.png Graphic file (type png)
+<use figures/FabricaDeComputadores.png>
+Package pdftex.def Info: figures/FabricaDeComputadores.png  used on input line 
+77.
+(pdftex.def)             Requested size: 276.00105pt x 200.24443pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
+
+ []
+
+<figures/FabricaDeComputadoresVariante.png, id=28, 434.22224pt x 246.9225pt>
+File: figures/FabricaDeComputadoresVariante.png Graphic file (type png)
+<use figures/FabricaDeComputadoresVariante.png>
+Package pdftex.def Info: figures/FabricaDeComputadoresVariante.png  used on inp
+ut line 79.
+(pdftex.def)             Requested size: 276.00105pt x 156.9485pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--80
+
+ []
+
+[3 <./figures/ProblemaDeTransporteDegenerado.png> <./figures/FabricaDeComputado
+res.png>] [4 <./figures/FabricaDeComputadoresVariante.png>] (out/main.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 2539 strings out of 469514
+ 44798 string characters out of 5470073
+ 452648 words of memory out of 5000000
+ 31213 multiletter control sequences out of 15000+600000
+ 628924 words of font info for 44 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 57i,5n,65p,181b,192s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on out/main.pdf (5 pages, 230038 bytes).
+PDF statistics:
+ 56 PDF objects out of 1000 (max. 8388607)
+ 25 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+
