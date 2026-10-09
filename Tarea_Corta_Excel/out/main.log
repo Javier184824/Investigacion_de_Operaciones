@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.9.5)  5 OCT 2026 23:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.9.17)  8 OCT 2026 20:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -56,7 +56,7 @@ on input line 2086.
 LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
 on input line 2111.
 \U@D=\dimen149
-\l@unhyphenated=\language3
+\l@unhyphenated=\language90
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
@@ -68,16 +68,12 @@ Package babel Info: Importing font and identification data for english
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
-Package babel Info: Hyphen rules for 'british' set to \l@english
-(babel)             (\language0). Reported on input line 82.
-Package babel Info: Hyphen rules for 'UKenglish' set to \l@english
-(babel)             (\language0). Reported on input line 83.
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
-Package babel Info: Hyphen rules for 'australian' set to \l@english
-(babel)             (\language0). Reported on input line 105.
-Package babel Info: Hyphen rules for 'newzealand' set to \l@english
-(babel)             (\language0). Reported on input line 108.
+Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
+(babel)             (\language28). Reported on input line 105.
+Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
+(babel)             (\language28). Reported on input line 108.
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
@@ -155,110 +151,132 @@ Package pdftex.def Info: figures/logo_tec.jpg  used on input line 39.
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figures/logo_tec.jpg>]
-<figures/PlantasHidroelectricas.png, id=10, 289.68225pt x 218.0145pt>
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figures/logo_tec.jpg>] [
+1
+
+] [2
+
+]
+<figures/PlantasHidroelectricas.png, id=17, 289.68225pt x 218.0145pt>
 File: figures/PlantasHidroelectricas.png Graphic file (type png)
 <use figures/PlantasHidroelectricas.png>
 Package pdftex.def Info: figures/PlantasHidroelectricas.png  used on input line
- 67.
+ 93.
 (pdftex.def)             Requested size: 276.00105pt x 207.73465pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
+Underfull \hbox (badness 10000) in paragraph at lines 93--94
 
  []
 
-<figures/Ejemplo2.png, id=12, 242.1045pt x 215.6055pt>
+<figures/Ejemplo2.png, id=19, 242.1045pt x 215.6055pt>
 File: figures/Ejemplo2.png Graphic file (type png)
 <use figures/Ejemplo2.png>
-Package pdftex.def Info: figures/Ejemplo2.png  used on input line 69.
+Package pdftex.def Info: figures/Ejemplo2.png  used on input line 96.
 (pdftex.def)             Requested size: 276.00105pt x 245.7994pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 69--70
+Underfull \hbox (badness 10000) in paragraph at lines 96--97
 
  []
 
-<figures/PlantasHidroelectricasModificado.png, id=13, 338.4645pt x 215.6055pt>
+[3
+
+ <./figures/PlantasHidroelectricas.png>]
+<figures/PlantasHidroelectricasModificado.png, id=24, 338.4645pt x 215.6055pt>
 File: figures/PlantasHidroelectricasModificado.png Graphic file (type png)
 <use figures/PlantasHidroelectricasModificado.png>
 Package pdftex.def Info: figures/PlantasHidroelectricasModificado.png  used on 
-input line 71.
+input line 99.
 (pdftex.def)             Requested size: 276.00105pt x 175.82713pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--72
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
 
  []
 
-[1 <./figures/PlantasHidroelectricas.png> <./figures/Ejemplo2.png>]
-<figures/PlantasHidroelectricasModificado2.png, id=20, 241.50224pt x 218.0145pt
+<figures/PlantasHidroelectricasModificado2.png, id=25, 241.50224pt x 218.0145pt
 >
 File: figures/PlantasHidroelectricasModificado2.png Graphic file (type png)
 <use figures/PlantasHidroelectricasModificado2.png>
 Package pdftex.def Info: figures/PlantasHidroelectricasModificado2.png  used on
- input line 73.
+ input line 102.
 (pdftex.def)             Requested size: 276.00105pt x 249.15784pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--74
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
 
  []
 
-<figures/ProblemaDeTransporteDegenerado.png, id=21, 337.26pt x 218.0145pt>
+[4 <./figures/Ejemplo2.png> <./figures/PlantasHidroelectricasModificado.png>]
+<figures/ProblemaDeTransporteDegenerado.png, id=31, 337.26pt x 218.0145pt>
 File: figures/ProblemaDeTransporteDegenerado.png Graphic file (type png)
 <use figures/ProblemaDeTransporteDegenerado.png>
 Package pdftex.def Info: figures/ProblemaDeTransporteDegenerado.png  used on in
-put line 75.
+put line 105.
 (pdftex.def)             Requested size: 276.00105pt x 178.41707pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 75--76
+Underfull \hbox (badness 10000) in paragraph at lines 105--106
 
  []
 
-[2 <./figures/PlantasHidroelectricasModificado.png> <./figures/PlantasHidroelec
-tricasModificado2.png>]
-<figures/FabricaDeComputadores.png, id=27, 337.86224pt x 245.11575pt>
+[5 <./figures/PlantasHidroelectricasModificado2.png> <./figures/ProblemaDeTrans
+porteDegenerado.png>]
+<figures/FabricaDeComputadores.png, id=37, 337.86224pt x 245.11575pt>
 File: figures/FabricaDeComputadores.png Graphic file (type png)
 <use figures/FabricaDeComputadores.png>
 Package pdftex.def Info: figures/FabricaDeComputadores.png  used on input line 
-77.
+110.
 (pdftex.def)             Requested size: 276.00105pt x 200.24443pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--78
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
 
  []
 
-<figures/FabricaDeComputadoresVariante.png, id=28, 434.22224pt x 246.9225pt>
+<figures/FabricaDeComputadoresVariante.png, id=38, 434.22224pt x 246.9225pt>
 File: figures/FabricaDeComputadoresVariante.png Graphic file (type png)
 <use figures/FabricaDeComputadoresVariante.png>
 Package pdftex.def Info: figures/FabricaDeComputadoresVariante.png  used on inp
-ut line 79.
+ut line 113.
 (pdftex.def)             Requested size: 276.00105pt x 156.9485pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--80
+Underfull \hbox (badness 10000) in paragraph at lines 113--114
 
  []
 
-[3 <./figures/ProblemaDeTransporteDegenerado.png> <./figures/FabricaDeComputado
-res.png>] [4 <./figures/FabricaDeComputadoresVariante.png>] (out/main.aux)
+[6
+
+ <./figures/FabricaDeComputadores.png>]
+<figures/FabricaDeComputadoresVariante2.png, id=44, 434.22224pt x 302.3295pt>
+File: figures/FabricaDeComputadoresVariante2.png Graphic file (type png)
+<use figures/FabricaDeComputadoresVariante2.png>
+Package pdftex.def Info: figures/FabricaDeComputadoresVariante2.png  used on in
+put line 116.
+(pdftex.def)             Requested size: 276.00105pt x 192.16623pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
+
+ []
+
+[7 <./figures/FabricaDeComputadoresVariante.png> <./figures/FabricaDeComputador
+esVariante2.png>] (out/main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 2539 strings out of 469514
- 44798 string characters out of 5470073
- 452648 words of memory out of 5000000
- 31213 multiletter control sequences out of 15000+600000
- 628924 words of font info for 44 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 57i,5n,65p,181b,192s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 2546 strings out of 467533
+ 45153 string characters out of 5422138
+ 460803 words of memory out of 5000000
+ 31476 multiletter control sequences out of 15000+600000
+ 629529 words of font info for 46 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,5n,65p,615b,192s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on out/main.pdf (5 pages, 230038 bytes).
+Output written on out/main.pdf (8 pages, 272535 bytes).
 PDF statistics:
- 56 PDF objects out of 1000 (max. 8388607)
- 25 compressed objects within 1 object stream
+ 69 PDF objects out of 1000 (max. 8388607)
+ 33 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
