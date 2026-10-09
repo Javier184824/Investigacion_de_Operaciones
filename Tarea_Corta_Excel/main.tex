@@ -65,27 +65,42 @@
 \end{titlepage}
 \chapter*{What is Solver and How to use it?}
 
-Solver is a Microsoft Excel add-in program used for what-if analysis. Solver is used to find an optimal (maximum or minimum) value for a formula in one cell, called the objective cell, subject to constraints, or limits, on the values of other formula cells on a worksheet. Solver works with a group of cells, called decision variables or simply variable cells, that are used in computing the formulas in the objective and constraint cells. Solver adjusts the values in the decision variable cells to satisfy the limits on constraint cells and produce the result for the objective cell.
+Solver is a Microsoft Excel add-in program used for what-if analysis. Solver is used to find an optimal (maximum or minimum) value for a 
+formula in one cell, called the objective cell, subject to constraints, or limits, on the values of other formula cells on a worksheet. 
+Solver works with a group of cells, called decision variables or simply variable cells, that are used in computing the formulas in the 
+objective and constraint cells. Solver adjusts the values in the decision variable cells to satisfy the limits on constraint cells and 
+produce the result for the objective cell.
 
-To use Solver, go to the Data tab, in the Analysis group and select Solver. A window will pop to set the problem parameters, in the Set Objective box, you can enter a cell reference or name for the objective cell. The objective cell must contain a formula.
+To use Solver, go to the Data tab, in the Analysis group and select Solver. A window will pop to set the problem parameters, in the 
+Set Objective box, you can enter a cell reference or name for the objective cell. The objective cell must contain a formula.
 
-After setting the objective cell, select the option "Max" to maximaze the formula, "Min" to get the minimum value, use "Value of" to set a certain value for the objective cell. In the By Changing Variable Cells box, enter a name or reference for each decision variable cell range. Separate the nonadjacent references with commas. The variable cells must be related directly or indirectly to the objective cell.
+After setting the objective cell, select the option "Max" to maximaze the formula, "Min" to get the minimum value, use "Value of" to set a 
+certain value for the objective cell. In the By Changing Variable Cells box, enter a name or reference for each decision variable cell range. 
+Separate the nonadjacent references with commas. The variable cells must be related directly or indirectly to the objective cell.
 
-In the Subject to the Constraints box will appear all the constrain added to the problem. To add a constrain, select Add, enter the cell reference or name of the cell range in the "Cell Reference" box and select the relationship between the referenced cell and the constraint.
+In the Subject to the Constraints box will appear all the constrain added to the problem. To add a constrain, select Add, enter the cell 
+reference or name of the cell range in the "Cell Reference" box and select the relationship between the referenced cell and the constraint.
 
-It is possible to change how Solver find solutions by choosing a solving method. You can choose between "Generalized Reduced Gradient (GRG) Nonlinear", "LP Simplex" and "Evolutionary".
+It is possible to change how Solver find solutions by choosing a solving method. You can choose between 
+"Generalized Reduced Gradient (GRG) Nonlinear", "LP Simplex" and "Evolutionary".
 
-After setting all constraints and choosing how to solve the problem, select Solve. You can keep the solution values on worksheet by selecting "Keep Solver Solution" in the "Solver Results" dialog box, or choose restore the original values by selecting "Resotore Original Values".
+After setting all constraints and choosing how to solve the problem, select Solve. You can keep the solution values on worksheet by 
+selecting "Keep Solver Solution" in the "Solver Results" dialog box, or choose restore the original values by selecting 
+"Resotore Original Values".
+
 \chapter*{Calc equivalent to Solver}
 
-LibreOffice Calc has also a built-in Solver. To access Solver choose "Tools" on the manu bar and then select Solver. It will also pop a window to set the problem parameters. In the "Target Cell" box you can enter the target cell reference.
+LibreOffice Calc has also a built-in Solver. To access Solver choose "Tools" on the manu bar and then select Solver. It will also pop a 
+window to set the problem parameters. In the "Target Cell" box you can enter the target cell reference.
 
-Then you can select "Maximum" to optimize the problem to find the maximum value of the taget cell or select "Minimum" to minimize the target cell, or select "Value of" to approach the target cell to a given value.
+Then you can select "Maximum" to optimize the problem to find the maximum value of the taget cell or select "Minimum" to minimize the 
+target cell, or select "Value of" to approach the target cell to a given value.
 
-Enter the cell range that can be changed in the "By Changing Cells" box, these are the variables of the equiation. To add a set of constraints for the problem you can use the "Limiting Conditions" section, each constraint is represented by a cell reference, an operator and a value.
+Enter the cell range that can be changed in the "By Changing Cells" box, these are the variables of the equiation. To add a set of 
+constraints for the problem you can use the "Limiting Conditions" section, each constraint is represented by a cell reference, an operator 
+and a value.
 
 After everyting is set, click "Solve" to solve the problem. The dialog settings are retained until you close the current document.
-
 
 \chapter*{Transport Problems}
 
@@ -95,7 +110,7 @@ After everyting is set, click "Solve" to solve the problem. The dialog settings 
 \section*{Example 2}
 \includegraphics[width=0.8\linewidth]{figures/Ejemplo2.png}\\
 
-\section{Modified Hydroelectric Plants}
+\section*{Modified Hydroelectric Plants}
 \includegraphics[width=0.8\linewidth]{figures/PlantasHidroelectricasModificado.png}\\
 
 \section*{Modified Hydroelectric Plants 2}
