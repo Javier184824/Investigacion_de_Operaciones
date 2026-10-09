@@ -1,103 +1,88 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.9.8)  9 OCT 2026 14:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.8.5)  9 OCT 2026 16:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **main.tex
 (./main.tex
-LaTeX2e <2025-11-01>
-L3 programming layer <2026-01-19>
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
 (/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
-Document Class: report 2025/01/22 v1.4n Standard LaTeX document class
+Document Class: report 2023/05/17 v1.4n Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count275
-\c@chapter=\count276
-\c@section=\count277
-\c@subsection=\count278
-\c@subsubsection=\count279
-\c@paragraph=\count280
-\c@subparagraph=\count281
-\c@figure=\count282
-\c@table=\count283
-\abovecaptionskip=\skip49
-\belowcaptionskip=\skip50
-\bibindent=\dimen148
+\c@part=\count187
+\c@chapter=\count188
+\c@section=\count189
+\c@subsection=\count190
+\c@subsubsection=\count191
+\c@paragraph=\count192
+\c@subparagraph=\count193
+\c@figure=\count194
+\c@table=\count195
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2024/02/08 v1.3d Input encoding file
+Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
 )
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count284
+\c@float@type=\count196
 \float@exts=\toks19
-\float@box=\box53
+\float@box=\box51
 \@float@everytoks=\toks20
-\@floatcapt=\box54
+\@floatcapt=\box52
 )
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2026/01/18 v26.1 The multilingual framework for LuaLaTeX, pdfLaT
-eX and XeLaTeX
-\babel@savecnt=\count285
-LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input li
-ne 2078.
-LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input li
-ne 2080.
-LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input lin
-e 2082.
-LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input lin
-e 2083.
-LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) 
-on input line 2084.
-LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) 
-on input line 2086.
-LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
-on input line 2111.
-\U@D=\dimen149
-\l@unhyphenated=\language90
+Package: babel 2024/01/07 v24.1 The Babel package
+\babel@savecnt=\count197
+\U@D=\dimen141
+\l@unhyphenated=\language89
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count286
-
-(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex)
-Package babel Info: Importing font and identification data for english
-(babel)             from babel-en.ini. Reported on input line 4330.
+\bbl@dirlevel=\count198
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
 Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
-(babel)             (\language40). Reported on input line 105.
+(babel)             (\language35). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
-(babel)             (\language40). Reported on input line 108.
+(babel)             (\language35). Reported on input line 108.
 ))
+(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
+Package babel Info: Importing font and identification data for english
+(babel)             from babel-en.ini. Reported on input line 11.
+)
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks21
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 106.
+Package graphics Info: Driver file: pdftex.def on input line 107.
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen150
-\Gin@req@width=\dimen151
+\Gin@req@height=\dimen142
+\Gin@req@width=\dimen143
 )
 (/usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
@@ -112,12 +97,13 @@ Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count287
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count199
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count288
+File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count266
+\l__pdf_internal_box=\box53
 )
 (out/main.aux)
 \openout1 = `main.aux'.
@@ -139,16 +125,16 @@ LaTeX Font Info:    ... okay on input line 34.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count289
-\scratchdimen=\dimen152
-\scratchbox=\box55
-\nofMPsegments=\count290
-\nofMParguments=\count291
+\scratchcounter=\count267
+\scratchdimen=\dimen144
+\scratchbox=\box54
+\nofMPsegments=\count268
+\nofMParguments=\count269
 \everyMPshowfont=\toks22
-\MPscratchCnt=\count292
-\MPscratchDim=\dimen153
-\MPnumerator=\count293
-\makeMPintoPDFobject=\count294
+\MPscratchCnt=\count270
+\MPscratchDim=\dimen145
+\MPnumerator=\count271
+\makeMPintoPDFobject=\count272
 \everyMPtoPDFconversion=\toks23
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -168,100 +154,123 @@ Package pdftex.def Info: figures/logo_tec.jpg  used on input line 40.
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figures/logo_tec.jpg>]
-<figures/ExcelSolver.png, id=10, 439.6425pt x 412.54124pt>
-File: figures/ExcelSolver.png Graphic file (type png)
-<use figures/ExcelSolver.png>
-Package pdftex.def Info: figures/ExcelSolver.png  used on input line 77.
-(pdftex.def)             Requested size: 172.5pt x 161.86613pt.
-<figures/SolverButton.png, id=12, 232.4685pt x 78.89474pt>
-File: figures/SolverButton.png Graphic file (type png)
-<use figures/SolverButton.png>
-Package pdftex.def Info: figures/SolverButton.png  used on input line 86.
-(pdftex.def)             Requested size: 172.5pt x 58.5461pt.
+<figures/FileSection.png, id=10, 514.3215pt x 104.7915pt>
+File: figures/FileSection.png Graphic file (type png)
+<use figures/FileSection.png>
+Package pdftex.def Info: figures/FileSection.png  used on input line 81.
+(pdftex.def)             Requested size: 172.5pt x 35.14574pt.
+<figures/OptionsButton.png, id=12, 116.23425pt x 75.28125pt>
+File: figures/OptionsButton.png Graphic file (type png)
+<use figures/OptionsButton.png>
+Package pdftex.def Info: figures/OptionsButton.png  used on input line 87.
+(pdftex.def)             Requested size: 172.5pt x 111.73726pt.
 [1
 
- <./figures/ExcelSolver.png>] [2 <./figures/SolverButton.png>] [3
+ <./figures/FileSection.png>]
+<figures/SolverButton.png, id=18, 232.4685pt x 78.89474pt>
+File: figures/SolverButton.png Graphic file (type png)
+<use figures/SolverButton.png>
+Package pdftex.def Info: figures/SolverButton.png  used on input line 97.
+(pdftex.def)             Requested size: 172.5pt x 58.5461pt.
+<figures/ExcelSolver.png, id=19, 439.6425pt x 412.54124pt>
+File: figures/ExcelSolver.png Graphic file (type png)
+<use figures/ExcelSolver.png>
+Package pdftex.def Info: figures/ExcelSolver.png  used on input line 107.
+(pdftex.def)             Requested size: 172.5pt x 161.86613pt.
+ [2 <./figures/OptionsButton.png> <./figures/SolverButton.png>] [3 <./figures/E
+xcelSolver.png>]
+<figures/LibreOfficeCalcSolver.png, id=29, 640.3925pt x 569.12625pt>
+File: figures/LibreOfficeCalcSolver.png Graphic file (type png)
+<use figures/LibreOfficeCalcSolver.png>
+Package pdftex.def Info: figures/LibreOfficeCalcSolver.png  used on input line 
+137.
+(pdftex.def)             Requested size: 172.5pt x 153.3014pt.
+ [4
+
+ <./figures/LibreOfficeCalcSolver.png>] [5
 
 ]
-<figures/PlantasHidroelectricas.png, id=25, 289.68225pt x 218.0145pt>
+<figures/PlantasHidroelectricas.png, id=38, 289.68225pt x 218.0145pt>
 File: figures/PlantasHidroelectricas.png Graphic file (type png)
 <use figures/PlantasHidroelectricas.png>
 Package pdftex.def Info: figures/PlantasHidroelectricas.png  used on input line
- 124.
-(pdftex.def)             Requested size: 172.5pt x 129.82501pt.
-<figures/Ejemplo2.png, id=26, 242.1045pt x 215.6055pt>
+ 164.
+(pdftex.def)             Requested size: 241.49895pt x 181.757pt.
+<figures/Ejemplo2.png, id=39, 242.1045pt x 215.6055pt>
 File: figures/Ejemplo2.png Graphic file (type png)
 <use figures/Ejemplo2.png>
-Package pdftex.def Info: figures/Ejemplo2.png  used on input line 130.
-(pdftex.def)             Requested size: 172.5pt x 153.6238pt.
-<figures/PlantasHidroelectricasModificado.png, id=27, 338.4645pt x 215.6055pt>
+Package pdftex.def Info: figures/Ejemplo2.png  used on input line 170.
+(pdftex.def)             Requested size: 241.49895pt x 215.07199pt.
+ [6
+
+ <./figures/PlantasHidroelectricas.png>]
+<figures/PlantasHidroelectricasModificado.png, id=45, 338.4645pt x 215.6055pt>
 File: figures/PlantasHidroelectricasModificado.png Graphic file (type png)
 <use figures/PlantasHidroelectricasModificado.png>
 Package pdftex.def Info: figures/PlantasHidroelectricasModificado.png  used on 
-input line 136.
-(pdftex.def)             Requested size: 172.5pt x 109.88496pt.
- [4
-
- <./figures/PlantasHidroelectricas.png> <./figures/Ejemplo2.png>]
-<figures/PlantasHidroelectricasModificado2.png, id=33, 241.50224pt x 218.0145pt
+input line 176.
+(pdftex.def)             Requested size: 241.49895pt x 153.84093pt.
+<figures/PlantasHidroelectricasModificado2.png, id=46, 241.50224pt x 218.0145pt
 >
 File: figures/PlantasHidroelectricasModificado2.png Graphic file (type png)
 <use figures/PlantasHidroelectricasModificado2.png>
 Package pdftex.def Info: figures/PlantasHidroelectricasModificado2.png  used on
- input line 142.
-(pdftex.def)             Requested size: 172.5pt x 155.72281pt.
-<figures/ProblemaDeTransporteDegenerado.png, id=34, 337.26pt x 218.0145pt>
+ input line 182.
+(pdftex.def)             Requested size: 241.49895pt x 218.0106pt.
+ [7 <./figures/Ejemplo2.png> <./figures/PlantasHidroelectricasModificado.png>]
+<figures/ProblemaDeTransporteDegenerado.png, id=52, 337.26pt x 218.0145pt>
 File: figures/ProblemaDeTransporteDegenerado.png Graphic file (type png)
 <use figures/ProblemaDeTransporteDegenerado.png>
 Package pdftex.def Info: figures/ProblemaDeTransporteDegenerado.png  used on in
-put line 148.
-(pdftex.def)             Requested size: 172.5pt x 111.51192pt.
- [5 <./figures/PlantasHidroelectricasModificado.png> <./figures/PlantasHidroele
-ctricasModificado2.png> <./figures/ProblemaDeTransporteDegenerado.png>]
-<figures/FabricaDeComputadores.png, id=41, 337.86224pt x 245.11575pt>
+put line 188.
+(pdftex.def)             Requested size: 241.49895pt x 156.11536pt.
+ [8 <./figures/PlantasHidroelectricasModificado2.png> <./figures/ProblemaDeTran
+sporteDegenerado.png>]
+<figures/FabricaDeComputadores.png, id=58, 337.86224pt x 245.11575pt>
 File: figures/FabricaDeComputadores.png Graphic file (type png)
 <use figures/FabricaDeComputadores.png>
 Package pdftex.def Info: figures/FabricaDeComputadores.png  used on input line 
-156.
-(pdftex.def)             Requested size: 276.00105pt x 200.24443pt.
-<figures/FabricaDeComputadoresVariante.png, id=42, 434.22224pt x 246.9225pt>
+196.
+(pdftex.def)             Requested size: 241.49895pt x 175.20406pt.
+<figures/FabricaDeComputadoresVariante.png, id=59, 434.22224pt x 246.9225pt>
 File: figures/FabricaDeComputadoresVariante.png Graphic file (type png)
 <use figures/FabricaDeComputadoresVariante.png>
 Package pdftex.def Info: figures/FabricaDeComputadoresVariante.png  used on inp
-ut line 162.
-(pdftex.def)             Requested size: 276.00105pt x 156.9485pt.
- [6
-
- <./figures/FabricaDeComputadores.png>]
-<figures/FabricaDeComputadoresVariante2.png, id=48, 434.22224pt x 302.3295pt>
+ut line 202.
+(pdftex.def)             Requested size: 241.49895pt x 137.32994pt.
+<figures/FabricaDeComputadoresVariante2.png, id=60, 434.22224pt x 302.3295pt>
 File: figures/FabricaDeComputadoresVariante2.png Graphic file (type png)
 <use figures/FabricaDeComputadoresVariante2.png>
 Package pdftex.def Info: figures/FabricaDeComputadoresVariante2.png  used on in
-put line 168.
-(pdftex.def)             Requested size: 276.00105pt x 192.16623pt.
- [7 <./figures/FabricaDeComputadoresVariante.png> <./figures/FabricaDeComputado
-resVariante2.png>] (out/main.aux)
+put line 208.
+(pdftex.def)             Requested size: 241.49895pt x 168.14545pt.
+
+[9
+
+ <./figures/FabricaDeComputadores.png> <./figures/FabricaDeComputadoresVariante
+.png>] [10 <./figures/FabricaDeComputadoresVariante2.png>] (out/main.aux)
  ***********
-LaTeX2e <2025-11-01>
-L3 programming layer <2026-01-19>
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3283 strings out of 467533
- 56733 string characters out of 5422139
- 473052 words of memory out of 5000000
- 32194 multiletter control sequences out of 15000+600000
- 628924 words of font info for 44 fonts, out of 8000000 for 9000
+ 3264 strings out of 474222
+ 56911 string characters out of 5748734
+ 1926975 words of memory out of 5000000
+ 25519 multiletter control sequences out of 15000+600000
+ 560045 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,6n,65p,497b,236s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,6n,65p,497b,232s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on out/main.pdf (8 pages, 294631 bytes).
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on out/main.pdf (11 pages, 352220 bytes).
 PDF statistics:
- 73 PDF objects out of 1000 (max. 8388607)
- 33 compressed objects within 1 object stream
+ 93 PDF objects out of 1000 (max. 8388607)
+ 42 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
 

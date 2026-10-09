@@ -10,7 +10,7 @@
 \def \career{Computer Engineering}
 \def \course{IC6400 - Operations Research}
 \def \subtitle{Dr. Francisco J. Torres-Rojas}
-\def \title{Transport Problems with Excel Solver}
+\def \title{Transport Problems with Excel / Calc Solver}
 \def \authors{
     Dayron Josué Porras Pérez\\
     2023124693\\
@@ -72,11 +72,22 @@ Solver works with a group of cells, called decision variables or simply variable
 objective and constraint cells. Solver adjusts the values in the decision variable cells to satisfy the limits on constraint cells and 
 produce the result for the objective cell.
 
+To add the Solver program in Microsoft Excel, go to the File section in the upper part of the Excel menu. Inside it, find the Options button
+click it. This will pop up a window, go to the bottom and click the Go button. This will also open another window. Find the 
+
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/ExcelSolver.png}\\
-    \caption{Excel Solver}
+    \includegraphics[width=0.5\linewidth]{figures/FileSection.png}\\
+    \caption{File section}
 \end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/OptionsButton.png}\\
+    \caption{Options button}
+\end{figure}
+
 
 To use Solver, go to the Data tab, in the Analysis group and select Solver. A window will pop to set the problem parameters, in the 
 Set Objective box, you can enter a cell reference or name for the objective cell. The objective cell must contain a formula.
@@ -91,6 +102,12 @@ After setting the objective cell, select the option "Max" to maximaze the formul
 certain value for the objective cell. In the By Changing Variable Cells box, enter a name or reference for each decision variable cell range. 
 Separate the nonadjacent references with commas. The variable cells must be related directly or indirectly to the objective cell.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/ExcelSolver.png}\\
+    \caption{Excel Solver}
+\end{figure}
+
 In the Subject to the Constraints box will appear all the constrain added to the problem. To add a constrain, select Add, enter the cell 
 reference or name of the cell range in the "Cell Reference" box and select the relationship between the referenced cell and the constraint.
 
@@ -100,8 +117,6 @@ It is possible to change how Solver find solutions by choosing a solving method.
 After setting all constraints and choosing how to solve the problem, select Solve. You can keep the solution values on worksheet by 
 selecting "Keep Solver Solution" in the "Solver Results" dialog box, or choose restore the original values by selecting 
 "Resotore Original Values".
-
-
 
 \chapter*{How to use Libre Office Calc Solver?}
 
@@ -117,35 +132,60 @@ and a value.
 
 After everyting is set, click "Solve" to solve the problem. The dialog settings are retained until you close the current document.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/LibreOfficeCalcSolver.png}\\
+    \caption{Calc Solver}
+\end{figure}
+
+\chapter*{Setup}
+In the next two chapters, there will images with three distinct parts for the solver to process:
+
+\section*{Table of costs of production}
+This table contains the cost for production from some producer \verb|i| to some consumer \verb|j|. The maximum ammount of production each producer 
+can generate, which correspond to the numbers located on the right side of the table and the needed ammount of consumption for each comsumer located 
+on the bottom of the table.
+
+\section*{Changing cells}
+This table has cells that are given to the solver to make the calculations and find the optimal solution. This table needs some setup before it is 
+used. For each row, calculate the sum of each cell and put the result on the right of the row and also calculate the sum for the cells in each of 
+the columns and put the result on the bottom of the column. At the end, the solver puts the values needed in every cell to construct the optimal
+solution.
+
+\section*{Total cost}
+This cell will contain the optimal solution when the solver has done all the calculations. The cell needs some setup before it is used. In the cell
+calculate the sum product of the table of costs and the table of changing cells. The name of this function is \verb|SUMPRODUCT| and it can receive
+multiple matrices as inputs, as long as every matrix has the same dimensions.
+
 \chapter*{Transport Problems}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/PlantasHidroelectricas.png}\\
+    \includegraphics[width=0.7\linewidth]{figures/PlantasHidroelectricas.png}\\
     \caption{Hydroelectric Plants}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/Ejemplo2.png}\\
+    \includegraphics[width=0.7\linewidth]{figures/Ejemplo2.png}\\
     \caption{Example 2}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/PlantasHidroelectricasModificado.png}\\
+    \includegraphics[width=0.7\linewidth]{figures/PlantasHidroelectricasModificado.png}\\
     \caption{Modified Hydroelectric Plants}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/PlantasHidroelectricasModificado2.png}\\
+    \includegraphics[width=0.7\linewidth]{figures/PlantasHidroelectricasModificado2.png}\\
     \caption{Modified Hydroelectric Plants 2}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/ProblemaDeTransporteDegenerado.png}\\
+    \includegraphics[width=0.7\linewidth]{figures/ProblemaDeTransporteDegenerado.png}\\
     \caption{Degenerated Transport Problems}
 \end{figure}
 
@@ -153,19 +193,19 @@ After everyting is set, click "Solve" to solve the problem. The dialog settings 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/FabricaDeComputadores.png}\\
+    \includegraphics[width=0.7\linewidth]{figures/FabricaDeComputadores.png}\\
     \caption{Computer Factory}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/FabricaDeComputadoresVariante.png}\\
+    \includegraphics[width=0.7\linewidth]{figures/FabricaDeComputadoresVariante.png}\\
     \caption{Computer Factory Variant}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/FabricaDeComputadoresVariante2.png}\\
+    \includegraphics[width=0.7\linewidth]{figures/FabricaDeComputadoresVariante2.png}\\
     \caption{Computer Factory Variant 2}
 \end{figure}
 
