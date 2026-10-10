@@ -64,6 +64,7 @@
         
     \end{center}
 \end{titlepage}
+
 \chapter*{What is Microsoft Excel Solver and How to use it?}
 
 Solver is a Microsoft Excel add-in program used for what-if analysis. Solver is used to find an optimal (maximum or minimum) value for a 
@@ -73,8 +74,8 @@ objective and constraint cells. Solver adjusts the values in the decision variab
 produce the result for the objective cell.
 
 To add the Solver program in Microsoft Excel, go to the File section in the upper part of the Excel menu. Inside it, find the Options button
-click it. This will pop up a window, go to the bottom and click the Go button. This will also open another window. Find the 
-
+click it, this will open the Options window. Go to the bottom and click the Go button, this will open the Add-Ins window. Find the Solver Add-in 
+and check the box next to it, then click OK. After this, the Solver program will be available in the Data tab.
 
 \begin{figure}[H]
     \centering
@@ -88,6 +89,17 @@ click it. This will pop up a window, go to the bottom and click the Go button. T
     \caption{Options button}
 \end{figure}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/ExcelOptions.png}\\
+    \caption{Excel Options}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/AddIns.png}\\
+    \caption{Add-Ins}
+\end{figure}
 
 To use Solver, go to the Data tab, in the Analysis group and select Solver. A window will pop to set the problem parameters, in the 
 Set Objective box, you can enter a cell reference or name for the objective cell. The objective cell must contain a formula.
@@ -98,15 +110,15 @@ Set Objective box, you can enter a cell reference or name for the objective cell
     \caption{Solver Button}
 \end{figure}
 
-After setting the objective cell, select the option "Max" to maximaze the formula, "Min" to get the minimum value, use "Value of" to set a 
-certain value for the objective cell. In the By Changing Variable Cells box, enter a name or reference for each decision variable cell range. 
-Separate the nonadjacent references with commas. The variable cells must be related directly or indirectly to the objective cell.
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{figures/ExcelSolver.png}\\
     \caption{Excel Solver}
 \end{figure}
+
+After setting the objective cell, select the option "Max" to maximaze the formula, "Min" to get the minimum value, use "Value of" to set a 
+certain value for the objective cell. In the By Changing Variable Cells box, enter a name or reference for each decision variable cell range. 
+Separate the nonadjacent references with commas. The variable cells must be related directly or indirectly to the objective cell.
 
 In the Subject to the Constraints box will appear all the constrain added to the problem. To add a constrain, select Add, enter the cell 
 reference or name of the cell range in the "Cell Reference" box and select the relationship between the referenced cell and the constraint.
