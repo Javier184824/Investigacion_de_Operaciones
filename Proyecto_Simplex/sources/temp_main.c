@@ -16,13 +16,14 @@ int main(int argc, char *argv[]) {
 
    create_problem(max_variable_value, desicion, max_variable_amount, max_restriction, matrix);
 
-   for(int j = 0; j < max_restriction; j++){//print the final table
+   for(int j = 0; j < max_restriction; j++){//print the initial table
       printf("%d\t",j);
       for(int i = 0; i < max_variable_amount; i++){
-         printf("%d,%d\t", matrix[i][j].tag, matrix[i][j].value);
+         printf("%d,%f\t", matrix[i][j].tag, matrix[i][j].value);
       }
       printf("\n");
    }
+   printf("\n");
 
    solve_simplex(max_variable_amount, max_restriction, max_tries, matrix);
    printf("\n");
@@ -30,7 +31,7 @@ int main(int argc, char *argv[]) {
    for(int j = 0; j < max_restriction; j++){//print the final table
       printf("%d\t",j);
       for(int i = 0; i < max_variable_amount; i++){
-         printf("%d,%d\t", matrix[i][j].tag, matrix[i][j].value);
+         printf("%d,%f\t", matrix[i][j].tag, matrix[i][j].value);
       }
       printf("\n");
    }

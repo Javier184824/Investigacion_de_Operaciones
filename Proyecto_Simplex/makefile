@@ -3,4 +3,4 @@ SOURCE_DIR = sources
 SOURCES = $(wildcard $(SOURCE_DIR)/*.c)
 
 output:
-	gcc $(SOURCES) -o simplex
+	gcc $(SOURCES) -o simplex -lm
