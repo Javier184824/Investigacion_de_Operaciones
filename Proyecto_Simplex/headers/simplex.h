@@ -3,6 +3,6 @@
 
 #include "../headers/structs.h"
 
-void solve_simplex(const int max_variable_value, const int max_variable_amount, const int max_restriction, matrix_value matrix[max_variable_amount + 2][max_restriction + 1]);
+void solve_simplex(const int max_variable_amount, const int max_restriction, const int max_tries, matrix_value matrix[max_variable_amount][max_restriction]);
 
 #endif
