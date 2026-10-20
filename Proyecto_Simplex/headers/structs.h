@@ -12,6 +12,6 @@ typedef struct{
    int value;
 } matrix_value;
 
-void create_problem(const int max_variable_value, const int max_variable_amount, const int max_restriction, matrix_value matrix[max_variable_amount + 2][max_restriction + 1]);
+void create_problem(const int max_variable_value, const int desicion_v, const int max_variable_amount, const int max_restriction, matrix_value matrix[max_variable_amount + 2][max_restriction + 1]);
 
 #endif
