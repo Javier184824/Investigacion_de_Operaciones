@@ -46,7 +46,7 @@ void create_problem(const int max_variable_value,const int desicion_v, const int
 				}else if(i == max_variable_amount-1){ // last column
 					int min = max_variable_value * -1;
 
-					float value = (rand() % max_variable_value) +1;
+					float value = ((rand() % max_variable_value) +1)*100;
 
 					matrix_value f_value = {i, value};
 
