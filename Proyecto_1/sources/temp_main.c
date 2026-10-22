@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
    for(int j = 0; j < max_restriction; j++){//print the initial table
       printf("%d\t",j);
       for(int i = 0; i < max_variable_amount; i++){
-         printf("%d,%f\t", matrix[i][j].tag, matrix[i][j].value);
+         printf("%d,%.4Lf\t", matrix[i][j].tag, matrix[i][j].value);
       }
       printf("\n");
    }
@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
    for(int j = 0; j < max_restriction; j++){//print the final table
       printf("%d\t",j);
       for(int i = 0; i < max_variable_amount; i++){
-         printf("%d,%f\t", matrix[i][j].tag, matrix[i][j].value);
+         printf("%d,%.4Lf\t", matrix[i][j].tag, matrix[i][j].value);
       }
       printf("\n");
    }

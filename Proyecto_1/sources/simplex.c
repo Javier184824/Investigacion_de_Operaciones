@@ -13,12 +13,12 @@ void solve_simplex(const int max_variable_amount, const int max_restriction, con
 	while(!stop && cont <= max_tries){
 		int i_index = 0;
 		int j_index = 0;
-		float actual_i_value = 1;
-		float actual_j_value = -1;
+		long double actual_i_value = 1;
+		long double actual_j_value = -1;
 
 		//========find pivot=============
 
-		for(int i = 1; i < max_variable_amount; i++){
+		for(int i = 1; i < max_variable_amount-1; i++){
 			if(matrix[i][0].value < 0){
 				if(matrix[i][0].value < actual_i_value){
 					bool valid = false;
@@ -47,7 +47,7 @@ void solve_simplex(const int max_variable_amount, const int max_restriction, con
 					actual_j_value = matrix[max_variable_amount][j].value/matrix[i_index][j].value;
 					j_index = j;
 				}else{
-					float new_value = matrix[max_variable_amount][j].value/matrix[i_index][j].value;
+					long double new_value = matrix[max_variable_amount][j].value/matrix[i_index][j].value;
 					if(new_value <= actual_j_value){
 						actual_j_value = new_value;
 						j_index = j;
@@ -56,21 +56,22 @@ void solve_simplex(const int max_variable_amount, const int max_restriction, con
 			}
 		}
 		//===========solve===============
-		int divisor_value = matrix[i_index][j_index].value;
+		long double divisor_value = matrix[i_index][j_index].value;
 		for(int i = 1; i < max_variable_amount; i++){//canonizing row
-			float new_value = matrix[i][j_index].value/divisor_value; 
-			matrix[i][j_index].value = ((int)(new_value * 1000 + 0.5)) / 1000;
+
+			long double new_value = matrix[i][j_index].value/divisor_value; 
+			matrix[i][j_index].value = new_value;
 		}
 
 		for(int j = 0; j < max_restriction; j++){//canonizing coluumns
 			if(j == j_index){
 				continue;
 			}
-			int actual_mult = matrix[i_index][j].value *-1;
+			long double actual_mult = matrix[i_index][j].value *-1;
 
 			for(int i = 1; i < max_variable_amount; i++){
-				float new_value = matrix[i][j].value + (matrix[i][j_index].value * actual_mult);
-				matrix[i][j].value = ((int)(new_value * 1000 + 0.5)) / 1000;
+				long double new_value = matrix[i][j].value + (matrix[i][j_index].value * actual_mult);
+				matrix[i][j].value = new_value;
 			}
 		}
 		//==========check if done========
@@ -81,13 +82,18 @@ void solve_simplex(const int max_variable_amount, const int max_restriction, con
 			}
 		}
 		cont++;
+		/*
 		for(int j = 0; j < max_restriction; j++){//print the final table
 	      printf("%d\t",j);
 		      for(int i = 0; i < max_variable_amount; i++){
-		         printf("%d,%f\t", matrix[i][j].tag, matrix[i][j].value);
+		         printf("%d,%.4Lf\t", matrix[i][j].tag, matrix[i][j].value);
 		      }
 	      printf("\n");
    		}
    		printf("\n");
+   		*/
+	}
+	if(cont > max_tries){
+		printf("Solver got stuck in a loop. No solution found.");
 	}
 }
