@@ -1,13 +1,6 @@
 #ifndef STRUCTS_H
 #define STRUCTS_H
 
-#include <stdlib.h>
-#include <stdbool.h>
-#include <string.h>
-#include <stdio.h>
-#include <time.h>
-#include <math.h>
-
 typedef struct{
    int tag;
    float value;
