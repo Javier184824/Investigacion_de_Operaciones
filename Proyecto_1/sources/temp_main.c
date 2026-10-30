@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <math.h>
+#include "../headers/tex_manager.h"
 #include "../headers/structs.h"
 #include "../headers/simplex.h"
 
@@ -30,6 +31,7 @@ int main(int argc, char *argv[]) {
    }
    printf("\n");
 
+   #if 0
    solve_simplex(max_variable_amount, max_restriction, max_tries, matrix);
    printf("\n");
 
@@ -40,6 +42,9 @@ int main(int argc, char *argv[]) {
       }
       printf("\n");
    }
+   #endif
+
+   write_original_problem("Some name", desicion, max_variable_amount, max_restriction, matrix);
 
    return 0;
 }
