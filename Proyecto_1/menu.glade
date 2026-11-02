@@ -18,8 +18,8 @@
             <property name="receives-default">True</property>
           </object>
           <packing>
-            <property name="x">350</property>
-            <property name="y">200</property>
+            <property name="x">704</property>
+            <property name="y">483</property>
           </packing>
         </child>
         <child>
@@ -41,8 +41,57 @@
             <property name="can-focus">True</property>
           </object>
           <packing>
-            <property name="x">118</property>
+            <property name="x">200</property>
             <property name="y">7</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="amount_of_variables_label">
+            <property name="width-request">100</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="label" translatable="yes">Amount of variables</property>
+          </object>
+          <packing>
+            <property name="x">10</property>
+            <property name="y">64</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkSpinButton" id="amount_of_variables_spinbutton">
+            <property name="width-request">100</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="climb-rate">1</property>
+            <property name="numeric">True</property>
+            <property name="value">2</property>
+          </object>
+          <packing>
+            <property name="x">200</property>
+            <property name="y">57</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="amount_of_restrictions_label">
+            <property name="width-request">100</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="label" translatable="yes">Amount of restrictions</property>
+          </object>
+          <packing>
+            <property name="x">10</property>
+            <property name="y">110</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkSpinButton" id="amount_of_restrictions_spinbutton">
+            <property name="width-request">100</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+          </object>
+          <packing>
+            <property name="x">200</property>
+            <property name="y">107</property>
           </packing>
         </child>
       </object>

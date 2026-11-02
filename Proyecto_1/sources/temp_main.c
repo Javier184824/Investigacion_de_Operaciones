@@ -8,15 +8,23 @@
 #include "../headers/structs.h"
 #include "../headers/simplex.h"
 
+#define MAX_DECISION_VARIABLES 15
+#define MAX_RESTRICTIONS 15
+#define MIN_DECISION_VARIABLES 2
+#define MIN_RESTRICTIONS 2
+
 int main(int argc, char *argv[]) {
    srand(time(NULL));
 
-   int max_restriction = (rand() % 13) + 3;//3;//
-   int desicion = (rand() % 13) + 2;//2;//
+   //int max_restriction = (rand() % (MAX_RESTRICTIONS - MIN_RESTRICTIONS + 1)) + MIN_RESTRICTIONS;
+   //int desicion = (rand() % (MAX_DECISION_VARIABLES - MIN_DECISION_VARIABLES + 1)) + MIN_DECISION_VARIABLES;
+
+   int max_restriction = 3;
+   int desicion = 3 + 1;
 
    int max_tries = desicion*3;
-   int max_variable_amount =  desicion + 2 + (max_restriction-1);
-   int max_variable_value = rand() % 100;
+   int max_variable_amount = desicion + max_restriction;
+   int max_variable_value = rand() % 100 + 1;
 
    matrix_value matrix[max_variable_amount][max_restriction];
 
@@ -31,7 +39,6 @@ int main(int argc, char *argv[]) {
    }
    printf("\n");
 
-   #if 0
    solve_simplex(max_variable_amount, max_restriction, max_tries, matrix);
    printf("\n");
 
@@ -42,9 +49,9 @@ int main(int argc, char *argv[]) {
       }
       printf("\n");
    }
-   #endif
 
    write_original_problem("Some name", desicion, max_variable_amount, max_restriction, matrix);
+   write_initial_table("Some name", desicion, max_variable_amount, max_restriction, matrix);
 
    return 0;
 }
