@@ -54,7 +54,7 @@ void create_problem(const int max_variable_value,const int desicion_v, const int
 				}else{//last columns of restriction - last
 					/*int check = desicion_v+1+slack -i;
 					printf("s- %d, c- %d\n",slack, check);*/
-					if(i == (desicion_v+1+slack) && slack == (j-1)){//sets the first BFS
+					if(i == (desicion_v+slack) && slack == (j-1)){//sets the first BFS
 						matrix_value f_value = {i, 1};
 
 						matrix[i][j] = f_value;

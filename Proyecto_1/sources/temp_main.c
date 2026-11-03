@@ -26,6 +26,8 @@ int main(int argc, char *argv[]) {
    int max_variable_amount = desicion + max_restriction;
    int max_variable_value = rand() % 100 + 1;
 
+   bool maximize = true;
+
    matrix_value matrix[max_variable_amount][max_restriction];
 
    create_problem(max_variable_value, desicion, max_variable_amount, max_restriction, matrix);
@@ -39,7 +41,7 @@ int main(int argc, char *argv[]) {
    }
    printf("\n");
 
-   solve_simplex(max_variable_amount, max_restriction, max_tries, matrix);
+   solve_simplex(max_variable_amount, max_restriction, max_tries, maximize, matrix);
    printf("\n");
 
    for(int j = 0; j < max_restriction; j++){//print the final table
