@@ -159,11 +159,11 @@ void solve_simplex(const int max_variable_amount, const int max_restriction, con
 		long double solution_2[actual_variables-1];
 
 		//                                        get the first solution
-		for(int i = 1; i < actual_variables-1; i++){
+		for(int i = 1; i < actual_variables; i++){
 			bool found_value = false;
 			for(int j = 1; j < max_restriction; j++){
 		    	if(matrix[i][j].value == 1 && matrix[i][0].value == 0){
-		    		solution_1[i-1] = matrix[max_variable_amount][j].value;
+		    		solution_1[i-1] = matrix[max_variable_amount-1][j].value;
 		    		found_value = true;
 		    	}
 		    	if(!found_value){
@@ -202,11 +202,11 @@ void solve_simplex(const int max_variable_amount, const int max_restriction, con
 		canonize(max_variable_amount, max_restriction, mult_i, mult_j, matrix);
 
 		//                                        get the second solution
-		for(int i = 1; i < actual_variables-1; i++){
+		for(int i = 1; i < actual_variables; i++){
 			bool found_value = false;
 			for(int j = 1; j < max_restriction; j++){
 		    	if(matrix[i][j].value == 1 && matrix[i][0].value == 0){
-		    		solution_2[i-1] = matrix[max_variable_amount][j].value;
+		    		solution_2[i-1] = matrix[max_variable_amount-1][j].value;
 		    		found_value = true;
 		    	}
 		    	if(!found_value){
@@ -215,19 +215,14 @@ void solve_simplex(const int max_variable_amount, const int max_restriction, con
    			}
 		}
 
-		for(int i = 0; i < actual_variables-1; i++){
-			printf("s1: %Lf, s2: %Lf\n",solution_1[i],solution_2[i]);
-		}
-
 		printf("another solutions:\n");
 		for(int i = 0; i < 3; i++){
 			long double a = rand() % 99 +1;
 			a = a/100;
-			printf("a: %Lf\n", a);
 			printf("%d solution: ", i+1);
 			for(int j = 0; j < actual_variables-1; j++){
 				long double solution = solution_1[j]*a + solution_2[j]*(1-a);
-				printf("x%d: %Lf\t", j+1, solution);
+				printf("x%d: %.4Lf\t", j+1, solution);
 			}
 			printf("\n");
 		}
