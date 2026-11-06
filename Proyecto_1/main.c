@@ -5,6 +5,7 @@
 #include <ctype.h>
 #include <stdarg.h>
 #include <math.h>
+#include <glib/gstdio.h>
 #include "headers/structs.h"
 #include "headers/tex_manager.h"
 #include "headers/simplex.h"
@@ -166,8 +167,6 @@ static void on_btn_resolver_clicked(GtkButton *b, gpointer d)
 {
     (void)b; (void)d;
     Problem *P = calloc(1, sizeof *P);
-    char err[256] = "";
-
     P->n = get_n();
     P->m = get_m();
     P->max = (gtk_combo_box_get_active(GTK_COMBO_BOX(W("combo_verbo"))) != 1);
@@ -186,23 +185,32 @@ static void on_btn_resolver_clicked(GtkButton *b, gpointer d)
         P->b[i - 1] = spin_val(W("spin_rhs_%d", i));
     }
 
+    for (int i = 0; i < P->m; i++) {
+        if (P->op[i] != OP_LE) {
+            mostrar_error("En esta version solo se resuelven restricciones de la forma \"<=\".");
+            free(P);
+            return;
+        }
+        if (P->b[i] < 0) {
+            mostrar_error("Los lados derechos deben ser mayores o iguales a cero.");
+            free(P);
+            return;
+        }
+    }
+
     int desicion = P->n + 1;
     int max_restriction = P->m + 1;
     int max_variable_amount = desicion + max_restriction;
-    int max_tries = desicion * 3;
+    int max_tries = 1000;
     matrix_value matrix[max_variable_amount][max_restriction];
 
-    for (int i = 0; i < max_variable_amount; i++) {
-        for (int j = 0; j < max_restriction; j++) {
-            matrix[i][j].tag = 0;
-            matrix[i][j].value = 0.0L;
-        }
-    }
+    memset(matrix, 0, sizeof matrix);
 
     matrix[0][0].value = 1.0L;
     for (int i = 0; i < P->n; i++) {
         matrix[i + 1][0].value = -P->c[i];
-        matrix[i + 1][0].name = P->names[i][0];
+        matrix[i + 1][0].tag = i + 1;
+        snprintf(matrix[i + 1][0].name, sizeof matrix[i + 1][0].name, "%s", P->names[i]);
         for (int j = 0; j < P->m; j++) {
             matrix[i + 1][j + 1].tag = i + 1;
             matrix[i + 1][j + 1].value = P->A[j][i];
@@ -215,32 +223,42 @@ static void on_btn_resolver_clicked(GtkButton *b, gpointer d)
 
     write_original_problem(P->max, P->title, desicion, max_variable_amount, max_restriction, matrix);
     write_initial_table(desicion, max_variable_amount, max_restriction, matrix);
-    solve_simplex(max_variable_amount, desicion, max_restriction, max_tries, P->max, matrix);
+    int status = solve_simplex(max_variable_amount, desicion, max_restriction, max_tries, P->max, matrix);
     write_final_table(desicion, max_variable_amount, max_restriction, matrix);
-    write_solution(desicion, max_variable_amount, max_restriction, matrix);
+    write_solution(desicion, max_variable_amount, max_restriction, status, matrix);
 
-    if (P->show_all) {
-        system("pdflatex -output-directory=results tex_files/main.tex");
-        g_spawn_command_line_async("xdg-open " OUT_DIR "/" OUT_NAME ".pdf", NULL);
+    const char *tex = P->show_all ? "tex_files/main.tex" : "tex_files/main_no_intermediate.tex";
+    const char *pdf = P->show_all ? OUT_DIR "/main.pdf" : OUT_DIR "/main_no_intermediate.pdf";
+    char cmd[512];
+    snprintf(cmd, sizeof cmd,
+             "pdflatex -interaction=nonstopmode -halt-on-error -output-directory=" OUT_DIR " %s > " OUT_DIR "/pdflatex_output.txt 2>&1",
+             tex);
+
+    if (system(cmd) == 0) {
+        char *open_cmd = g_strdup_printf("xdg-open %s", pdf);
+        g_spawn_command_line_async(open_cmd, NULL);
+        g_free(open_cmd);
+    } else {
+        mostrar_error("No se pudo generar el PDF. Revise que pdflatex este instalado y mire "
+                      OUT_DIR "/pdflatex_output.txt para ver el error.");
     }
-    else {
-        system("pdflatex -output-directory=results tex_files/main_no_intermediate.tex");
-        g_spawn_command_line_async("xdg-open " OUT_DIR "/" "main_no_intermediate.pdf", NULL);
-    }
-    
-    #if 0
-    if (1 == 0)
-    //if (generar_pdf(P, err, sizeof err))
-        g_spawn_command_line_async("xdg-open " OUT_DIR "/" OUT_NAME ".pdf", NULL);
-    else
-        mostrar_error(err);
-    #endif
 
     free(P);
 }
 
 int main(int argc, char *argv[])
 {
+    /* Los archivos (glade, tex_files, results, figures) se buscan relativos al ejecutable */
+    char *exe = g_file_read_link("/proc/self/exe", NULL);
+    if (exe) {
+        char *dir = g_path_get_dirname(exe);
+        if (g_chdir(dir) != 0) g_printerr("Aviso: no se pudo cambiar a %s\n", dir);
+        g_free(dir);
+        g_free(exe);
+    }
+
+    g_mkdir_with_parents(OUT_DIR, 0755);
+
     gtk_init(&argc, &argv);
 
     builder = gtk_builder_new();
