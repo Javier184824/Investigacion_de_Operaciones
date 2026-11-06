@@ -166,7 +166,7 @@ void write_original_problem(const int maximizing, const char* problem_name, cons
     }
     if (matrix[desicion_v - 1][0].value > 0) {
         fprintf(fptr, " + %Lfx_%d \\\\ \n", matrix[desicion_v - 1][0].value, matrix[desicion_v - 1][0].tag);
-    } 
+    }
     else {
         fprintf(fptr, " - %Lfx_%d \\\\ \n", -matrix[desicion_v - 1][0].value, matrix[desicion_v - 1][0].tag);
     }

@@ -2,6 +2,7 @@
 #define STRUCTS_H
 
 typedef struct{
+   char name[64];
    int tag;
    long double value;
 } matrix_value;

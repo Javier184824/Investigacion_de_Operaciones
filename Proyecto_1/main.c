@@ -202,6 +202,7 @@ static void on_btn_resolver_clicked(GtkButton *b, gpointer d)
     matrix[0][0].value = 1.0L;
     for (int i = 0; i < P->n; i++) {
         matrix[i + 1][0].value = -P->c[i];
+        matrix[i + 1][0].name = P->names[i][0];
         for (int j = 0; j < P->m; j++) {
             matrix[i + 1][j + 1].tag = i + 1;
             matrix[i + 1][j + 1].value = P->A[j][i];
@@ -218,13 +219,13 @@ static void on_btn_resolver_clicked(GtkButton *b, gpointer d)
     write_final_table(desicion, max_variable_amount, max_restriction, matrix);
     write_solution(desicion, max_variable_amount, max_restriction, matrix);
 
-    g_spawn_command_line_async("xdg-open " OUT_DIR "/" OUT_NAME ".pdf", NULL);
-
     if (P->show_all) {
         system("pdflatex -output-directory=results tex_files/main.tex");
+        g_spawn_command_line_async("xdg-open " OUT_DIR "/" OUT_NAME ".pdf", NULL);
     }
     else {
         system("pdflatex -output-directory=results tex_files/main_no_intermediate.tex");
+        g_spawn_command_line_async("xdg-open " OUT_DIR "/" "main_no_intermediate.pdf", NULL);
     }
     
     #if 0
