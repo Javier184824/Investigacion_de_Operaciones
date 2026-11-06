@@ -1,0 +1,116 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+
+% Automatic titles in english
+\usepackage[english]{babel}
+
+% Support for good URLs and hyperlinks between sections
+\usepackage{hyperref}
+
+% Images and figures
+\usepackage{graphicx}
+
+% Equations
+\usepackage{amsmath}
+
+% Floating point arranging of figures and tables
+\usepackage{float}
+
+% Adjust margins
+\usepackage{changepage}
+
+\usepackage[table]{xcolor}
+
+\usepackage{tabularx}
+
+\def \unidad{Computer Engineering Department}
+\def \programa{Computer Engineering}
+\def \curso{IC6400 - Operations Research}
+\def \semestre{Semester II 2026}
+\def \profesor{Dr. Francisco J. Torres-Rojas}
+\def \titulo{Simplex Method Project}
+\def \autores{
+    Dayron Josué Porras-Pérez\\
+    2023124693\\
+
+    \vspace*{1cm}
+
+    Javier Lee-Liang\\
+    2020184824\\
+
+    \vspace*{1cm}
+
+    José Julián Araya-Castillo\\
+    2020098909\\
+}
+\def \fecha{November 2026}
+\def \lugar{
+    San Jose, 
+    Costa Rica
+}
+
+% Inicia el documento 
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+        
+        \includegraphics[width=0.8\linewidth]{figures/logo_tec.jpg}\\
+        \LARGE
+        \unidad\\
+        \programa\\
+        \curso\\
+        \semestre
+        
+        \vspace{1cm}
+        
+        \Huge
+        \textbf{\titulo}
+            
+        \vspace{0.5cm}
+        \LARGE
+        \profesor
+            
+        \vspace{1.5cm}
+        
+        \large    
+        \autores
+            
+        \vfill
+        
+        \lugar\\
+        \fecha
+        
+    \end{center}
+\end{titlepage}
+
+\chapter*{The Simplex Algorithm}
+
+The Simplex Algorithm is a mathematical method used to solve linear programming problems. 
+It was developed by George Dantzig in 1947 and has since become one of the most widely used 
+optimization techniques in various fields, including operations research, economics, and engineering.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\linewidth]{figures/dantzig.jpeg}
+    \caption{Image inspired by George Dantzig, the creator of the Simplex Algorithm.}
+\end{figure}
+
+\chapter*{Original Problem}
+
+\input{tex_files/original_problem.tex}
+
+\chapter*{Initial Table}
+
+\input{tex_files/initial_table.tex}
+
+\chapter*{Final Table}
+
+\input{tex_files/final_table.tex}
+
+\chapter*{Solution}
+
+\input{tex_files/solution.tex}
+
+\end{document}

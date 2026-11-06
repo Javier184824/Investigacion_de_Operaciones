@@ -6,6 +6,7 @@
 #include <math.h>
 #include "../headers/structs.h"
 #include "../headers/simplex.h"
+#include "../headers/tex_manager.h"
 
 void find_pivot(const int max_variable_amount, const int max_restriction, const bool maximize, int* i_indexF, int* j_indexF, matrix_value matrix[max_variable_amount][max_restriction]){
 
@@ -93,28 +94,46 @@ void canonize(const int max_variable_amount, const int max_restriction, const in
 
 }
 
-void solve_simplex(const int max_variable_amount, const int max_restriction, const int max_tries, const bool maximize, matrix_value matrix[max_variable_amount][max_restriction]){
+void solve_simplex(const int max_variable_amount, const int desicion_v, const int max_restriction, const int max_tries, const bool maximize, matrix_value matrix[max_variable_amount][max_restriction]){
+	FILE* fptr_intermediate = open_file("tex_files/intermediate_tables.tex");
+	FILE* fptr_solution = open_file("tex_files/solution.tex");
+	
 	bool stop = false;//3n, n = desicion_v
 	int cont = 0;
 
 	while(!stop && cont <= max_tries){
 		int i_index = 0;
 		int j_index = 0;
+
+		fprintf(fptr_intermediate, "\\section*{Iteration %d}\n", cont + 1);
+
 		//========find pivot=============
 
 		find_pivot(max_variable_amount, max_restriction, maximize, &i_index, &j_index, matrix);
 
 		if(i_index == 0 && cont == 0){
-			printf("no value found for first pivot\n");
+			fprintf(fptr_intermediate, "No value found for first pivot\n");
+			fclose(fptr_intermediate);
+			fclose(fptr_solution);
 			return;
 		}else if(i_index == 0){
-			printf("not bounded problem\n");
+			fprintf(fptr_intermediate, "Unbounded problem\n");
+			fprintf(fptr_solution, "Unbounded problem\n");
+			fclose(fptr_intermediate);
+			fclose(fptr_solution);
 			return;
 		}
+		
+		fprintf(fptr_intermediate, "\\subsection*{Finding the Pivot}\n");
+		write_table_with_pivot(fptr_intermediate, i_index, j_index, desicion_v, max_variable_amount, max_restriction, matrix);
 		
 		//===========solve===============
 		
 		canonize(max_variable_amount, max_restriction, i_index, j_index, matrix);
+
+		fprintf(fptr_intermediate, "\\subsection*{Canonize the Pivot column with Pivot value}\n");
+		write_table(fptr_intermediate, desicion_v, max_variable_amount, max_restriction, matrix);
+		fprintf(fptr_intermediate, "\\newpage\n");
 
 		//==========check if done========
 		stop = true;
@@ -135,7 +154,9 @@ void solve_simplex(const int max_variable_amount, const int max_restriction, con
 	}
 
 	if(cont > max_tries){
-		printf("Solver got stuck in a loop. No solution found.");
+		fprintf(fptr_solution, "Solver got stuck in a loop. No solution found.");
+		fclose(fptr_intermediate);
+		fclose(fptr_solution);
 		return;
 	}
 
@@ -172,6 +193,7 @@ void solve_simplex(const int max_variable_amount, const int max_restriction, con
    			}
 		}
 
+		#if 0
 		for(int j = 0; j < max_restriction; j++){//print the final table
 	    	printf("%d\t",j);
 		      	for(int i = 0; i < max_variable_amount; i++){
@@ -180,6 +202,7 @@ void solve_simplex(const int max_variable_amount, const int max_restriction, con
 	      	printf("\n");
    		}
    		printf("\n");
+		#endif
 
    		int mult_j = 0;
    		long double act_mult_j = -1;
@@ -215,6 +238,7 @@ void solve_simplex(const int max_variable_amount, const int max_restriction, con
    			}
 		}
 
+		#if 0
 		printf("another solutions:\n");
 		for(int i = 0; i < 3; i++){
 			long double a = rand() % 99 +1;
@@ -226,5 +250,9 @@ void solve_simplex(const int max_variable_amount, const int max_restriction, con
 			}
 			printf("\n");
 		}
+		#endif
 	}
+
+	fclose(fptr_intermediate);
+	fclose(fptr_solution);
 }

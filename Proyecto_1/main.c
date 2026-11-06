@@ -5,11 +5,13 @@
 #include <ctype.h>
 #include <stdarg.h>
 #include <math.h>
-
+#include "headers/structs.h"
+#include "headers/tex_manager.h"
+#include "headers/simplex.h"
 
 #define GLADE_FILE "menu.glade"
-#define OUT_DIR    "salida"
-#define OUT_NAME   "simplex"
+#define OUT_DIR    "results"
+#define OUT_NAME   "main"
 
 // Valores globales
 #define MAXN 15
@@ -184,11 +186,55 @@ static void on_btn_resolver_clicked(GtkButton *b, gpointer d)
         P->b[i - 1] = spin_val(W("spin_rhs_%d", i));
     }
 
+    int desicion = P->n + 1;
+    int max_restriction = P->m + 1;
+    int max_variable_amount = desicion + max_restriction;
+    int max_tries = desicion * 3;
+    matrix_value matrix[max_variable_amount][max_restriction];
+
+    for (int i = 0; i < max_variable_amount; i++) {
+        for (int j = 0; j < max_restriction; j++) {
+            matrix[i][j].tag = 0;
+            matrix[i][j].value = 0.0L;
+        }
+    }
+
+    matrix[0][0].value = 1.0L;
+    for (int i = 0; i < P->n; i++) {
+        matrix[i + 1][0].value = -P->c[i];
+        for (int j = 0; j < P->m; j++) {
+            matrix[i + 1][j + 1].tag = i + 1;
+            matrix[i + 1][j + 1].value = P->A[j][i];
+        }
+    }
+    for (int j = 0; j < P->m; j++) {
+        matrix[desicion + j][j + 1].value = 1.0L;
+        matrix[max_variable_amount - 1][j + 1].value = P->b[j];
+    }
+
+    write_original_problem(P->max, P->title, desicion, max_variable_amount, max_restriction, matrix);
+    write_initial_table(desicion, max_variable_amount, max_restriction, matrix);
+    solve_simplex(max_variable_amount, desicion, max_restriction, max_tries, P->max, matrix);
+    write_final_table(desicion, max_variable_amount, max_restriction, matrix);
+    write_solution(desicion, max_variable_amount, max_restriction, matrix);
+
+    g_spawn_command_line_async("xdg-open " OUT_DIR "/" OUT_NAME ".pdf", NULL);
+
+    if (P->show_all) {
+        system("pdflatex -output-directory=results tex_files/main.tex");
+    }
+    else {
+        system("pdflatex -output-directory=results tex_files/main_no_intermediate.tex");
+    }
+    
+    #if 0
     if (1 == 0)
     //if (generar_pdf(P, err, sizeof err))
         g_spawn_command_line_async("xdg-open " OUT_DIR "/" OUT_NAME ".pdf", NULL);
     else
         mostrar_error(err);
+    #endif
+
     free(P);
 }
 

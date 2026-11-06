@@ -7,6 +7,7 @@
 #include "../headers/structs.h"
 
 void create_problem(const int max_variable_value,const int desicion_v, const int max_variable_amount, const int max_restriction, matrix_value matrix[max_variable_amount][max_restriction]){
+	#if 0
 	int slack = 0;
 	for (int j = 0; j < max_restriction; ++j){//max_variable_amount + 2, max_restriction +1
 		for (int i = 0; i < max_variable_amount; ++i){
@@ -69,4 +70,5 @@ void create_problem(const int max_variable_value,const int desicion_v, const int
 			
 		}
 	}
+	#endif
 }

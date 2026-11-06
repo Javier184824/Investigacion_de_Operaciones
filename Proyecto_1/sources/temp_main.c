@@ -1,3 +1,5 @@
+#if 0
+
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
@@ -19,7 +21,7 @@ int main(int argc, char *argv[]) {
    //int max_restriction = (rand() % (MAX_RESTRICTIONS - MIN_RESTRICTIONS + 1)) + MIN_RESTRICTIONS;
    //int desicion = (rand() % (MAX_DECISION_VARIABLES - MIN_DECISION_VARIABLES + 1)) + MIN_DECISION_VARIABLES;
 
-   int max_restriction = 3;
+   int max_restriction = 3 + 1;
    int desicion = 3 + 1;
 
    int max_tries = desicion*3;
@@ -32,6 +34,7 @@ int main(int argc, char *argv[]) {
 
    create_problem(max_variable_value, desicion, max_variable_amount, max_restriction, matrix);
 
+   #if 0
    for(int j = 0; j < max_restriction; j++){//print the initial table
       printf("%d\t",j);
       for(int i = 0; i < max_variable_amount; i++){
@@ -41,9 +44,6 @@ int main(int argc, char *argv[]) {
    }
    printf("\n");
 
-   solve_simplex(max_variable_amount, max_restriction, max_tries, maximize, matrix);
-   printf("\n");
-
    for(int j = 0; j < max_restriction; j++){//print the final table
       printf("%d\t",j);
       for(int i = 0; i < max_variable_amount; i++){
@@ -51,9 +51,16 @@ int main(int argc, char *argv[]) {
       }
       printf("\n");
    }
+   #endif
 
-   write_original_problem("Some name", desicion, max_variable_amount, max_restriction, matrix);
-   write_initial_table("Some name", desicion, max_variable_amount, max_restriction, matrix);
+   write_original_problem(1, "Some name", desicion, max_variable_amount, max_restriction, matrix);
+   write_initial_table(desicion, max_variable_amount, max_restriction, matrix);
+   
+   solve_simplex(max_variable_amount, desicion, max_restriction, max_tries, maximize, matrix);
 
+   write_final_table(desicion, max_variable_amount, max_restriction, matrix);
+   
    return 0;
 }
+
+#endif
