@@ -235,7 +235,7 @@ static void on_btn_resolver_clicked(GtkButton *b, gpointer d)
              tex);
 
     if (system(cmd) == 0) {
-        char *open_cmd = g_strdup_printf("xdg-open %s", pdf);
+        char *open_cmd = g_strdup_printf("evince --presentation %s", pdf);
         g_spawn_command_line_async(open_cmd, NULL);
         g_free(open_cmd);
     } else {

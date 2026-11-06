@@ -8550,7 +8550,7 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_Clean">
-                    <property name="label">Clean</property>
+                    <property name="label">Clear</property>
                     <property name="visible">True</property>
                     <signal name="clicked" handler="on_btn_Clean_clicked"/>
                   </object>
