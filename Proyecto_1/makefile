@@ -12,8 +12,3 @@ run: simplex
 clean:
 	rm -rf simplex salida
 	rm -rf simplex_test
-
-temp:
-	$(CC) $(CFLAGS) $(SRC) -o simplex_temp -lm
-	./simplex_temp
-	pdflatex -output-directory=results tex_files/main.tex

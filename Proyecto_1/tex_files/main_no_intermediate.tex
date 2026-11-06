@@ -23,6 +23,15 @@
 
 \usepackage{tabularx}
 
+\usepackage[margin=2cm]{geometry}
+
+\usepackage{pdflscape}
+
+\pagestyle{empty}
+\makeatletter
+\let\ps@plain\ps@empty
+\makeatother
+
 \def \unidad{Computer Engineering Department}
 \def \programa{Computer Engineering}
 \def \curso{IC6400 - Operations Research}
@@ -85,17 +94,38 @@
     \end{center}
 \end{titlepage}
 
-\chapter*{The Simplex Algorithm}
-
-The Simplex Algorithm is a mathematical method used to solve linear programming problems. 
-It was developed by George Dantzig in 1947 and has since become one of the most widely used 
-optimization techniques in various fields, including operations research, economics, and engineering.
+\chapter*{George Dantzig}
+\begin{itemize}
+    \item George Bernard Dantzig (1914-2005) was an American mathematician and computer scientist.
+    \item He is best known for his development of the Simplex algorithm, a method for solving linear programming problems.
+    \item Dantzig's work in optimization and operations research has had a profound impact on various fields, including economics, engineering, and logistics.
+    \item He made significant contributions to the theory of linear programming, integer programming, and network flow problems.
+    \item Dantzig's work has been widely recognized and has earned him numerous awards and honors throughout his career.
+\end{itemize}
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.4\linewidth]{figures/dantzig.jpeg}
     \caption{Image inspired by George Dantzig, the creator of the Simplex Algorithm.}
 \end{figure}
+
+\chapter*{The Simplex Algorithm}
+
+\begin{itemize}
+    \item It is a ``mechanical'' method that allows to find optimal solutions to linear programming problems.
+    \item It was invented by George Dantzig in 1947.
+    \item Uses matrix operations until it finds the optimal solution or determines that the problem is unbounded or infeasible.
+    \item It is based in a geometric interpretation of the problem, where the feasible region is a convex polytope and the optimal 
+    solution is found at one of its vertices.
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/simplex-illustration.jpg}
+    \caption{Image inspired by the geometric interpretation of the Simplex Algorithm.}
+\end{figure}
+
+\begin{landscape}
 
 \chapter*{Original Problem}
 
@@ -108,6 +138,8 @@ optimization techniques in various fields, including operations research, econom
 \chapter*{Final Table}
 
 \input{tex_files/final_table.tex}
+
+\end{landscape}
 
 \chapter*{Solution}
 

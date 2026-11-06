@@ -9,14 +9,6 @@
 
 #define EPS 1e-9L
 
-/* Layout de la matriz: matrix[columna][fila]
- *   columna 0              -> columna de Z
- *   columnas 1..n          -> variables de decision
- *   columnas n+1..n+m      -> variables de holgura
- *   ultima columna         -> lado derecho (b)
- *   fila 0                 -> fila de Z, filas 1..m -> restricciones
- */
-
 /* Si la columna es basica devuelve la fila donde esta su 1; si no, 0 */
 int basic_row(const int max_variable_amount, const int max_restriction, matrix_value matrix[max_variable_amount][max_restriction], const int col){
 	(void)max_variable_amount;

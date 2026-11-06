@@ -83,8 +83,8 @@ static void write_header(
     (void)max_restriction;
     fprintf(fptr, "\\begin{table}[H]\n\\centering\n");
     if (max_variable_amount > 20) fprintf(fptr, "\\tiny\\setlength{\\tabcolsep}{2pt}\n");
-    else if (max_variable_amount > 13) fprintf(fptr, "\\scriptsize\\setlength{\\tabcolsep}{3pt}\n");
-    else if (max_variable_amount > 9) fprintf(fptr, "\\small\\setlength{\\tabcolsep}{4pt}\n");
+    else if (max_variable_amount > 13) fprintf(fptr, "\\small\\setlength{\\tabcolsep}{3pt}\n");
+    else if (max_variable_amount > 9) fprintf(fptr, "\\setlength{\\tabcolsep}{4pt}\n");
 
     fprintf(fptr, "\\begin{tabular}{|");
     for (int j = 0; j < max_variable_amount; j++) {
