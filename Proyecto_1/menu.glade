@@ -1834,7 +1834,7 @@
     </data>
   </object>
   <object class="GtkWindow" id="main_window">
-    <property name="title">Método Simplex – Entrada del modelo</property>
+    <property name="title">Simplex Model</property>
     <property name="default_width">900</property>
     <property name="default_height">720</property>
     <signal name="destroy" handler="on_main_window_destroy"/>
