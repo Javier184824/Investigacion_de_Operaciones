@@ -325,6 +325,34 @@
 % =====================================================================
 %  GENERATED TREES (one per problem)
 % =====================================================================
+\newcommand{\bbTreeUno}{%
+\begin{bbtree}[1.30]
+  \useasboundingbox (-1.40,-3.50) rectangle (6.10,0.60);
+  \bbNode{n1}{2.94,0.00}{1}{1}{branched}{P1}{\ $z{=}20.5$\\$(3.5,\,1.5)$}
+  \bbNode{n2}{1.18,-1.45}{1}{2}{integer}{P2}{\ $z{=}19$\\$(3,\,2)$}
+  \bbNode{n3}{4.70,-1.45}{1}{3}{integer}{P3}{\ $z{=}20$\\$(4,\,0)$}
+  \bbEdge{n1}{n2}{1}{$x_1 \le 3$}{left}
+  \bbEdge{n1}{n3}{1}{$x_1 \ge 4$}{right}
+\end{bbtree}}
+
+\newcommand{\bbTreeTres}{%
+\begin{bbtree}[0.99]
+  \useasboundingbox (-1.40,-3.50) rectangle (8.45,0.60);
+  \bbNode{n1}{2.94,0.00}{1}{1}{branched}{P1}{\ $z{=}17.5$\\$(5,\,2.5)$}
+  \bbNode{n2}{1.18,-1.45}{1}{2}{branched}{P2}{\ $z{=}17.333$\\$(5.666,\,2)$}
+  \bbNode{n3}{4.70,-1.45}{1}{7}{pruned}{P3}{\ $z{=}17$\\$(4,\,3)$}
+  \bbNode{n4}{0.00,-2.90}{2}{3}{pruned}{P4}{\ $z{=}17.5$\\$(5,\,2.5)$}
+  \bbNode{n5}{2.35,-2.90}{2}{4}{branched}{P5}{\ $z{=}17.25$\\$(6,\,1.75)$}
+  \bbNode{n6}{2.35,-4.35}{4}{5}{integer}{P6}{\ $z{=}17$\\$(7,\,1)$}
+  \bbNode{n7}{4.70,-4.35}{4}{6}{pruned}{P7}{\ $z{=}17.5$\\$(5,\,2.5)$}
+  \bbEdge{n1}{n2}{1}{$x_2 \le 2$}{left}
+  \bbEdge{n1}{n3}{1}{$x_2 \ge 3$}{right}
+  \bbEdge{n2}{n4}{2}{$x_1 \le 5$}{left}
+  \bbEdge{n2}{n5}{2}{$x_1 \ge 6$}{right}
+  \bbEdge{n5}{n6}{4}{$x_2 \le 1$}{left}
+  \bbEdge{n5}{n7}{4}{$x_2 \ge 2$}{right}
+\end{bbtree}}
+
 \newcommand{\bbTreeSeis}{%
 \begin{bbtree}[1.30]
   \useasboundingbox (-1.40,-3.50) rectangle (6.10,0.60);
@@ -409,11 +437,67 @@ Depth-first search (the $\le$ branch is explored first). Subproblems are numbere
 \begin{column}{0.40\textwidth}
 \colheader{LINGO model}
 {\footnotesize \texttt{MAX = 5{*}x1 + 2{*}x2;}\\ \texttt{3{*}x1 + x2 $\le$ 12;}\\ \texttt{x1 + x2 $\le$ 5;}\\ \texttt{END}\par}
+\colheader{Result}
+{\footnotesize $z=20.5$,\quad $x_1=3.5$,\quad $x_2=1.5$\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize $x_1=3.5$ is fractional $\Rightarrow$ branch: \textbf{P2} with $x_1\le 3$ \; and \; \textbf{P3} with $x_1\ge 4$.\par}
 \end{column}
 \begin{column}{0.58\textwidth}
 \lingoshot{p1_P1}
 \end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}{Problem 1 · Tree after solving P1}
+\noindent{\small \textbf{Step 1:} P1 solved (branched). \hfill {\footnotesize Current incumbent: none}\par}
+\bbset{1}\bbTreeUno
+\end{frame}
+
+\begin{frame}{Problem 1 · Subproblem P2: LINGO}
+\begin{columns}[T]
+\begin{column}{0.44\textwidth}
+\colheader{LINGO model}
+{\footnotesize \texttt{MAX = 5{*}x1 + 2{*}x2;}\\ \texttt{3{*}x1 + x2 $\le$ 12;}\\ \texttt{x1 + x2 $\le$ 5;}\\ \texttt{x1 $\le$ 3;}\\ \texttt{END}\par}\vspace{4pt}
+\colheader{Result}
+{\footnotesize $z=19$,\quad $x_1=3$,\quad $x_2=2$\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize Feasible integer solution $\Rightarrow$ new \textbf{incumbent} $z^*=19$. Node fathomed.\par}
+\end{column}
+\begin{column}{0.54\textwidth}
+\lingoshot{p1_P2}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problem 1 · Tree after solving P2}
+\noindent{\small \textbf{Step 2:} P2 solved (integer). \hfill {\footnotesize Current incumbent: $z^*=19$ at $(3,2)$}\par}
+\bbset{2}\bbTreeUno
+\end{frame}
+
+\begin{frame}{Problem 1 · Subproblem P3: LINGO}
+\begin{columns}[T]
+\begin{column}{0.44\textwidth}
+\colheader{LINGO model}
+{\footnotesize \texttt{MAX = 5{*}x1 + 2{*}x2;}\\ \texttt{3{*}x1 + x2 $\le$ 12;}\\ \texttt{x1 + x2 $\le$ 5;}\\ \texttt{x1 $\ge$ 4;}\\ \texttt{END}\par}\vspace{4pt}
+\colheader{Result}
+{\footnotesize $z=20$,\quad $x_1=4$,\quad $x_2=0$\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize Feasible integer solution $\Rightarrow$ new \textbf{incumbent} $z^*=20$. Node fathomed.\par}
+\end{column}
+\begin{column}{0.54\textwidth}
+\lingoshot{p1_P3}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problem 1 · Tree after solving P3}
+\noindent{\small \textbf{Step 3:} P3 solved (integer). \hfill {\footnotesize Current incumbent: $z^*=20$ at $(4,0)$}\par}
+\bbset{3}\bbTreeUno
+\end{frame}
+
+\begin{frame}{Problem 1 · Final solution}
+\noindent{\small \textbf{Optimal solution:} $z^*=20$,\ $x_1^*=4$,\ $x_2^*=0$ \hfill (3 subproblems solved)\par}
+\bbset{99}\bbTreeUno
 \end{frame}
 
 \makesection{Problem 3}
@@ -426,11 +510,151 @@ Depth-first search (the $\le$ branch is explored first). Subproblems are numbere
 \begin{column}{0.40\textwidth}
 \colheader{LINGO model}
 {\footnotesize \texttt{MAX = 2{*}x1 + 3{*}x2;}\\ \texttt{x1 + 2{*}x2 $\le$ 10;}\\ \texttt{3{*}x1 + 4{*}x2 $\le$ 25;}\\ \texttt{END}\par}
+\colheader{Result}
+{\footnotesize $z=17.5$,\quad $x_1=5$,\quad $x_2=2.5$\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize $x_2=2.5$ is fractional $\Rightarrow$ branch: \textbf{P2} with $x_2\le 2$ \; and \; \textbf{P3} with $x_2\ge 3$.\par}
 \end{column}
 \begin{column}{0.58\textwidth}
 \lingoshot{p3_P1}
 \end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}{Problem 3 · Tree after solving P1}
+\noindent{\small \textbf{Step 1:} P1 solved (branched). \hfill {\footnotesize Current incumbent: none}\par}
+\bbset{1}\bbTreeTres
+\end{frame}
+
+\begin{frame}{Problem 3 · Subproblem P2: LINGO}
+\begin{columns}[T]
+\begin{column}{0.44\textwidth}
+\colheader{LINGO model}
+{\footnotesize \texttt{MAX = 2{*}x1 + 3{*}x2;}\\ \texttt{x1 + 2{*}x2 $\le$ 10;}\\ \texttt{3{*}x1 + 4{*}x2 $\le$ 25;}\\ \texttt{x2 $\le$ 2;}\\ \texttt{END}\par}\vspace{4pt}
+\colheader{Result}
+{\footnotesize $z=\frac{52}{3}\approx 17.33$,\quad $x_1=\frac{17}{3}\approx 5.66$,\quad $x_2=2$\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize $x_1=\frac{17}{3}\approx 5.66$ is fractional $\Rightarrow$ branch: \textbf{P4} with $x_1\le 5$ \; and \; \textbf{P5} with $x_1\ge 6$.\par}
+\end{column}
+\begin{column}{0.54\textwidth}
+\lingoshot{p3_P2}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problem 3 · Tree after solving P2}
+\noindent{\small \textbf{Step 2:} P2 solved (branched). \hfill {\footnotesize Current incumbent: none}\par}
+\bbset{2}\bbTreeTres
+\end{frame}
+
+\begin{frame}{Problem 3 · Subproblem P4: LINGO}
+\begin{columns}[T]
+\begin{column}{0.44\textwidth}
+\colheader{LINGO model}
+{\footnotesize \texttt{MAX = 2{*}x1 + 3{*}x2;}\\ \texttt{x1 + 2{*}x2 $\le$ 10;}\\ \texttt{3{*}x1 + 4{*}x2 $\le$ 25;}\\ \texttt{x1 $\le$ 5;}\\ \texttt{END}\par}\vspace{4pt}
+\colheader{Result}
+{\footnotesize $z=\frac{35}{2}\approx 17.5$,\quad $x_1=5$,\quad $x_2=\frac{5}{2}\approx 2.5$\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize Subproblem \textbf{P4} is the same as \textbf{P1}, so it gets pruned, because it is a repeated subproblem.\par}
+\end{column}
+\begin{column}{0.54\textwidth}
+\lingoshot{p3_P4}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problem 3 · Tree after solving P4}
+\noindent{\small \textbf{Step 3:} P4 solved (pruned). \hfill {\footnotesize Current incumbent: none}\par}
+\bbset{3}\bbTreeTres
+\end{frame}
+
+\begin{frame}{Problem 3 · Subproblem P5: LINGO}
+\begin{columns}[T]
+\begin{column}{0.44\textwidth}
+\colheader{LINGO model}
+{\footnotesize \texttt{MAX = 2{*}x1 + 3{*}x2;}\\ \texttt{x1 + 2{*}x2 $\le$ 10;}\\ \texttt{3{*}x1 + 4{*}x2 $\le$ 25;}\\ \texttt{x1 $\ge$ 6;}\\ \texttt{END}\par}\vspace{4pt}
+\colheader{Result}
+{\footnotesize $z=\frac{69}{4}\approx 17.25$,\quad $x_1=6$,\quad $x_2=\frac{7}{4}\approx 1.75$\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize $x_2=\frac{7}{4}\approx 1.75$ is fractional $\Rightarrow$ branch: \textbf{P6} with $x_2\le 1$ \; and \; \textbf{P7} with $x_2\ge 2$.\par}
+\end{column}
+\begin{column}{0.54\textwidth}
+\lingoshot{p3_P5}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problem 3 · Tree after solving P5}
+\noindent{\small \textbf{Step 4:} P5 solved (branched). \hfill {\footnotesize Current incumbent: none}\par}
+\bbset{4}\bbTreeTres
+\end{frame}
+
+\begin{frame}{Problem 3 · Subproblem P6: LINGO}
+\begin{columns}[T]
+\begin{column}{0.44\textwidth}
+\colheader{LINGO model}
+{\footnotesize \texttt{MAX = 2{*}x1 + 3{*}x2;}\\ \texttt{x1 + 2{*}x2 $\le$ 10;}\\ \texttt{3{*}x1 + 4{*}x2 $\le$ 25;}\\ \texttt{x2 $\le$ 1;}\\ \texttt{END}\par}\vspace{4pt}
+\colheader{Result}
+{\footnotesize $z=17$,\quad $x_1=7$,\quad $x_2=1$\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize Feasible integer solution $\Rightarrow$ new \textbf{incumbent} $z^*=17$. Node fathomed.\par}
+\end{column}
+\begin{column}{0.54\textwidth}
+\lingoshot{p3_P6}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problem 3 · Tree after solving P6}
+\noindent{\small \textbf{Step 5:} P6 solved (integer). \hfill {\footnotesize Current incumbent: $z^*=17$ at $(7,1)$}\par}
+\bbset{5}\bbTreeTres
+\end{frame}
+
+\begin{frame}{Problem 3 · Subproblem P7: LINGO}
+\begin{columns}[T]
+\begin{column}{0.44\textwidth}
+\colheader{LINGO model}
+{\footnotesize \texttt{MAX = 2{*}x1 + 3{*}x2;}\\ \texttt{x1 + 2{*}x2 $\le$ 10;}\\ \texttt{3{*}x1 + 4{*}x2 $\le$ 25;}\\ \texttt{x2 $\ge$ 2;}\\ \texttt{END}\par}\vspace{4pt}
+\colheader{Result}
+{\footnotesize $z=\frac{35}{2}\approx 17.5$,\quad $x_1=5$,\quad $x_2=\frac{5}{2}\approx 2.5$\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize Subproblem \textbf{P7} is the same as \textbf{P1}, so it gets pruned, because it is a repeated subproblem.\par}
+\end{column}
+\begin{column}{0.54\textwidth}
+\lingoshot{p3_P7}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problem 3 · Tree after solving P7}
+\noindent{\small \textbf{Step 6:} P7 solved (pruned). \hfill {\footnotesize Current incumbent: $z^*=17$ at $(7,1)$}\par}
+\bbset{6}\bbTreeTres
+\end{frame}
+
+\begin{frame}{Problem 3 · Subproblem P3: LINGO}
+\begin{columns}[T]
+\begin{column}{0.44\textwidth}
+\colheader{LINGO model}
+{\footnotesize \texttt{MAX = 2{*}x1 + 3{*}x2;}\\ \texttt{x1 + 2{*}x2 $\le$ 10;}\\ \texttt{3{*}x1 + 4{*}x2 $\le$ 25;}\\ \texttt{x2 $\ge$ 3;}\\ \texttt{END}\par}\vspace{4pt}
+\colheader{Result}
+{\footnotesize $z=17$,\quad $x_1=4$,\quad $x_2=3$\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize Feasible integer solution, but the current incumbent solution has the same $Z$ value.\par}
+\end{column}
+\begin{column}{0.54\textwidth}
+\lingoshot{p3_P7}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problem 3 · Tree after solving P3}
+\noindent{\small \textbf{Step 6:} P3 solved (pruned). \hfill {\footnotesize Current incumbent: $z^*=17$ at $(7,1)$}\par}
+\bbset{7}\bbTreeTres
+\end{frame}
+
+\begin{frame}{Problem 1 · Final solution}
+\noindent{\small \textbf{Optimal solution:} $z^*=17$,\ $x_1^*=7$,\ $x_2^*=1$ \hfill (7 subproblems solved)\par}
+\bbset{99}\bbTreeUno
 \end{frame}
 
 \makesection{Problem 4}
