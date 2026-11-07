@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.11.3)  7 NOV 2026 15:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.11.3)  7 NOV 2026 15:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1822,23 +1822,23 @@ Package pdftex.def Info: logos/Fondo_Claro.png  used on input line 967.
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10.95> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 978.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 982.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 10.40245pt on input line 978.
+(Font)              scaled to size 10.40245pt on input line 982.
 File: logos/Simbolo.png Graphic file (type png)
 <use logos/Simbolo.png>
-Package pdftex.def Info: logos/Simbolo.png  used on input line 978.
+Package pdftex.def Info: logos/Simbolo.png  used on input line 982.
 (pdftex.def)             Requested size: 42.67912pt x 28.45131pt.
  [68
 
 ]
 File: logos/LOGO.png Graphic file (type png)
 <use logos/LOGO.png>
-Package pdftex.def Info: logos/LOGO.png  used on input line 995.
+Package pdftex.def Info: logos/LOGO.png  used on input line 999.
 (pdftex.def)             Requested size: 124.8294pt x 40.84692pt.
 File: logos/Fondo_Oscuro.png Graphic file (type png)
 <use logos/Fondo_Oscuro.png>
-Package pdftex.def Info: logos/Fondo_Oscuro.png  used on input line 995.
+Package pdftex.def Info: logos/Fondo_Oscuro.png  used on input line 999.
 (pdftex.def)             Requested size: 455.24408pt x 256.07233pt.
  [69
 
@@ -1882,7 +1882,7 @@ msy9.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0900.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/font
 s/type1/urw/helvetic/uhvro8a.pfb>
-Output written on output/main.pdf (69 pages, 3101448 bytes).
+Output written on output/main.pdf (69 pages, 3101504 bytes).
 PDF statistics:
  564 PDF objects out of 1000 (max. 8388607)
  427 compressed objects within 5 object streams
