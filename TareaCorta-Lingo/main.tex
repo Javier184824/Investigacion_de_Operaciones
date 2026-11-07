@@ -438,9 +438,9 @@ Depth-first search (the $\le$ branch is explored first). Subproblems are numbere
 \colheader{LINGO model}
 {\footnotesize \texttt{MAX = 5{*}x1 + 2{*}x2;}\\ \texttt{3{*}x1 + x2 $\le$ 12;}\\ \texttt{x1 + x2 $\le$ 5;}\\ \texttt{END}\par}
 \colheader{Result}
-{\footnotesize $z=\frac{51}{2}\approx 20.5$,\quad $x_1=\frac{7}{2}\approx3.5$,\quad $x_2=\frac{3}{2}\approx 1.5$\par}\vspace{4pt}
+{\footnotesize $z=\frac{51}{2}\approx 20.5$,\quad $x_1=\frac{7}{2}\approx 3.5$,\quad $x_2=\frac{3}{2}\approx 1.5$\par}\vspace{4pt}
 \colheader{Decision}
-{\footnotesize $x_1=3.5$ is fractional $\Rightarrow$ branch: \textbf{P2} with $x_1\le 3$ \; and \; \textbf{P3} with $x_1\ge 4$.\par}
+{\footnotesize $x_1=\frac{7}{2}$ is fractional $\Rightarrow$ branch: \textbf{P2} with $x_1\le 3$ \; and \; \textbf{P3} with $x_1\ge 4$.\par}
 \end{column}
 \begin{column}{0.58\textwidth}
 \lingoshot{p1_P1}
@@ -513,7 +513,7 @@ Depth-first search (the $\le$ branch is explored first). Subproblems are numbere
 \colheader{Result}
 {\footnotesize $z=\frac{35}{2}\approx 17.5$,\quad $x_1=5$,\quad $x_2=\frac{5}{2}\approx 2.5$\par}\vspace{4pt}
 \colheader{Decision}
-{\footnotesize $x_2=\frac{5}{2}\approx 2.5$ is fractional $\Rightarrow$ branch: \textbf{P2} with $x_2\le 2$ \; and \; \textbf{P3} with $x_2\ge 3$.\par}
+{\footnotesize $x_2=\frac{5}{2}$ is fractional $\Rightarrow$ branch: \textbf{P2} with $x_2\le 2$ \; and \; \textbf{P3} with $x_2\ge 3$.\par}
 \end{column}
 \begin{column}{0.58\textwidth}
 \lingoshot{p3_P1}
@@ -534,7 +534,7 @@ Depth-first search (the $\le$ branch is explored first). Subproblems are numbere
 \colheader{Result}
 {\footnotesize $z=\frac{52}{3}\approx 17.33$,\quad $x_1=\frac{17}{3}\approx 5.66$,\quad $x_2=2$\par}\vspace{4pt}
 \colheader{Decision}
-{\footnotesize $x_1=\frac{17}{3}\approx 5.66$ is fractional $\Rightarrow$ branch: \textbf{P4} with $x_1\le 5$ \; and \; \textbf{P5} with $x_1\ge 6$.\par}
+{\footnotesize $x_1=\frac{17}{3}$ is fractional $\Rightarrow$ branch: \textbf{P4} with $x_1\le 5$ \; and \; \textbf{P5} with $x_1\ge 6$.\par}
 \end{column}
 \begin{column}{0.54\textwidth}
 \lingoshot{p3_P2}
@@ -576,7 +576,7 @@ Depth-first search (the $\le$ branch is explored first). Subproblems are numbere
 \colheader{Result}
 {\footnotesize $z=\frac{69}{4}\approx 17.25$,\quad $x_1=6$,\quad $x_2=\frac{7}{4}\approx 1.75$\par}\vspace{4pt}
 \colheader{Decision}
-{\footnotesize $x_2=\frac{7}{4}\approx 1.75$ is fractional $\Rightarrow$ branch: \textbf{P6} with $x_2\le 1$ \; and \; \textbf{P7} with $x_2\ge 2$.\par}
+{\footnotesize $x_2=\frac{7}{4}$ is fractional $\Rightarrow$ branch: \textbf{P6} with $x_2\le 1$ \; and \; \textbf{P7} with $x_2\ge 2$.\par}
 \end{column}
 \begin{column}{0.54\textwidth}
 \lingoshot{p3_P5}
@@ -618,7 +618,7 @@ Depth-first search (the $\le$ branch is explored first). Subproblems are numbere
 \colheader{Result}
 {\footnotesize $z=\frac{35}{2}\approx 17.5$,\quad $x_1=5$,\quad $x_2=\frac{5}{2}\approx 2.5$\par}\vspace{4pt}
 \colheader{Decision}
-{\footnotesize Subproblem \textbf{P7} is the same as \textbf{P1}, so it gets pruned, because it is a repeated subproblem.\par}
+{\footnotesize Subproblem \textbf{P7} is the same as \textbf{P1} and \textbf{P4}, so it gets pruned, because it is a repeated subproblem.\par}
 \end{column}
 \begin{column}{0.54\textwidth}
 \lingoshot{p3_P7}
