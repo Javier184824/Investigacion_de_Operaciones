@@ -308,8 +308,8 @@
 
 % LINGO screenshot: si no existe el archivo, muestra un recuadro de reemplazo
 \newcommand{\lingoshot}[1]{%
-  \IfFileExists{lingo/#1.png}{\includegraphics[max width=\linewidth,max height=0.62\textheight]{lingo/#1.png}}{%
-  \IfFileExists{lingo/#1.jpg}{\includegraphics[max width=\linewidth,max height=0.62\textheight]{lingo/#1.jpg}}{%
+  \IfFileExists{lingo/#1.png}{\includegraphics[width=0.8\linewidth,height=0.75\textheight]{lingo/#1.png}}{%
+  \IfFileExists{lingo/#1.jpg}{\includegraphics[width=0.8\linewidth,height=0.75\textheight]{lingo/#1.jpg}}{%
   \begin{tikzpicture}\node[draw=NeonBlue,dashed,rounded corners=4pt,fill=white,minimum width=0.95\linewidth,minimum height=0.5\textheight,align=center,text=Astronaut]
     {\textbf{LINGO screenshot}\\[2pt]\footnotesize save as \texttt{\detokenize{lingo/#1.png}}};\end{tikzpicture}}}}
 
@@ -339,7 +339,7 @@
 \begin{bbtree}[0.99]
   \useasboundingbox (-1.40,-3.50) rectangle (8.45,0.60);
   \bbNode{n1}{2.94,0.00}{1}{1}{branched}{P1}{\ $z{=}17.5$\\$(5,\,2.5)$}
-  \bbNode{n2}{1.18,-1.45}{1}{2}{branched}{P2}{\ $z{=}17.333$\\$(5.666,\,2)$}
+  \bbNode{n2}{1.18,-1.45}{1}{2}{branched}{P2}{\ $z{=}17.33$\\$(5.66,\,2)$}
   \bbNode{n3}{4.70,-1.45}{1}{7}{pruned}{P3}{\ $z{=}17$\\$(4,\,3)$}
   \bbNode{n4}{0.00,-2.90}{2}{3}{pruned}{P4}{\ $z{=}17.5$\\$(5,\,2.5)$}
   \bbNode{n5}{2.35,-2.90}{2}{4}{branched}{P5}{\ $z{=}17.25$\\$(6,\,1.75)$}
@@ -438,7 +438,7 @@ Depth-first search (the $\le$ branch is explored first). Subproblems are numbere
 \colheader{LINGO model}
 {\footnotesize \texttt{MAX = 5{*}x1 + 2{*}x2;}\\ \texttt{3{*}x1 + x2 $\le$ 12;}\\ \texttt{x1 + x2 $\le$ 5;}\\ \texttt{END}\par}
 \colheader{Result}
-{\footnotesize $z=20.5$,\quad $x_1=3.5$,\quad $x_2=1.5$\par}\vspace{4pt}
+{\footnotesize $z=\frac{51}{2}\approx 20.5$,\quad $x_1=\frac{7}{2}\approx3.5$,\quad $x_2=\frac{3}{2}\approx 1.5$\par}\vspace{4pt}
 \colheader{Decision}
 {\footnotesize $x_1=3.5$ is fractional $\Rightarrow$ branch: \textbf{P2} with $x_1\le 3$ \; and \; \textbf{P3} with $x_1\ge 4$.\par}
 \end{column}
@@ -511,9 +511,9 @@ Depth-first search (the $\le$ branch is explored first). Subproblems are numbere
 \colheader{LINGO model}
 {\footnotesize \texttt{MAX = 2{*}x1 + 3{*}x2;}\\ \texttt{x1 + 2{*}x2 $\le$ 10;}\\ \texttt{3{*}x1 + 4{*}x2 $\le$ 25;}\\ \texttt{END}\par}
 \colheader{Result}
-{\footnotesize $z=17.5$,\quad $x_1=5$,\quad $x_2=2.5$\par}\vspace{4pt}
+{\footnotesize $z=\frac{35}{2}\approx 17.5$,\quad $x_1=5$,\quad $x_2=\frac{5}{2}\approx 2.5$\par}\vspace{4pt}
 \colheader{Decision}
-{\footnotesize $x_2=2.5$ is fractional $\Rightarrow$ branch: \textbf{P2} with $x_2\le 2$ \; and \; \textbf{P3} with $x_2\ge 3$.\par}
+{\footnotesize $x_2=\frac{5}{2}\approx 2.5$ is fractional $\Rightarrow$ branch: \textbf{P2} with $x_2\le 2$ \; and \; \textbf{P3} with $x_2\ge 3$.\par}
 \end{column}
 \begin{column}{0.58\textwidth}
 \lingoshot{p3_P1}
@@ -652,9 +652,9 @@ Depth-first search (the $\le$ branch is explored first). Subproblems are numbere
 \bbset{7}\bbTreeTres
 \end{frame}
 
-\begin{frame}{Problem 1 · Final solution}
+\begin{frame}{Problem 3 · Final solution}
 \noindent{\small \textbf{Optimal solution:} $z^*=17$,\ $x_1^*=7$,\ $x_2^*=1$ \hfill (7 subproblems solved)\par}
-\bbset{99}\bbTreeUno
+\bbset{99}\bbTreeTres
 \end{frame}
 
 \makesection{Problem 4}

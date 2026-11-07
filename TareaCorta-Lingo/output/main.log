@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.11.3)  7 NOV 2026 15:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.11.3)  7 NOV 2026 15:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -947,7 +947,7 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count376
 )
-No file main.aux.
+(output/main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 389.
@@ -968,6 +968,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 389.
 LaTeX Font Info:    ... okay on input line 389.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 389.
 LaTeX Font Info:    ... okay on input line 389.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1025,6 +1026,8 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 Package hyperref Info: Link coloring OFF on input line 389.
+
+(output/main.out) (output/main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
@@ -1094,14 +1097,14 @@ Dictionary: translator-numbers-dictionary, Language: English
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-theorem-dictiona
 ry-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
-)
-No file main.nav.
+) (output/main.nav)
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 5.69998pt on input line 389.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 7.59998pt on input line 389.
 LaTeX Font Info:    Trying to load font information for TS1+phv on input line 3
 89.
+
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
@@ -1113,7 +1116,7 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 19.70294pt on input line 390.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 10.40245pt on input line 390.
-<logos/LOGO.png, id=13, 877.2775pt x 287.0725pt>
+<logos/LOGO.png, id=45, 877.2775pt x 287.0725pt>
 File: logos/LOGO.png Graphic file (type png)
 <use logos/LOGO.png>
 Package pdftex.def Info: logos/LOGO.png  used on input line 390.
@@ -1122,7 +1125,7 @@ Package pdftex.def Info: logos/LOGO.png  used on input line 390.
 Overfull \vbox (6.25089pt too high) detected at line 390
  []
 
-<logos/Fondo_Oscuro.png, id=15, 1606.0pt x 903.375pt>
+<logos/Fondo_Oscuro.png, id=47, 1606.0pt x 903.375pt>
 File: logos/Fondo_Oscuro.png Graphic file (type png)
 <use logos/Fondo_Oscuro.png>
 Package pdftex.def Info: logos/Fondo_Oscuro.png  used on input line 390.
@@ -1130,21 +1133,25 @@ Package pdftex.def Info: logos/Fondo_Oscuro.png  used on input line 390.
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-di
-st/fonts/enc/dvips/base/8r.enc} <./logos/Fondo_Oscuro.png> <./logos/Logo.png>]
-No file main.toc.
-No file main.toc.
+st/fonts/enc/dvips/base/8r.enc} <./logos/Fondo_Oscuro.png> <./logos/Logo.png>] 
+(output/main.toc
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 11.39996pt on input line 2.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 11.39996pt on input line 2.
+) (output/main.toc)
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 16.41594pt on input line 396.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 16.41594pt on input line 396.
-<logos/Simbolo.png, id=25, 614.295pt x 409.53pt>
+<logos/Simbolo.png, id=65, 614.295pt x 409.53pt>
 File: logos/Simbolo.png Graphic file (type png)
 <use logos/Simbolo.png>
 Package pdftex.def Info: logos/Simbolo.png  used on input line 396.
 (pdftex.def)             Requested size: 42.67912pt x 28.45131pt.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 3.79999pt on input line 396.
-[2
+ [2
 
  <./logos/Simbolo.png>]
 File: logos/Simbolo.png Graphic file (type png)
@@ -1155,7 +1162,7 @@ Package pdftex.def Info: logos/Simbolo.png  used on input line 398.
 Overfull \vbox (4.39664pt too high) detected at line 398
  []
 
-<logos/Fondo_Claro.png, id=35, 1678.27pt x 944.52875pt>
+<logos/Fondo_Claro.png, id=83, 1678.27pt x 944.52875pt>
 File: logos/Fondo_Claro.png Graphic file (type png)
 <use logos/Fondo_Claro.png>
 Package pdftex.def Info: logos/Fondo_Claro.png  used on input line 398.
@@ -1244,13 +1251,23 @@ Package pdftex.def Info: logos/Simbolo.png  used on input line 433.
  [6
 
 ]
+<lingo/p1_P1.png, id=110, 464.33475pt x 419.76825pt>
+File: lingo/p1_P1.png Graphic file (type png)
+<use lingo/p1_P1.png>
+Package pdftex.def Info: lingo/p1_P1.png  used on input line 449.
+(pdftex.def)             Requested size: 191.03738pt x 176.231pt.
 File: logos/Simbolo.png Graphic file (type png)
 <use logos/Simbolo.png>
 Package pdftex.def Info: logos/Simbolo.png  used on input line 449.
 (pdftex.def)             Requested size: 42.67912pt x 28.45131pt.
- [7
 
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+Overfull \vbox (6.43225pt too high) detected at line 449
+ []
+
+[7
+
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./lingo/p1_P1.png>
+]
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <8> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 454.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
@@ -1262,14 +1279,22 @@ Package pdftex.def Info: logos/Simbolo.png  used on input line 454.
  [8
 
 ]
+<lingo/p1_P2.png, id=127, 458.31226pt x 430.0065pt>
+File: lingo/p1_P2.png Graphic file (type png)
+<use lingo/p1_P2.png>
+Package pdftex.def Info: lingo/p1_P2.png  used on input line 470.
+(pdftex.def)             Requested size: 177.8669pt x 176.23163pt.
 File: logos/Simbolo.png Graphic file (type png)
 <use logos/Simbolo.png>
 Package pdftex.def Info: logos/Simbolo.png  used on input line 470.
 (pdftex.def)             Requested size: 42.67912pt x 28.45131pt.
 
+Overfull \vbox (6.43288pt too high) detected at line 470
+ []
+
 [9
 
-]
+ <./lingo/p1_P2.png>]
 File: logos/Simbolo.png Graphic file (type png)
 <use logos/Simbolo.png>
 Package pdftex.def Info: logos/Simbolo.png  used on input line 475.
@@ -1277,13 +1302,22 @@ Package pdftex.def Info: logos/Simbolo.png  used on input line 475.
  [10
 
 ]
+<lingo/p1_P3.png, id=140, 453.49425pt x 426.99525pt>
+File: lingo/p1_P3.png Graphic file (type png)
+<use lingo/p1_P3.png>
+Package pdftex.def Info: lingo/p1_P3.png  used on input line 491.
+(pdftex.def)             Requested size: 177.8654pt x 176.22893pt.
 File: logos/Simbolo.png Graphic file (type png)
 <use logos/Simbolo.png>
 Package pdftex.def Info: logos/Simbolo.png  used on input line 491.
 (pdftex.def)             Requested size: 42.67912pt x 28.45131pt.
- [11
 
-]
+Overfull \vbox (6.43018pt too high) detected at line 491
+ []
+
+[11
+
+ <./lingo/p1_P3.png>]
 File: logos/Simbolo.png Graphic file (type png)
 <use logos/Simbolo.png>
 Package pdftex.def Info: logos/Simbolo.png  used on input line 496.
@@ -1320,13 +1354,22 @@ Package pdftex.def Info: logos/Simbolo.png  used on input line 506.
  [15
 
 ]
+<lingo/p3_P1.png, id=168, 456.5055pt x 415.5525pt>
+File: lingo/p3_P1.png Graphic file (type png)
+<use lingo/p3_P1.png>
+Package pdftex.def Info: lingo/p3_P1.png  used on input line 522.
+(pdftex.def)             Requested size: 191.0414pt x 176.2302pt.
 File: logos/Simbolo.png Graphic file (type png)
 <use logos/Simbolo.png>
 Package pdftex.def Info: logos/Simbolo.png  used on input line 522.
 (pdftex.def)             Requested size: 42.67912pt x 28.45131pt.
- [16
 
-]
+Overfull \vbox (6.43144pt too high) detected at line 522
+ []
+
+[16
+
+ <./lingo/p3_P1.png>]
 File: logos/Simbolo.png Graphic file (type png)
 <use logos/Simbolo.png>
 Package pdftex.def Info: logos/Simbolo.png  used on input line 527.
@@ -1334,13 +1377,22 @@ Package pdftex.def Info: logos/Simbolo.png  used on input line 527.
  [17
 
 ]
+<lingo/p3_P2.png, id=181, 456.5055pt x 425.79076pt>
+File: lingo/p3_P2.png Graphic file (type png)
+<use lingo/p3_P2.png>
+Package pdftex.def Info: lingo/p3_P2.png  used on input line 543.
+(pdftex.def)             Requested size: 177.86227pt x 176.23209pt.
 File: logos/Simbolo.png Graphic file (type png)
 <use logos/Simbolo.png>
 Package pdftex.def Info: logos/Simbolo.png  used on input line 543.
 (pdftex.def)             Requested size: 42.67912pt x 28.45131pt.
- [18
 
-]
+Overfull \vbox (6.43333pt too high) detected at line 543
+ []
+
+[18
+
+ <./lingo/p3_P2.png>]
 File: logos/Simbolo.png Graphic file (type png)
 <use logos/Simbolo.png>
 Package pdftex.def Info: logos/Simbolo.png  used on input line 548.
@@ -1348,13 +1400,22 @@ Package pdftex.def Info: logos/Simbolo.png  used on input line 548.
  [19
 
 ]
+<lingo/p3_P4.png, id=194, 457.10776pt x 423.38174pt>
+File: lingo/p3_P4.png Graphic file (type png)
+<use lingo/p3_P4.png>
+Package pdftex.def Info: lingo/p3_P4.png  used on input line 564.
+(pdftex.def)             Requested size: 177.86676pt x 176.22989pt.
 File: logos/Simbolo.png Graphic file (type png)
 <use logos/Simbolo.png>
 Package pdftex.def Info: logos/Simbolo.png  used on input line 564.
 (pdftex.def)             Requested size: 42.67912pt x 28.45131pt.
- [20
 
-]
+Overfull \vbox (6.43114pt too high) detected at line 564
+ []
+
+[20
+
+ <./lingo/p3_P4.png>]
 File: logos/Simbolo.png Graphic file (type png)
 <use logos/Simbolo.png>
 Package pdftex.def Info: logos/Simbolo.png  used on input line 569.
@@ -1362,13 +1423,22 @@ Package pdftex.def Info: logos/Simbolo.png  used on input line 569.
  [21
 
 ]
+<lingo/p3_P5.png, id=206, 457.71pt x 427.5975pt>
+File: lingo/p3_P5.png Graphic file (type png)
+<use lingo/p3_P5.png>
+Package pdftex.def Info: lingo/p3_P5.png  used on input line 585.
+(pdftex.def)             Requested size: 177.86365pt x 176.22955pt.
 File: logos/Simbolo.png Graphic file (type png)
 <use logos/Simbolo.png>
 Package pdftex.def Info: logos/Simbolo.png  used on input line 585.
 (pdftex.def)             Requested size: 42.67912pt x 28.45131pt.
- [22
 
-]
+Overfull \vbox (6.4308pt too high) detected at line 585
+ []
+
+[22
+
+ <./lingo/p3_P5.png>]
 File: logos/Simbolo.png Graphic file (type png)
 <use logos/Simbolo.png>
 Package pdftex.def Info: logos/Simbolo.png  used on input line 590.
@@ -1376,13 +1446,22 @@ Package pdftex.def Info: logos/Simbolo.png  used on input line 590.
  [23
 
 ]
+<lingo/p3_P6.png, id=218, 453.49425pt x 425.1885pt>
+File: lingo/p3_P6.png Graphic file (type png)
+<use lingo/p3_P6.png>
+Package pdftex.def Info: lingo/p3_P6.png  used on input line 606.
+(pdftex.def)             Requested size: 177.8654pt x 176.23584pt.
 File: logos/Simbolo.png Graphic file (type png)
 <use logos/Simbolo.png>
 Package pdftex.def Info: logos/Simbolo.png  used on input line 606.
 (pdftex.def)             Requested size: 42.67912pt x 28.45131pt.
- [24
 
-]
+Overfull \vbox (6.43709pt too high) detected at line 606
+ []
+
+[24
+
+ <./lingo/p3_P6.png>]
 File: logos/Simbolo.png Graphic file (type png)
 <use logos/Simbolo.png>
 Package pdftex.def Info: logos/Simbolo.png  used on input line 611.
@@ -1390,13 +1469,22 @@ Package pdftex.def Info: logos/Simbolo.png  used on input line 611.
  [25
 
 ]
+<lingo/p3_P7.png, id=231, 455.90324pt x 426.99525pt>
+File: lingo/p3_P7.png Graphic file (type png)
+<use lingo/p3_P7.png>
+Package pdftex.def Info: lingo/p3_P7.png  used on input line 627.
+(pdftex.def)             Requested size: 177.86415pt x 176.22893pt.
 File: logos/Simbolo.png Graphic file (type png)
 <use logos/Simbolo.png>
 Package pdftex.def Info: logos/Simbolo.png  used on input line 627.
 (pdftex.def)             Requested size: 42.67912pt x 28.45131pt.
- [26
 
-]
+Overfull \vbox (6.43018pt too high) detected at line 627
+ []
+
+[26
+
+ <./lingo/p3_P7.png>]
 File: logos/Simbolo.png Graphic file (type png)
 <use logos/Simbolo.png>
 Package pdftex.def Info: logos/Simbolo.png  used on input line 632.
@@ -1404,19 +1492,26 @@ Package pdftex.def Info: logos/Simbolo.png  used on input line 632.
  [27
 
 ]
+File: lingo/p3_P7.png Graphic file (type png)
+<use lingo/p3_P7.png>
+Package pdftex.def Info: lingo/p3_P7.png  used on input line 648.
+(pdftex.def)             Requested size: 177.86415pt x 176.22893pt.
 File: logos/Simbolo.png Graphic file (type png)
 <use logos/Simbolo.png>
 Package pdftex.def Info: logos/Simbolo.png  used on input line 648.
 (pdftex.def)             Requested size: 42.67912pt x 28.45131pt.
- [28
+
+Overfull \vbox (6.43018pt too high) detected at line 648
+ []
+
+[28
 
 ]
 File: logos/Simbolo.png Graphic file (type png)
 <use logos/Simbolo.png>
 Package pdftex.def Info: logos/Simbolo.png  used on input line 653.
 (pdftex.def)             Requested size: 42.67912pt x 28.45131pt.
-
-[29
+ [29
 
 ]
 File: logos/Simbolo.png Graphic file (type png)
@@ -1762,27 +1857,17 @@ Package pdftex.def Info: logos/Fondo_Oscuro.png  used on input line 995.
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  2F7F3D90FB5D0957DA7B992C110D271B;722.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 2F7F3D90FB5D0957DA7B992C110D271B;722.
  ) 
 Here is how much of TeX's memory you used:
- 28377 strings out of 467533
- 558463 string characters out of 5422138
- 945671 words of memory out of 5000000
- 56550 multiletter control sequences out of 15000+600000
- 702613 words of font info for 128 fonts, out of 8000000 for 9000
+ 28606 strings out of 467533
+ 561056 string characters out of 5422138
+ 948865 words of memory out of 5000000
+ 56766 multiletter control sequences out of 15000+600000
+ 707079 words of font info for 131 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,13n,123p,379b,1203s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,13n,123p,379b,1204s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texli
@@ -1797,10 +1882,10 @@ msy9.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0900.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/font
 s/type1/urw/helvetic/uhvro8a.pfb>
-Output written on output/main.pdf (69 pages, 2512034 bytes).
+Output written on output/main.pdf (69 pages, 3101448 bytes).
 PDF statistics:
- 512 PDF objects out of 1000 (max. 8388607)
- 394 compressed objects within 4 object streams
+ 564 PDF objects out of 1000 (max. 8388607)
+ 427 compressed objects within 5 object streams
  147 named destinations out of 1000 (max. 500000)
- 69 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 178 words of extra memory for PDF output out of 10000 (max. 10000000)
 
