@@ -353,6 +353,42 @@
   \bbEdge{n5}{n7}{4}{$x_2 \ge 2$}{right}
 \end{bbtree}}
 
+\newcommand{\bbTreeCuatro}{%
+\begin{bbtree}[0.60]
+  \useasboundingbox (-1.40,-3.50) rectangle (10,5);
+  \bbNode{n1}{3.41,4.00}{1}{1}{branched}{P1}{\ $z{=}9.8562$\\$(0.4423,\,2.6923)$}
+  \bbNode{n2}{0.76,2.45}{1}{2}{branched}{P2}{\ $z{=}8.6667$\\$(0,\,2.8889)$}
+  \bbNode{n3}{6.05,2.45}{1}{5}{branched}{P3}{\ $z{=}9.4$\\$(1,\,1.8)$}
+  \bbNode{n4}{-1.00,0.90}{2}{3}{infeasible}{P4}{\\infeasible}
+  \bbNode{n5}{2.53,0.90}{2}{4}{integer}{P5}{\ $z{=}6$\\$(0,\,2)$}
+  \bbNode{n6}{5.35,0.90}{5}{6}{infeasible}{P6}{\\infeasible}
+  \bbNode{n7}{7.70,0.90}{5}{7}{branched}{P7}{\ $z{=}9$\\$(1.5,\,1)$}
+  \bbNode{n8}{6.35,-1.35}{7}{8}{integer}{P8}{\ $z{=}7$\\$(1,\,1)$}
+  \bbNode{n9}{9.70,-1.35}{7}{9}{branched}{P9}{\ $z{=}8.6$\\$(2,\,0.2)$}
+  \bbNode{n10}{8.70,-2.8}{9}{10}{branched}{P10}{\ $z{=}8.5$\\$(2.125,\,0)$}
+  \bbNode{n11}{11.70,-2.8}{9}{13}{infeasible}{P11}{\\infeasible}
+  \bbNode{n12}{7.3,-4.15}{10}{11}{infeasible}{P12}{\\infeasible}
+  \bbNode{n13}{9.9,-4.15}{10}{12}{integer}{P13}{\ $z{=}8$\\$(2,\,0)$}
+  \bbEdge{n1}{n2}{1}{$x_1 \le 0$}{left}
+  \bbEdge{n1}{n3}{1}{$x_1 \ge 1$}{right}
+  \bbEdge{n2}{n4}{2}{$x_2 \ge 3$}{left}
+  \bbEdge{n2}{n5}{2}{$x_2 \le 2$}{right}
+  \bbEdge{n3}{n6}{5}{$x_2 \ge 2$}{left}
+  \bbEdge{n3}{n7}{5}{$x_2 \le 1$}{right}
+  \bbEdge{n7}{n8}{7}{$x_1 \le 1$}{left}
+  \bbEdge{n7}{n9}{7}{$x_1 \ge 2$}{right}
+  \bbEdge{n9}{n10}{9}{$x_2 \le 0$}{left}
+  \bbEdge{n9}{n11}{9}{$x_2 \ge 1$}{right}
+  \bbEdge{n10}{n12}{10}{$x_1 \ge 3$}{left}
+  \bbEdge{n10}{n13}{10}{$x_1 \le 2$}{right}
+\end{bbtree}}
+
+\newcommand{\bbTreeCinco}{%
+\begin{bbtree}[1.30]
+  \useasboundingbox (-1.40,-3.50) rectangle (6.10,0.60);
+  \bbNode{n1}{2.94,0.00}{1}{1}{infeasible}{P1}{\\unbounded}
+\end{bbtree}}
+
 \newcommand{\bbTreeSeis}{%
 \begin{bbtree}[1.30]
   \useasboundingbox (-1.40,-3.50) rectangle (6.10,0.60);
@@ -667,11 +703,277 @@ Depth-first search (the $\le$ branch is explored first). Subproblems are numbere
 \begin{column}{0.40\textwidth}
 \colheader{LINGO model}
 {\footnotesize \texttt{MAX = 4{*}x1 + 3{*}x2;}\\ \texttt{4{*}x1 + 9{*}x2 $\le$ 26;}\\ \texttt{8{*}x1 + 5{*}x2 $\le$ 17;}\\ \texttt{END}\par}
+\colheader{Result}
+{\footnotesize $z=\frac{128}{13}\approx 9.8562$,\quad $x_1=\frac{23}{52}\approx 0.4423$,\quad $x_2=\frac{35}{13}\approx 2.6923$\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize $x_1=\frac{23}{52}$ is fractional $\Rightarrow$ branch: \textbf{P2} with $x_1\le 0$ \; and \; \textbf{P3} with $x_1\ge 1$.\par}
 \end{column}
 \begin{column}{0.58\textwidth}
 \lingoshot{p4_P1}
 \end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}{Problem 4 · Tree after solving P1}
+\noindent{\small \textbf{Step 1:} P1 solved (branched). \hfill {\footnotesize Current incumbent: none}\par}
+\bbset{1}\bbTreeCuatro
+\end{frame}
+
+\begin{frame}{Problem 4 · Subproblem P2: LINGO}
+\begin{columns}[T]
+\begin{column}{0.44\textwidth}
+\colheader{LINGO model}
+{\footnotesize \texttt{MAX = 4{*}x1 + 3{*}x2;}\\ \texttt{4{*}x1 + 9{*}x2 $\le$ 26;}\\ \texttt{8{*}x1 + 5{*}x2 $\le$ 17;}\\ \texttt{x1 $\le$ 0;}\\ \texttt{END}\par}
+\colheader{Result}
+{\footnotesize $z=\frac{26}{3}\approx 8.6667$,\quad $x_1=0$,\quad $x_2=\frac{26}{9}\approx 2.8889$\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize $x_2=\frac{26}{9}$ is fractional $\Rightarrow$ branch: \textbf{P4} with $x_2\ge 3$ \; and \; \textbf{P5} with $x_2\le 2$.\par}
+\end{column}
+\begin{column}{0.54\textwidth}
+\lingoshot{p4_P2}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problem 4 · Tree after solving P2}
+\noindent{\small \textbf{Step 2:} P2 solved (branched). \hfill {\footnotesize Current incumbent: none}\par}
+\bbset{2}\bbTreeCuatro
+\end{frame}
+
+\begin{frame}{Problem 4 · Subproblem P4: LINGO}
+\begin{columns}[T]
+\begin{column}{0.44\textwidth}
+\colheader{LINGO model}
+{\footnotesize \texttt{MAX = 4{*}x1 + 3{*}x2;}\\ \texttt{4{*}x1 + 9{*}x2 $\le$ 26;}\\ \texttt{8{*}x1 + 5{*}x2 $\le$ 17;}\\ \texttt{x1 $\le$ 0;}\\ \texttt{x2 $\ge$ 3;}\\ \texttt{END}\par}
+\colheader{Result}
+{\footnotesize LINGO reports: \textbf{Infeasible}\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize Empty feasible region $\Rightarrow$ node fathomed by \textbf{infeasibility}.\par}
+\end{column}
+\begin{column}{0.54\textwidth}
+\lingoshot{p4_P4}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problem 4 · Tree after solving P4}
+\noindent{\small \textbf{Step 3:} P4 solved (infeasible). \hfill {\footnotesize Current incumbent: none}\par}
+\bbset{3}\bbTreeCuatro
+\end{frame}
+
+\begin{frame}{Problem 4 · Subproblem P5: LINGO}
+\begin{columns}[T]
+\begin{column}{0.44\textwidth}
+\colheader{LINGO model}
+{\footnotesize \texttt{MAX = 4{*}x1 + 3{*}x2;}\\ \texttt{4{*}x1 + 9{*}x2 $\le$ 26;}\\ \texttt{8{*}x1 + 5{*}x2 $\le$ 17;}\\ \texttt{x1 $\le$ 0;}\\ \texttt{x2 $\le$ 2;}\\ \texttt{END}\par}
+\colheader{Result}
+{\footnotesize $z=6$,\quad $x_1=0$,\quad $x_2=2$\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize Feasible integer solution $\Rightarrow$ new \textbf{incumbent} $z^*=6$. Node fathomed.\par}
+\end{column}
+\begin{column}{0.54\textwidth}
+\lingoshot{p4_P5}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problem 4 · Tree after solving P5}
+\noindent{\small \textbf{Step 4:} P5 solved (integer). \hfill {\footnotesize Current incumbent: $z^*=6$ at $(0,2)$}\par}
+\bbset{4}\bbTreeCuatro
+\end{frame}
+
+\begin{frame}{Problem 4 · Subproblem P3: LINGO}
+\begin{columns}[T]
+\begin{column}{0.44\textwidth}
+\colheader{LINGO model}
+{\footnotesize \texttt{MAX = 4{*}x1 + 3{*}x2;}\\ \texttt{4{*}x1 + 9{*}x2 $\le$ 26;}\\ \texttt{8{*}x1 + 5{*}x2 $\le$ 17;}\\ \texttt{x1 $\ge$ 1;}\\ \texttt{END}\par}
+\colheader{Result}
+{\footnotesize $z=\frac{47}{5}= 9.4$,\quad $x_1=1$,\quad $x_2=\frac{9}{5}= 1.8$\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize $x_2=\frac{9}{5}$ is fractional $\Rightarrow$ branch: \textbf{P6} with $x_2\ge 2$ \; and \; \textbf{P7} with $x_2\le 1$.\par}
+\end{column}
+\begin{column}{0.54\textwidth}
+\lingoshot{p4_P3}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problem 4 · Tree after solving P3}
+\noindent{\small \textbf{Step 5:} P3 solved (branched). \hfill {\footnotesize Current incumbent: $z^*=6$ at $(0,2)$}\par}
+\bbset{5}\bbTreeCuatro
+\end{frame}
+
+\begin{frame}{Problem 4 · Subproblem P6: LINGO}
+\begin{columns}[T]
+\begin{column}{0.44\textwidth}
+\colheader{LINGO model}
+{\footnotesize \texttt{MAX = 4{*}x1 + 3{*}x2;}\\ \texttt{4{*}x1 + 9{*}x2 $\le$ 26;}\\ \texttt{8{*}x1 + 5{*}x2 $\le$ 17;}\\ \texttt{x1 $\ge$ 1;}\\ \texttt{x2 $\ge$ 2;}\\ \texttt{END}\par}
+\colheader{Result}
+{\footnotesize LINGO reports: \textbf{Infeasible}\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize Empty feasible region $\Rightarrow$ node fathomed by \textbf{infeasibility}.\par}
+\end{column}
+\begin{column}{0.54\textwidth}
+\lingoshot{p4_P6}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problem 4 · Tree after solving P6}
+\noindent{\small \textbf{Step 6:} P6 solved (infeasible). \hfill {\footnotesize Current incumbent: $z^*=6$ at $(0,2)$}\par}
+\bbset{6}\bbTreeCuatro
+\end{frame}
+
+\begin{frame}{Problem 4 · Subproblem P7: LINGO}
+\begin{columns}[T]
+\begin{column}{0.44\textwidth}
+\colheader{LINGO model}
+{\footnotesize \texttt{MAX = 4{*}x1 + 3{*}x2;}\\ \texttt{4{*}x1 + 9{*}x2 $\le$ 26;}\\ \texttt{8{*}x1 + 5{*}x2 $\le$ 17;}\\ \texttt{x1 $\ge$ 1;}\\ \texttt{x2 $\le$ 1;}\\ \texttt{END}\par}
+\colheader{Result}
+{\footnotesize $z= 9$,\quad $x_1=\frac{3}{2}=1.5$,\quad $x_2= 1$\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize $x_1=\frac{3}{2}$ is fractional $\Rightarrow$ branch: \textbf{P8} with $x_1\le 1$ \; and \; \textbf{P9} with $x_1\ge 2$.\par}
+\end{column}
+\begin{column}{0.54\textwidth}
+\lingoshot{p4_P7}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problem 4 · Tree after solving P7}
+\noindent{\small \textbf{Step 7:} P7 solved (branched). \hfill {\footnotesize Current incumbent: $z^*=6$ at $(0,2)$}\par}
+\bbset{7}\bbTreeCuatro
+\end{frame}
+
+\begin{frame}{Problem 4 · Subproblem P8: LINGO}
+\begin{columns}[T]
+\begin{column}{0.44\textwidth}
+\colheader{LINGO model}
+{\footnotesize \texttt{MAX = 4{*}x1 + 3{*}x2;}\\ \texttt{4{*}x1 + 9{*}x2 $\le$ 26;}\\ \texttt{8{*}x1 + 5{*}x2 $\le$ 17;}\\ \texttt{x1 $\le$ 1;}\\ \texttt{x2 $\le$ 1;}\\ \texttt{END}\par}
+\colheader{Result}
+{\footnotesize $z=7$,\quad $x_1=1$,\quad $x_2=1$\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize Feasible integer solution $\Rightarrow$ new \textbf{incumbent} $z^*=7$. Node fathomed.\par}
+\end{column}
+\begin{column}{0.54\textwidth}
+\lingoshot{p4_P8}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problem 4 · Tree after solving P8}
+\noindent{\small \textbf{Step 8:} P8 solved (integer). \hfill {\footnotesize Current incumbent: $z^*=7$ at $(1,1)$}\par}
+\bbset{8}\bbTreeCuatro
+\end{frame}
+
+\begin{frame}{Problem 4 · Subproblem P9: LINGO}
+\begin{columns}[T]
+\begin{column}{0.44\textwidth}
+\colheader{LINGO model}
+{\footnotesize \texttt{MAX = 4{*}x1 + 3{*}x2;}\\ \texttt{4{*}x1 + 9{*}x2 $\le$ 26;}\\ \texttt{8{*}x1 + 5{*}x2 $\le$ 17;}\\ \texttt{x1 $\ge$ 2;}\\ \texttt{x2 $\le$ 1;}\\ \texttt{END}\par}
+\colheader{Result}
+{\footnotesize $z= \frac{43}{5}= 8.6$,\quad $x_1=2$,\quad $x_2= \frac{1}{5}=0.2$\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize $x_2=\frac{1}{5}$ is fractional $\Rightarrow$ branch: \textbf{P10} with $x_2\le 0$ \; and \; \textbf{P11} with $x_2\ge 1$.\par}
+\end{column}
+\begin{column}{0.54\textwidth}
+\lingoshot{p4_P9}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problem 4 · Tree after solving P9}
+\noindent{\small \textbf{Step 9:} P9 solved (branched). \hfill {\footnotesize Current incumbent: $z^*=7$ at $(1,1)$}\par}
+\bbset{9}\bbTreeCuatro
+\end{frame}
+
+\begin{frame}{Problem 4 · Subproblem P10: LINGO}
+\begin{columns}[T]
+\begin{column}{0.44\textwidth}
+\colheader{LINGO model}
+{\footnotesize \texttt{MAX = 4{*}x1 + 3{*}x2;}\\ \texttt{4{*}x1 + 9{*}x2 $\le$ 26;}\\ \texttt{8{*}x1 + 5{*}x2 $\le$ 17;}\\ \texttt{x1 $\ge$ 2;}\\ \texttt{x2 $\le$ 0;}\\ \texttt{END}\par}
+\colheader{Result}
+{\footnotesize $z= \frac{17}{2}= 8.5$,\quad $x_1=\frac{17}{8}= 2.125$,\quad $x_2= 0$\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize $x_1=\frac{17}{8}$ is fractional $\Rightarrow$ branch: \textbf{P12} with $x_1\ge 3$ \; and \; \textbf{P13} with $x_1\le 2$.\par}
+\end{column}
+\begin{column}{0.54\textwidth}
+\lingoshot{p4_P10}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problem 4 · Tree after solving P10}
+\noindent{\small \textbf{Step 10:} P10 solved (branched). \hfill {\footnotesize Current incumbent: $z^*=7$ at $(1,1)$}\par}
+\bbset{10}\bbTreeCuatro
+\end{frame}
+
+\begin{frame}{Problem 4 · Subproblem P12: LINGO}
+\begin{columns}[T]
+\begin{column}{0.44\textwidth}
+\colheader{LINGO model}
+{\footnotesize \texttt{MAX = 4{*}x1 + 3{*}x2;}\\ \texttt{4{*}x1 + 9{*}x2 $\le$ 26;}\\ \texttt{8{*}x1 + 5{*}x2 $\le$ 17;}\\ \texttt{x1 $\ge$ 3;}\\ \texttt{x2 $\le$ 0;}\\ \texttt{END}\par}
+\colheader{Result}
+{\footnotesize LINGO reports: \textbf{Infeasible}\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize Empty feasible region $\Rightarrow$ node fathomed by \textbf{infeasibility}.\par}
+\end{column}
+\begin{column}{0.54\textwidth}
+\lingoshot{p4_P12}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problem 4 · Tree after solving P12}
+\noindent{\small \textbf{Step 11:} P12 solved (infeasible). \hfill {\footnotesize Current incumbent: $z^*=7$ at $(1,1)$}\par}
+\bbset{11}\bbTreeCuatro
+\end{frame}
+
+\begin{frame}{Problem 4 · Subproblem P13: LINGO}
+\begin{columns}[T]
+\begin{column}{0.44\textwidth}
+\colheader{LINGO model}
+{\footnotesize \texttt{MAX = 4{*}x1 + 3{*}x2;}\\ \texttt{4{*}x1 + 9{*}x2 $\le$ 26;}\\ \texttt{8{*}x1 + 5{*}x2 $\le$ 17;}\\ \texttt{x1 $\le$ 2;}\\ \texttt{x2 $\le$ 0;}\\ \texttt{END}\par}
+\colheader{Result}
+{\footnotesize $z= 8$,\quad $x_1=2$,\quad $x_2= 0$\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize Feasible integer solution $\Rightarrow$ new \textbf{incumbent} $z^*=8$. Node fathomed.\par}
+\end{column}
+\begin{column}{0.54\textwidth}
+\lingoshot{p4_P13}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problem 4 · Tree after solving P13}
+\noindent{\small \textbf{Step 12:} P13 solved (integer). \hfill {\footnotesize Current incumbent: $z^*=8$ at $(2,0)$}\par}
+\bbset{12}\bbTreeCuatro
+\end{frame}
+
+\begin{frame}{Problem 4 · Subproblem P11: LINGO}
+\begin{columns}[T]
+\begin{column}{0.44\textwidth}
+\colheader{LINGO model}
+{\footnotesize \texttt{MAX = 4{*}x1 + 3{*}x2;}\\ \texttt{4{*}x1 + 9{*}x2 $\le$ 26;}\\ \texttt{8{*}x1 + 5{*}x2 $\le$ 17;}\\ \texttt{x1 $\ge$ 2;}\\ \texttt{x2 $\ge$ 1;}\\ \texttt{END}\par}
+\colheader{Result}
+{\footnotesize LINGO reports: \textbf{Infeasible}\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize Empty feasible region $\Rightarrow$ node fathomed by \textbf{infeasibility}.\par}
+\end{column}
+\begin{column}{0.54\textwidth}
+\lingoshot{p4_P11}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problem 4 · Tree after solving P11}
+\noindent{\small \textbf{Step 13:} P11 solved (infeasible). \hfill {\footnotesize Current incumbent: $z^*=8$ at $(2,0)$}\par}
+\bbset{13}\bbTreeCuatro
+\end{frame}
+
+\begin{frame}{Problem 4 · Final solution}
+\noindent{\small \textbf{Optimal solution:} $z^*=8$,\ $x_1^*=2$,\ $x_2^*=0$ \hfill (13 subproblems solved)\par}
+\bbset{99}\bbTreeCuatro
 \end{frame}
 
 \makesection{Problem 5}
@@ -684,11 +986,20 @@ Depth-first search (the $\le$ branch is explored first). Subproblems are numbere
 \begin{column}{0.40\textwidth}
 \colheader{LINGO model}
 {\footnotesize \texttt{MAX = 4{*}x1 + 5{*}x2;}\\ \texttt{x1 + 4{*}x2 $\ge$ 5;}\\ \texttt{3{*}x1 + 2{*}x2 $\ge$ 7;}\\ \texttt{END}\par}
+\colheader{Result}
+{\footnotesize LINGO reports: \textbf{Unbounded}\par}\vspace{4pt}
+\colheader{Decision}
+{\footnotesize Not Bounded region $\Rightarrow$ node fathomed by \textbf{Unbounded}.\par}
 \end{column}
 \begin{column}{0.58\textwidth}
 \lingoshot{p5_P1}
 \end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}{Problem 5 · Tree after solving P1}
+\noindent{\small \textbf{Step 1:} P1 solved (unbounded). \hfill {\footnotesize Current incumbent: none}\par}
+\bbset{1}\bbTreeCinco
 \end{frame}
 
 \makesection{Problem 6}
@@ -973,8 +1284,8 @@ Problem & Objective & Subproblems & $z^*$ & $(x_1^*,x_2^*)$ \\
 \midrule
 Problem 1 & $\max$ & 3 & $20$ & $(4,\,0)$ \\
 Problem 3 & $\max$ & 7 & $17$ & $(7,\,1)$ \\
-Problem 4 & $\max$ & 0 & $0$ & $(0,\,0)$ \\
-Problem 5 & $\max$ & 0 & $0$ & $(0,\,0)$ \\
+Problem 4 & $\max$ & 13 & $8$ & $(2,\,0)$ \\
+Problem 5 & $\max$ & 1 &  Unbounded \\
 Problem 6 & $\max$ & 5 & $18$ & $(2,\,2)$ \\
 Problem 7 & $\max$ & 7 & $28$ & $(4,\,0)$ \\
 \bottomrule
