@@ -308,8 +308,8 @@
 
 % LINGO screenshot: si no existe el archivo, muestra un recuadro de reemplazo
 \newcommand{\lingoshot}[1]{%
-  \IfFileExists{lingo/#1.png}{\includegraphics[width=0.8\linewidth,height=0.75\textheight]{lingo/#1.png}}{%
-  \IfFileExists{lingo/#1.jpg}{\includegraphics[width=0.8\linewidth,height=0.75\textheight]{lingo/#1.jpg}}{%
+  \IfFileExists{lingo/#1.png}{\includegraphics[width=1.05\linewidth,height=0.65\textheight]{lingo/#1.png}}{%
+  \IfFileExists{lingo/#1.jpg}{\includegraphics[width=1.05\linewidth,height=0.65\textheight]{lingo/#1.jpg}}{%
   \begin{tikzpicture}\node[draw=NeonBlue,dashed,rounded corners=4pt,fill=white,minimum width=0.95\linewidth,minimum height=0.5\textheight,align=center,text=Astronaut]
     {\textbf{LINGO screenshot}\\[2pt]\footnotesize save as \texttt{\detokenize{lingo/#1.png}}};\end{tikzpicture}}}}
 
@@ -340,11 +340,11 @@
   \useasboundingbox (-1.40,-3.50) rectangle (8.45,0.60);
   \bbNode{n1}{2.94,0.00}{1}{1}{branched}{P1}{\ $z{=}17.5$\\$(5,\,2.5)$}
   \bbNode{n2}{1.18,-1.45}{1}{2}{branched}{P2}{\ $z{=}17.33$\\$(5.66,\,2)$}
-  \bbNode{n3}{4.70,-1.45}{1}{7}{pruned}{P3}{\ $z{=}17$\\$(4,\,3)$}
-  \bbNode{n4}{0.00,-2.90}{2}{3}{pruned}{P4}{\ $z{=}17.5$\\$(5,\,2.5)$}
+  \bbNode{n3}{4.70,-1.45}{1}{7}{integer}{P3}{\ $z{=}17$\\$(4,\,3)$}
+  \bbNode{n4}{0.00,-2.90}{2}{3}{integer}{P4}{\ $z{=}16$\\$(5,\,2)$}
   \bbNode{n5}{2.35,-2.90}{2}{4}{branched}{P5}{\ $z{=}17.25$\\$(6,\,1.75)$}
   \bbNode{n6}{2.35,-4.35}{4}{5}{integer}{P6}{\ $z{=}17$\\$(7,\,1)$}
-  \bbNode{n7}{4.70,-4.35}{4}{6}{pruned}{P7}{\ $z{=}17.5$\\$(5,\,2.5)$}
+  \bbNode{n7}{4.70,-4.35}{4}{6}{infeasible}{P7}{\\ infeasible}
   \bbEdge{n1}{n2}{1}{$x_2 \le 2$}{left}
   \bbEdge{n1}{n3}{1}{$x_2 \ge 3$}{right}
   \bbEdge{n2}{n4}{2}{$x_1 \le 5$}{left}
@@ -587,11 +587,11 @@ Depth-first search (the $\le$ branch is explored first). Subproblems are numbere
 \begin{columns}[T]
 \begin{column}{0.44\textwidth}
 \colheader{LINGO model}
-{\footnotesize \texttt{MAX = 2{*}x1 + 3{*}x2;}\\ \texttt{x1 + 2{*}x2 $\le$ 10;}\\ \texttt{3{*}x1 + 4{*}x2 $\le$ 25;}\\ \texttt{x1 $\le$ 5;}\\ \texttt{END}\par}\vspace{4pt}
+{\footnotesize \texttt{MAX = 2{*}x1 + 3{*}x2;}\\ \texttt{x1 + 2{*}x2 $\le$ 10;}\\ \texttt{3{*}x1 + 4{*}x2 $\le$ 25;}\\ \texttt{x1 $\le$ 5;}\\ \texttt{x2 $\le$ 2;}\\ \texttt{END}\par}\vspace{4pt}
 \colheader{Result}
-{\footnotesize $z=\frac{35}{2}\approx 17.5$,\quad $x_1=5$,\quad $x_2=\frac{5}{2}\approx 2.5$\par}\vspace{4pt}
+{\footnotesize $z=16$,\quad $x_1=5$,\quad $x_2=2$\par}\vspace{4pt}
 \colheader{Decision}
-{\footnotesize Subproblem \textbf{P4} is the same as \textbf{P1}, so it gets pruned, because it is a repeated subproblem.\par}
+{\footnotesize Feasible integer solution $\Rightarrow$ new \textbf{incumbent} $z^*=16$. Node fathomed.\par}
 \end{column}
 \begin{column}{0.54\textwidth}
 \lingoshot{p3_P4}
@@ -600,7 +600,7 @@ Depth-first search (the $\le$ branch is explored first). Subproblems are numbere
 \end{frame}
 
 \begin{frame}{Problem 3 · Tree after solving P4}
-\noindent{\small \textbf{Step 3:} P4 solved (pruned). \hfill {\footnotesize Current incumbent: none}\par}
+\noindent{\small \textbf{Step 3:} P4 solved (pruned). \hfill {\footnotesize Current incumbent: $z^*=16$ at $(5,2)$}\par}
 \bbset{3}\bbTreeTres
 \end{frame}
 
@@ -608,9 +608,9 @@ Depth-first search (the $\le$ branch is explored first). Subproblems are numbere
 \begin{columns}[T]
 \begin{column}{0.44\textwidth}
 \colheader{LINGO model}
-{\footnotesize \texttt{MAX = 2{*}x1 + 3{*}x2;}\\ \texttt{x1 + 2{*}x2 $\le$ 10;}\\ \texttt{3{*}x1 + 4{*}x2 $\le$ 25;}\\ \texttt{x1 $\ge$ 6;}\\ \texttt{END}\par}\vspace{4pt}
+{\footnotesize \texttt{MAX = 2{*}x1 + 3{*}x2;}\\ \texttt{x1 + 2{*}x2 $\le$ 10;}\\ \texttt{3{*}x1 + 4{*}x2 $\le$ 25;}\\ \texttt{x1 $\ge$ 6;}\\ \texttt{x2 $\le$ 2;}\\ \texttt{END}\par}\vspace{4pt}
 \colheader{Result}
-{\footnotesize $z=\frac{69}{4}\approx 17.25$,\quad $x_1=6$,\quad $x_2=\frac{7}{4}\approx 1.75$\par}\vspace{4pt}
+{\footnotesize $z=\frac{70}{4}\approx 17.25$,\quad $x_1=6$,\quad $x_2=\frac{7}{2}1.75$\par}\vspace{4pt}
 \colheader{Decision}
 {\footnotesize $x_2=\frac{7}{4}$ is fractional $\Rightarrow$ branch: \textbf{P6} with $x_2\le 1$ \; and \; \textbf{P7} with $x_2\ge 2$.\par}
 \end{column}
@@ -621,7 +621,7 @@ Depth-first search (the $\le$ branch is explored first). Subproblems are numbere
 \end{frame}
 
 \begin{frame}{Problem 3 · Tree after solving P5}
-\noindent{\small \textbf{Step 4:} P5 solved (branched). \hfill {\footnotesize Current incumbent: none}\par}
+\noindent{\small \textbf{Step 4:} P5 solved (branched). \hfill {\footnotesize Current incumbent: $z^*=16$ at $(5,2)$}\par}
 \bbset{4}\bbTreeTres
 \end{frame}
 
@@ -629,7 +629,7 @@ Depth-first search (the $\le$ branch is explored first). Subproblems are numbere
 \begin{columns}[T]
 \begin{column}{0.44\textwidth}
 \colheader{LINGO model}
-{\footnotesize \texttt{MAX = 2{*}x1 + 3{*}x2;}\\ \texttt{x1 + 2{*}x2 $\le$ 10;}\\ \texttt{3{*}x1 + 4{*}x2 $\le$ 25;}\\ \texttt{x2 $\le$ 1;}\\ \texttt{END}\par}\vspace{4pt}
+{\footnotesize \texttt{MAX = 2{*}x1 + 3{*}x2;}\\ \texttt{x1 + 2{*}x2 $\le$ 10;}\\ \texttt{3{*}x1 + 4{*}x2 $\le$ 25;}\\ \texttt{x1 $\ge$ 6;}\\ \texttt{x2 $\le$ 1;}\\ \texttt{END}\par}\vspace{4pt}
 \colheader{Result}
 {\footnotesize $z=17$,\quad $x_1=7$,\quad $x_2=1$\par}\vspace{4pt}
 \colheader{Decision}
@@ -650,11 +650,11 @@ Depth-first search (the $\le$ branch is explored first). Subproblems are numbere
 \begin{columns}[T]
 \begin{column}{0.44\textwidth}
 \colheader{LINGO model}
-{\footnotesize \texttt{MAX = 2{*}x1 + 3{*}x2;}\\ \texttt{x1 + 2{*}x2 $\le$ 10;}\\ \texttt{3{*}x1 + 4{*}x2 $\le$ 25;}\\ \texttt{x2 $\ge$ 2;}\\ \texttt{END}\par}\vspace{4pt}
+{\footnotesize \texttt{MAX = 2{*}x1 + 3{*}x2;}\\ \texttt{x1 + 2{*}x2 $\le$ 10;}\\ \texttt{3{*}x1 + 4{*}x2 $\le$ 25;}\\ \texttt{x1 $\ge$ 6;}\\ \texttt{x2 $\ge$ 2;}\\ \texttt{END}\par}\vspace{4pt}
 \colheader{Result}
-{\footnotesize $z=\frac{35}{2}\approx 17.5$,\quad $x_1=5$,\quad $x_2=\frac{5}{2}\approx 2.5$\par}\vspace{4pt}
+{\footnotesize LINGO reports: \textbf{Infeasible}\par}
 \colheader{Decision}
-{\footnotesize Subproblem \textbf{P7} is the same as \textbf{P1} and \textbf{P4}, so it gets pruned, because it is a repeated subproblem.\par}
+{\footnotesize Empty feasible region $\Rightarrow$ node fathomed by \textbf{infeasibility}.\par}
 \end{column}
 \begin{column}{0.54\textwidth}
 \lingoshot{p3_P7}
@@ -684,7 +684,7 @@ Depth-first search (the $\le$ branch is explored first). Subproblems are numbere
 \end{frame}
 
 \begin{frame}{Problem 3 · Tree after solving P3}
-\noindent{\small \textbf{Step 6:} P3 solved (pruned). \hfill {\footnotesize Current incumbent: $z^*=17$ at $(7,1)$}\par}
+\noindent{\small \textbf{Step 6:} P3 solved (integer). \hfill {\footnotesize Current incumbent: $z^*=17$ at $(7,1)$}\par}
 \bbset{7}\bbTreeTres
 \end{frame}
 
