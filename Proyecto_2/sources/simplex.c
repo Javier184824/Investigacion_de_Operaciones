@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <stdbool.h>
 #include <string.h>
 #include <stdio.h>
 #include <math.h>
@@ -9,11 +8,20 @@
 
 #define EPS 1e-9L
 
+/* Compara a = am*M + av contra b = bm*M + bv (M es "infinito"): primero el
+ * coeficiente de M, luego la parte constante. Devuelve -1, 0 o 1. */
+static int big_cmp(const long double am, const long double av, const long double bm, const long double bv){
+	if(fabsl(am - bm) > EPS) return am < bm ? -1 : 1;
+	if(fabsl(av - bv) > EPS) return av < bv ? -1 : 1;
+	return 0;
+}
+
 /* Si la columna es basica devuelve la fila donde esta su 1; si no, 0 */
 int basic_row(const int max_variable_amount, const int max_restriction, matrix_value matrix[max_variable_amount][max_restriction], const int col){
 	(void)max_variable_amount;
 	int row = 0;
 	for(int j = 0; j < max_restriction; j++){
+		if(fabsl(matrix[col][j].m) >= EPS) return 0;
 		long double v = matrix[col][j].value;
 		if(fabsl(v) < EPS) continue;
 		if(fabsl(v - 1) < EPS && row == 0 && j > 0){
@@ -63,11 +71,13 @@ void find_pivot(const int max_variable_amount, const int max_restriction, const 
 	*i_indexF = 0;
 	*j_indexF = 0;
 
-	long double best = 0;
+	long double best_m = 0, best_v = 0;
 	for(int i = 1; i < max_variable_amount - 1; i++){
-		long double v = matrix[i][0].value;
-		if(maximize ? (v < best - EPS) : (v > best + EPS)){
-			best = v;
+		if(matrix[i][0].tag == TAG_ARTIFICIAL) continue; // una artificial nunca vuelve a entrar
+		int c = big_cmp(matrix[i][0].m, matrix[i][0].value, best_m, best_v);
+		if(maximize ? (c < 0) : (c > 0)){
+			best_m = matrix[i][0].m;
+			best_v = matrix[i][0].value;
 			*i_indexF = i;
 		}
 	}
@@ -84,16 +94,21 @@ void canonize(const int max_variable_amount, const int max_restriction, const in
 
 	for(int i = 1; i < max_variable_amount; i++){//canonizing row
 		matrix[i][j_indexF].value = matrix[i][j_indexF].value / divisor_value;
+		matrix[i][j_indexF].m = matrix[i][j_indexF].m / divisor_value;
 	}
 
 	for(int j = 0; j < max_restriction; j++){//canonizing columns
 		if(j == j_indexF){
 			continue;
 		}
-		long double actual_mult = matrix[i_indexF][j].value * -1;
+		// El multiplicador puede llevar M (fila Z). La fila pivote no tiene M, asi que no hay terminos cruzados.
+		long double mult_v = matrix[i_indexF][j].value * -1;
+		long double mult_m = matrix[i_indexF][j].m * -1;
 
 		for(int i = 1; i < max_variable_amount; i++){
-			matrix[i][j].value = matrix[i][j].value + (matrix[i][j_indexF].value * actual_mult);
+			long double p = matrix[i][j_indexF].value;
+			matrix[i][j].value = matrix[i][j].value + (p * mult_v);
+			matrix[i][j].m = matrix[i][j].m + (p * mult_m);
 		}
 	}
 
@@ -102,17 +117,17 @@ void canonize(const int max_variable_amount, const int max_restriction, const in
 			if(fabsl(matrix[i][j].value) < 1e-12L){
 				matrix[i][j].value = 0.0L;
 			}
+			if(fabsl(matrix[i][j].m) < 1e-12L){
+				matrix[i][j].m = 0.0L;
+			}
 		}
 	}
 }
 
 static void var_label(char* out, const size_t sz, const int desicion_v, const int col, const char* name){
-	if(col < desicion_v){
-		if(name[0]) snprintf(out, sz, "%s", name);
-		else snprintf(out, sz, "x_{%d}", col);
-	}else{
-		snprintf(out, sz, "s_{%d}", col - desicion_v + 1);
-	}
+	if(name[0]) snprintf(out, sz, "%s", name);
+	else if(col < desicion_v) snprintf(out, sz, "x_{%d}", col);
+	else snprintf(out, sz, "s_{%d}", col - desicion_v + 1);
 }
 
 int solve_simplex(const int max_variable_amount, const int desicion_v, const int max_restriction, const int max_tries, const bool maximize, matrix_value matrix[max_variable_amount][max_restriction]){
@@ -123,7 +138,7 @@ int solve_simplex(const int max_variable_amount, const int desicion_v, const int
 	int status = SIMPLEX_OPTIMAL;
 	int cont = 0;
 	bool degenerate = false;
-	char lbl_in[128], lbl_out[128];
+	char lbl_in[128], lbl_out[128], coef[160];
 
 	while(true){
 		int i_index = 0;
@@ -136,25 +151,26 @@ int solve_simplex(const int max_variable_amount, const int desicion_v, const int
 			break; // optimo
 		}
 
+		format_coef(coef, sizeof coef, matrix[i_index][0].m, matrix[i_index][0].value);
 		fprintf(fptr_intermediate, "\\section*{Iteration %d}\n", cont + 1);
 		var_label(lbl_in, sizeof lbl_in, desicion_v, i_index, matrix[i_index][0].name);
 
 		if(j_index == 0){
 			status = SIMPLEX_UNBOUNDED;
 			fprintf(fptr_intermediate,
-				"The entering variable would be $%s$ (coefficient $%.4Lf$ in the $Z$ row), "
+				"The entering variable would be $%s$ (coefficient $%s$ in the $Z$ row), "
 				"but every entry of its column in the constraints is less than or equal to zero, "
 				"so no row limits its growth: the problem is \\textbf{unbounded}.\n\n",
-				lbl_in, matrix[i_index][0].value);
+				lbl_in, coef);
 			write_table(fptr_intermediate, desicion_v, max_variable_amount, max_restriction, matrix);
 			fprintf(fptr_notes,
 				"\\subsection*{Unbounded problem}\n"
 				"In iteration %d the variable $%s$ has an improving coefficient in the $Z$ row "
-				"($%.4Lf$), but all the entries of its column in the constraint rows are $\\le 0$. "
+				"($%s$), but all the entries of its column in the constraint rows are $\\le 0$. "
 				"Therefore the ratio test has no candidate row and $%s$ can grow indefinitely "
 				"without violating any constraint, improving $Z$ without limit. "
 				"The problem has no finite optimal solution.\n",
-				cont + 1, lbl_in, matrix[i_index][0].value, lbl_in);
+				cont + 1, lbl_in, coef, lbl_in);
 			break;
 		}
 
@@ -178,9 +194,9 @@ int solve_simplex(const int max_variable_amount, const int desicion_v, const int
 		var_label(lbl_out, sizeof lbl_out, desicion_v, leaving, leaving ? matrix[leaving][0].name : "");
 
 		fprintf(fptr_intermediate,
-			"Entering variable: $%s$ (%s coefficient in the $Z$ row: $%.4Lf$). "
+			"Entering variable: $%s$ (%s coefficient in the $Z$ row: $%s$). "
 			"Leaving variable: $%s$ (row %d, minimum ratio $%.4Lf$).\n\n",
-			lbl_in, maximize ? "most negative" : "most positive", matrix[i_index][0].value,
+			lbl_in, maximize ? "most negative" : "most positive", coef,
 			leaving ? lbl_out : "-", j_index, min_ratio);
 
 		if(ties > 1){
@@ -213,6 +229,30 @@ int solve_simplex(const int max_variable_amount, const int desicion_v, const int
 		fprintf(fptr_intermediate, "The initial table is already optimal: no iterations were needed.\n");
 	}
 
+	//Gran M: si queda una artificial en la base con valor > 0, no hay solucion factible
+	if(status == SIMPLEX_OPTIMAL){
+		int bad = 0;
+		for(int i = desicion_v; i < rhs; i++){
+			if(matrix[i][0].tag != TAG_ARTIFICIAL) continue;
+			int r = basic_row(max_variable_amount, max_restriction, matrix, i);
+			if(r && matrix[rhs][r].value > EPS){
+				bad = i;
+				break;
+			}
+		}
+		if(bad){
+			char lbl_bad[128];
+			var_label(lbl_bad, sizeof lbl_bad, desicion_v, bad, matrix[bad][0].name);
+			status = SIMPLEX_INFEASIBLE;
+			fprintf(fptr_notes,
+				"\\subsection*{Infeasible problem}\n"
+				"The optimality condition was reached, but the artificial variable $%s$ is still in the basis "
+				"with a positive value ($%.4Lf$). Since the penalty $M$ makes artificial variables as "
+				"unattractive as possible, this means that no point satisfies all the constraints at the same time: "
+				"the problem is \\textbf{infeasible}.\n", lbl_bad, matrix[rhs][basic_row(max_variable_amount, max_restriction, matrix, bad)].value);
+		}
+	}
+
 	if(status == SIMPLEX_OPTIMAL){
 		//degeneracy in the final table
 		for(int j = 1; j < max_restriction; j++){
@@ -233,7 +273,7 @@ int solve_simplex(const int max_variable_amount, const int desicion_v, const int
 		//multiple solutions: nonbasic column with zero coefficient in the Z row
 		int alt_col = 0;
 		for(int i = 1; i < max_variable_amount - 1; i++){
-			if(fabsl(matrix[i][0].value) < EPS && basic_row(max_variable_amount, max_restriction, matrix, i) == 0){
+			if(matrix[i][0].tag != TAG_ARTIFICIAL && fabsl(matrix[i][0].value) < EPS && fabsl(matrix[i][0].m) < EPS && basic_row(max_variable_amount, max_restriction, matrix, i) == 0){
 				alt_col = i;
 				break;
 			}

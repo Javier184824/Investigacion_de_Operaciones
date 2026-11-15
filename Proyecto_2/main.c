@@ -19,7 +19,6 @@
 #define MAXM 15
 #define NAMELEN 64
 
-enum { OP_LE, OP_GE, OP_EQ };
 enum { ST_OPTIMO, ST_NO_ACOTADO, ST_INFACTIBLE, ST_LIMITE };
 
 typedef struct {
@@ -185,22 +184,27 @@ static void on_btn_resolver_clicked(GtkButton *b, gpointer d)
         P->b[i - 1] = spin_val(W("spin_rhs_%d", i));
     }
 
+    /* Gran M. RHS negativo: se multiplica la fila por -1 y se invierte la desigualdad */
     for (int i = 0; i < P->m; i++) {
-        if (P->op[i] != OP_LE) {
-            mostrar_error("En esta version solo se resuelven restricciones de la forma \"<=\".");
-            free(P);
-            return;
-        }
         if (P->b[i] < 0) {
-            mostrar_error("Los lados derechos deben ser mayores o iguales a cero.");
-            free(P);
-            return;
+            P->b[i] = -P->b[i];
+            for (int j = 0; j < P->n; j++) P->A[i][j] = -P->A[i][j];
+            if (P->op[i] == OP_LE)      P->op[i] = OP_GE;
+            else if (P->op[i] == OP_GE) P->op[i] = OP_LE;
         }
     }
 
-    int desicion = P->n + 1;
-    int max_restriction = P->m + 1;
-    int max_variable_amount = desicion + max_restriction;
+    /* "<=" -> holgura; ">=" -> exceso + artificial; "=" -> artificial */
+    int n_slack = 0, n_art = 0;
+    for (int i = 0; i < P->m; i++) {
+        if (P->op[i] != OP_EQ) n_slack++;
+        if (P->op[i] != OP_LE) n_art++;
+    }
+
+    int desicion = P->n + 1;                                   /* Z + variables de decision */
+    int max_restriction = P->m + 1;                            /* fila Z + restricciones */
+    int max_variable_amount = desicion + n_slack + n_art + 1;  /* +1 = columna b */
+    int rhs = max_variable_amount - 1;
     int max_tries = 1000;
     matrix_value matrix[max_variable_amount][max_restriction];
 
@@ -216,12 +220,37 @@ static void on_btn_resolver_clicked(GtkButton *b, gpointer d)
             matrix[i + 1][j + 1].value = P->A[j][i];
         }
     }
+
+    /* Holguras/excesos primero, luego artificiales (s_i y a_i = numero de restriccion) */
+    int col_slack = desicion;
+    int col_art   = desicion + n_slack;
+    const long double pen = P->max ? 1.0L : -1.0L;   /* coeficiente de M en la fila Z */
+
     for (int j = 0; j < P->m; j++) {
-        matrix[desicion + j][j + 1].value = 1.0L;
-        matrix[max_variable_amount - 1][j + 1].value = P->b[j];
+        int row = j + 1;
+        matrix[rhs][row].value = P->b[j];
+
+        if (P->op[j] != OP_EQ) {
+            matrix[col_slack][row].value = (P->op[j] == OP_LE) ? 1.0L : -1.0L;
+            snprintf(matrix[col_slack][0].name, sizeof matrix[col_slack][0].name,
+                     P->op[j] == OP_LE ? "s_{%d}" : "e_{%d}", row);
+            col_slack++;
+        }
+        if (P->op[j] != OP_LE) {
+            matrix[col_art][row].value = 1.0L;
+            matrix[col_art][0].m = pen;               /* penalizacion: +-M */
+            matrix[col_art][0].tag = TAG_ARTIFICIAL;
+            snprintf(matrix[col_art][0].name, sizeof matrix[col_art][0].name, "a_{%d}", row);
+
+            /* Forma canonica: fila Z -= (+-M) * fila de la restriccion (deja la artificial en 0) */
+            for (int k = 1; k <= rhs; k++)
+                matrix[k][0].m -= pen * matrix[k][row].value;
+
+            col_art++;
+        }
     }
 
-    write_original_problem(P->max, P->title, desicion, max_variable_amount, max_restriction, matrix);
+    write_original_problem(P->max, P->title, desicion, max_variable_amount, max_restriction, matrix, P->op);
     write_initial_table(desicion, max_variable_amount, max_restriction, matrix);
     int status = solve_simplex(max_variable_amount, desicion, max_restriction, max_tries, P->max, matrix);
     write_final_table(desicion, max_variable_amount, max_restriction, matrix);
@@ -236,6 +265,8 @@ static void on_btn_resolver_clicked(GtkButton *b, gpointer d)
 
     if (system(cmd) == 0) {
         char *open_cmd = g_strdup_printf("evince --presentation %s", pdf);
+        g_spawn_command_line_async(open_cmd, NULL);
+        open_cmd = g_strdup_printf("mv %s /saved_problems", pdf, P->title);
         g_spawn_command_line_async(open_cmd, NULL);
         g_free(open_cmd);
     } else {
