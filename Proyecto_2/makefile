@@ -12,3 +12,4 @@ run: simplex
 clean:
 	rm -f pdflatex_output/*
 	rm -f saved_problems/*
+	rm -f simplex
