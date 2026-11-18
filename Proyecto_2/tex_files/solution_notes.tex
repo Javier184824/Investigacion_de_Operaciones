@@ -1,2 +1,6 @@
-\subsection*{Unbounded problem}
-In iteration 2 the variable $x_{1}$ has an improving coefficient in the $Z$ row ($-1.0000$), but all the entries of its column in the constraint rows are $\le 0$. Therefore the ratio test has no candidate row and $x_{1}$ can grow indefinitely without violating any constraint, improving $Z$ without limit. The problem has no finite optimal solution.
+\subsection*{Degenerate problem}
+During the execution (or in the final table) at least one basic variable took the value zero, so the problem is degenerate: more constraints than necessary meet at the vertex. Ties in the minimum ratio test were resolved by choosing the topmost row (smallest row index); ties for the entering column were resolved by choosing the leftmost column. The algorithm did not cycle.
+\subsection*{Multiple solutions}
+In the final table the non-basic variable $x_{1}$ has a coefficient of $0$ in the $Z$ row. Entering it into the basis does not change the value of $Z$, so there is more than one optimal solution.
+
+However, every entry of the column of $x_{1}$ in the constraints is $\le 0$, so $x_{1}$ can grow indefinitely while $Z$ keeps its optimal value: there are infinitely many optimal solutions along an unbounded direction.
