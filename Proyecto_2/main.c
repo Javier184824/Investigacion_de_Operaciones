@@ -162,6 +162,100 @@ static void on_btn_Clean_clicked(GtkButton *b, gpointer d)
     refresh_ui();
 }
 
+/* ---------- Nombres de archivo seguros ---------- */
+
+static int eq_nocase(const char *a, size_t n, const char *b)
+{
+    if (strlen(b) != n) return 0;
+    for (size_t i = 0; i < n; i++) {
+        char x = a[i], y = b[i];
+        if (x >= 'a' && x <= 'z') x -= 32;
+        if (y >= 'a' && y <= 'z') y -= 32;
+        if (x != y) return 0;
+    }
+    return 1;
+}
+
+/* Nombres reservados en Windows (con o sin extension) */
+static int is_reserved(const char *name, size_t len)
+{
+    size_t base = 0;
+    while (base < len && name[base] != '.') base++;
+
+    static const char *fixed[] = { "CON", "PRN", "AUX", "NUL" };
+    for (size_t i = 0; i < 4; i++)
+        if (eq_nocase(name, base, fixed[i])) return 1;
+
+    return base == 4 && name[3] >= '1' && name[3] <= '9' &&
+           (eq_nocase(name, 3, "COM") || eq_nocase(name, 3, "LPT"));
+}
+
+/* Convierte cualquier string en un nombre de archivo valido (UTF-8 se conserva).
+ * dst_size debe ser >= 2. Devuelve la longitud escrita. */
+static size_t sanitize_filename(const char *src, char *dst, size_t dst_size)
+{
+    if (!src || !dst || dst_size < 2) return 0;
+
+    const size_t max = dst_size - 2;   /* 1 byte libre para un posible prefijo '_' */
+    size_t len = 0, i = 0;
+
+    for (; src[i] != '\0' && len < max; i++) {
+        unsigned char c = (unsigned char)src[i];
+
+        if (len == 0 && c == ' ') continue;
+        if (c < 0x20 || c == 0x7F || strchr("<>:\"/\\|?*", c)) c = '_';
+        else if (len == 0 && c == '.') c = '_';
+
+        dst[len++] = (char)c;
+    }
+
+    /* No cortar un caracter UTF-8 por la mitad */
+    if (src[i] != '\0' && ((unsigned char)src[i] & 0xC0) == 0x80) {
+        while (len > 0 && ((unsigned char)dst[len - 1] & 0xC0) == 0x80) len--;
+        if (len > 0 && ((unsigned char)dst[len - 1] & 0x80)) len--;
+    }
+
+    while (len > 0 && (dst[len - 1] == ' ' || dst[len - 1] == '.')) len--;
+    if (len == 0) { dst[0] = '_'; len = 1; }
+
+    if (is_reserved(dst, len)) {
+        memmove(dst + 1, dst, len);
+        dst[0] = '_';
+        len++;
+    }
+    dst[len] = '\0';
+    return len;
+}
+
+/* Nombre para -jobname de pdflatex: ademas de ser un nombre de archivo valido,
+ * solo permite ASCII alfanumerico, '-', '_' y '.' (y UTF-8). Asi es seguro para
+ * el shell y para TeX. Si el titulo esta vacio usa "resultado". */
+static void make_jobname(const char *title, char *out, size_t sz)
+{
+    char tmp[256];
+    snprintf(tmp, sizeof tmp, "%s", title ? title : "");
+    g_strstrip(tmp);
+    if (!tmp[0]) snprintf(tmp, sizeof tmp, "resultado");
+
+    sanitize_filename(tmp, out, sz);
+
+    for (char *p = out; *p; p++) {
+        unsigned char c = (unsigned char)*p;
+        if (c < 0x80 && !isalnum(c) && c != '-' && c != '_' && c != '.') *p = '_';
+    }
+}
+
+/* Elimina (in situ) los caracteres especiales de LaTeX: \ { } $ & # ^ _ % ~
+ * y los saltos de linea. Luego quita espacios sobrantes en los extremos. */
+static void strip_latex_special(char *s)
+{
+    char *w = s;
+    for (const char *r = s; *r; r++)
+        if (!strchr("\\{}$&#^_%~\n\r", *r)) *w++ = *r;
+    *w = '\0';
+    g_strstrip(s);
+}
+
 static void on_btn_resolver_clicked(GtkButton *b, gpointer d)
 {
     (void)b; (void)d;
@@ -171,6 +265,7 @@ static void on_btn_resolver_clicked(GtkButton *b, gpointer d)
     P->max = (gtk_combo_box_get_active(GTK_COMBO_BOX(W("combo_verbo"))) != 1);
     P->show_all = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(W("check_tablas")));
     snprintf(P->title, sizeof P->title, "%s", gtk_entry_get_text(GTK_ENTRY(W("entry_nombre"))));
+    strip_latex_special(P->title);
 
     for (int j = 1; j <= P->n; j++) {
         make_name(j, P->names[j - 1], NAMELEN);
@@ -257,18 +352,21 @@ static void on_btn_resolver_clicked(GtkButton *b, gpointer d)
     write_solution(desicion, max_variable_amount, max_restriction, status, matrix);
 
     const char *tex = P->show_all ? "tex_files/main.tex" : "tex_files/main_no_intermediate.tex";
-    const char *pdf = P->show_all ? OUT_DIR "/main.pdf" : OUT_DIR "/main_no_intermediate.pdf";
-    char cmd[512];
-    snprintf(cmd, sizeof cmd,
-             "pdflatex -interaction=nonstopmode -halt-on-error -output-directory=" OUT_DIR " %s > " OUT_DIR "/pdflatex_output.txt 2>&1",
-             tex);
 
-    if (system(cmd) == 0) {
-        char *open_cmd = g_strdup_printf("evince --presentation %s", pdf);
-        g_spawn_command_line_async(open_cmd, NULL);
-        open_cmd = g_strdup_printf("mv %s /saved_problems", pdf, P->title);
-        g_spawn_command_line_async(open_cmd, NULL);
-        g_free(open_cmd);
+    char jobname[128];
+    make_jobname(P->title, jobname, sizeof jobname);
+
+    char *cmd = g_strdup_printf(
+        "pdflatex -interaction=nonstopmode -halt-on-error -jobname=%s -aux-directory=pdflatex_aux -output-directory=" OUT_DIR " %s > " OUT_DIR "/pdflatex_output.txt 2>&1",
+        jobname, tex);
+    int rc = system(cmd);
+    g_free(cmd);
+
+    if (rc == 0) {
+        char *pdf_path = g_strdup_printf(OUT_DIR "/%s.pdf", jobname);
+        char *argv[] = { "evince", "--presentation", pdf_path, NULL };
+        g_spawn_async(NULL, argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, NULL);
+        g_free(pdf_path);
     } else {
         mostrar_error("No se pudo generar el PDF. Revise que pdflatex este instalado y mire "
                       OUT_DIR "/pdflatex_output.txt para ver el error.");
